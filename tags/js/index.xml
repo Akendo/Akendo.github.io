@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JS on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/js/</link>
+    <description>Recent content in JS on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Fri, 11 Jun 2021 12:04:29 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11.06.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/11.06.2021-linkdrop/</link>
+      <pubDate>Fri, 11 Jun 2021 12:04:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/11.06.2021-linkdrop/</guid>
+      <description>(DE)Golem.de: IT-News für Profis GitLab.org / security-products / analyzers / fuzzers / Jsfuzz · GitLab Analysis of HSTS Caches of Different Browsers – Insinuator.</description>
+    </item>
+    
+  </channel>
+</rss>

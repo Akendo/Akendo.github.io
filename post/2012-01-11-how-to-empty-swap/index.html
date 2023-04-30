@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>How to empty swap &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-01-11 00:00:00 &#43;0000 UTC">January 11, 2012</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/console/">console</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a>  <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/swap/">swap</a> <a href="https://blog.akendo.eu/tags/system/">system</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">How to empty swap</h1>
+<div class="post-line"></div>
+
+		
+
+		Bad applications does Bad stuff with you Memor. Today my Skype decide to flood my Memory. Lucky i notified this on the right time and was able to run killall -9 skype . But what left is a overfileld Memory and swap. For the Memory itself no problem, the kernel will empty it by demand. But for my older hard drive takes ages to get it back. So the best is it to empty it. The best way to do it: swapoff/swapon.
+
+<pre LANG="BASH" line="1">swapoff /dev/sdb5</pre>
+This take now a while but it will do the job.
+
+ When it's done re-enable it with 
+<pre  LANG="BASH" line="1">swapon /dev/sdb5</pre>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-01-15-update-my-blog/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.952272264 &#43;0200 CEST m=&#43;0.131411890">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Netstats &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-04-23 15:07:00 &#43;0200 CEST">April 23, 2021</time>
+        <br>
+        <span>3 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/pv/">PV</a>
+	
+        <a href="https://blog.akendo.eu/categories/rust/">Rust</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Netstats</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>The next part excites me, I’ve been working on this code on different occasions for some years now. This post is a cross-posting, it lay ground for the Grafana infrastructure that I’m using and taught me a lot about data, rust and how to get the data to render. While it is not directly related to the PV topic itself, it is worth taking the time to consider the lesson to be learned here.</p>
+<p>When I realized, that the hack with bash was very ineffective, I was thinking, what could I do instead? Normally, I would have done something tougher with Python. However, running python on an embedded device is terrible. The Router of mine has 16Mbyte of storage on a NAND flash. The default python installation requires around 50 MB.</p>
+<p>Behold! There is an embedded version of python! Yeah… but this take also at least 15 MB. The base image requires more than one MB to get started. So python wasn’t an option. The same is true for ruby, Perl and other languages with an interpreter. They just don’t do it.</p>
+<p>At the time, I was helping to teach computer security in the university and many students there were talking about rust. After a lecture, I got curious
+and started to learn about it. Back then I didn&rsquo;t had any problem that could be solved with it.</p>
+<p>For an Android project I need to have an API for my HTTP service running. Hence, I&rsquo;ve tried to use rust with rocket.rs[] for this. However, I failed because I didn&rsquo;t had the necessary skills in rust to get it running.</p>
+<p>Fast forwarding some months to my problem with the Router and the interface data. Once, I’ve realized the terrible hack I did, rust seem just as a naturally choice to me here.</p>
+<h2 id="step-by-step">Step by step</h2>
+<p>The first prototype was just if I’m able to read a file. I’ve started to read the hostname and boy, that was different. In someway, you’re reminded to C, yet it is not C. The underlying logic is, the handling logic is not.</p>
+<p>However, at the time, I had to write Java Code for an Android project and Rust seemed so much of a better language to me. The thing about this statement is, I can not even argument why this is. It just feels so much better to me than any language I’ve used so far. WTF?</p>
+<p>Once I’ve read the hostname of proc, I moved on to the network interface file in proc. This turned our to be more different, because you need to write a parse to handle the different interfaces.</p>
+<p>The PoC looked like this:</p>
+<pre tabindex="0"><code>pub fn read_traffic_file() -&gt; Vec&lt;String&gt; {
+  let mut f = File::open(&#34;/proc/net/dev&#34;).unwrap();
+
+  let mut data_to_return: Vec&lt;String&gt; =  Vec::new();
+  let mut buffer = String::new();
+  let mut new_data: String = String::new();
+  f.read_to_string(&amp;mut buffer).unwrap();
+  // This can be done by the line() function
+  // https://doc.rust-lang.org/std/string/struct.String.html#method.lines
+  let mut data: Vec&lt;&amp;str&gt; = buffer.split(&#34;\n&#34;).collect();
+
+  // Cleanup the Vector, remove unnecessary lines
+  data.reverse();
+  data.pop();
+  data.pop();
+  data.reverse();
+  data.pop();
+
+
+  // At this point out Vec only contains interface parameters.
+  for line in 0..data.len()  {
+    new_data = clean_up(data[line]).clone();
+    data_to_return.push(new_data);
+  }
+  //println!(&#34;{}&#34;, new_data);
+  data_to_return
+}
+
+
+
+
+fn main() {
+    
+    let mut interface_data: Vec&lt;String&gt; = read_traffic_file(); 
+
+    for interface in 0..interface_data.len(){
+      extract_interface_data(interface_data[interface].as_str());
+    }
+    let now_in_s = get_unix_time();
+    println!(&#34;{:?}&#34;, now_in_s);
+    let hostname = get_hostname();
+    println!(&#34;{:?}&#34;, hostname);
+</code></pre><p>The code wasn’t good, nor something to be proud of. However, it did work and that was mattered to me.</p>
+<p>One of the bigger problem that then occurred to me was the formatting of the data. Here is the lesson: make sure that you format the in the correct order. Somehow I mixed up the date and the bytes and was wondering why nothing was showing in the graph…</p>
+<p>So far,</p>
+<p>akendo</p>
+<p>[] <a href="https://rocket.rs/">https://rocket.rs/</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-04-19-thinking-ahead/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-04-24-grafana-part3/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.9941779 &#43;0200 CEST m=&#43;0.173317526">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>MySQL to Postgresql &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-05-19 00:00:00 &#43;0000 UTC">May 19, 2012</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/blog/">blog</a> <a href="https://blog.akendo.eu/tags/console/">console</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gem/">gem</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a> <a href="https://blog.akendo.eu/tags/jetty/">jetty</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/mysql/">mysql</a> <a href="https://blog.akendo.eu/tags/mysql/">mysql</a> <a href="https://blog.akendo.eu/tags/postgres/">postgres</a> <a href="https://blog.akendo.eu/tags/postgresql/">postgresql</a> <a href="https://blog.akendo.eu/tags/postgresql/">postgresql</a> <a href="https://blog.akendo.eu/tags/psql2mysql/">psql2mysql</a> <a href="https://blog.akendo.eu/tags/software/">software</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">MySQL to Postgresql</h1>
+<div class="post-line"></div>
+
+		
+
+		The first try was using the mysqldump with the option of --compatible=postgresql what is looking quite promossing. But it isn't, some extra work! I found on the <a href="https://en.wikibooks.org/wiki/Converting_MySQL_to_PostgreSQL">https://en.wikibooks.org/wiki/Converting_MySQL_to_PostgreSQL</a>
+a reffert to a gem program. But like ruby gems always, it didn't worked (What do people like about ruby? It seems never to work for me....)
+But lucky the itnernet is a wide space, so i found this blog post <a href="http://onestoryeveryday.com/mysql-to-postgresql-conversionmigration.html">http://onestoryeveryday.com/mysql-to-postgresql-conversionmigration.html</a> the referd perl script was not woring. But it helped me to get the ruby gem to work...
+Where was the mysql2psql.yml ? Ah... it have to run once the program, then it creates a mysql2psql.yml into the working directory. But here kicks a problem in, you need a mysql connection. So when you have just a dump it's bad.
+
+It would mean to install a new mysql db, import the dump and then export it. Else you could save this time and do it directly from the live db.But i had to do it anyway. It's a fine program, that took a bit of time. Thanks for this, but some better shell handling would be welcomed. So far, this are my steps;
+<pre lang="BASH">sudo apt-get install mysql-server
+sudo  apt-get install ruby-dev rake libmysql++-dev libpq-dev
+sudo gem install mysql2psql
+cd /tmp # Here is where my dump file is stored.
+sudo apt-get install mysql-server
+mysql -u root -p << EOF
+CREATE DATABASE mail;
+EOF
+mysql -u root -p mail < mail.dump
+mysql2psql # Need to edit the config file
+mysql2psql # This can take a while
+createdb -U postgres mail
+psql -U postgres -d mail < mysql_db_to_pg.dump</pre>
+
+Here an example for the mysql2psql.yml file:
+
+<pre lang="RUBY">mysql:
+hostname: localhost
+port: 3306
+socket: /var/run/mysqld/mysqld.sock
+username: root
+password: apassword
+database: mail
+
+destination:
+# if file is given, output goes to file, else postgres
+file: mysql_db_to_pg.dump
+postgres:
+hostname: localhost
+port: 5432
+username: mysql2psql
+password:
+database: mysql2psql_test
+
+# if tables is given, only the listed tables will be converted. leave empty to convert all tables.
+#tables:
+#- table1
+#- table2
+# if exclude_tables is given, exclude the listed tables from the conversion.
+#exclude_tables:
+#- table3
+#- table4
+# if supress_data is true, only the schema definition will be exported/migrated, and not the data
+supress_data: false
+
+# if supress_ddl is true, only the data will be exported/imported, and not the schema
+supress_ddl: false
+
+# if force_truncate is true, forces a table truncate before table loading
+force_truncate: false</pre>
+&nbsp;
+
+so far
+
+Akendo
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-04-26-deploy-wsgi-virtualenv-django/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-07-05-kvm-io-problems/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.951272413 &#43;0200 CEST m=&#43;0.130412039">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

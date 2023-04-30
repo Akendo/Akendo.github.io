@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/react/</link>
+    <description>Recent content in React on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 05 Jul 2021 09:29:13 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>05.07.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/05.07.2021-linkdrop/</link>
+      <pubDate>Mon, 05 Jul 2021 09:29:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/05.07.2021-linkdrop/</guid>
+      <description> SensePost | Tip toeing past android 7’s network security configuration DOM Elements – React </description>
+    </item>
+    
+  </channel>
+</rss>

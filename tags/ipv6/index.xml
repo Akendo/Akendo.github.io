@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ipv6 on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/ipv6/</link>
+    <description>Recent content in ipv6 on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 28 Jan 2021 11:31:21 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/ipv6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blogfixes</title>
+      <link>https://blog.akendo.eu/post/2021-01-28-blogfixes/</link>
+      <pubDate>Thu, 28 Jan 2021 11:31:21 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-01-28-blogfixes/</guid>
+      <description>Today was a quite busy day with minor things. I’ve fixed the Hugo related things and updated the contact page to be reachable again.</description>
+    </item>
+    
+  </channel>
+</rss>

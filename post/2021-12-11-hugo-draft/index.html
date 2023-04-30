@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Hugo Drafts &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-12-11 15:44:10 &#43;0100 CET">December 11, 2021</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/general/">General</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/hugo/">hugo</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Hugo Drafts</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>One thing that turn a bit of a show stop is the hugo server, there were some changes made in hugo that breaks my template, I guess. Let&rsquo;s see it again:</p>
+<pre><code>~/B/blog (master)&gt; hugo server -D
+Start building sites … 
+hugo v0.89.0+extended darwin/amd64 BuildDate=unknown
+rst2html / rst2html.py not found in $PATH: Please install.
+                  Leaving reStructuredText content unrendered.
+Error: Error building site: failed to render pages: render of &quot;page&quot; failed: execute of template failed: template: _default/single.html:5:5: executing &quot;main&quot; at &lt;partial &quot;single/post-info.html&quot; .&gt;: error calling partial: &quot;Blog/blog/layouts/partials/single/post-info.html:21:30&quot;: execute of template failed: template: partials/single/post-info.html:21:30: executing &quot;partials/single/post-info.html&quot; at &lt;.&gt;: range can't iterate over General
+Built in 622 ms
+</code></pre>
+<p>For some reason, the <code>range</code> command does not iterator anymore over categories, but why? I’ve modified the <a href="https://github.com/EmielH/tale-hugo/blob/master/layouts/partials/single/post-info.html">original template</a>  to include a category field to make the post a bit more friendly to find some other posts.</p>
+<pre><code>    {{ $taxonomy := &quot;categories&quot; }}
+    {{- if $taxonomy}}
+         &lt;span&gt; posted in 
+    {{ with .Param $taxonomy }}
+        {{ range $index, $category := . }}
+          {{ with $.Site.GetPage (printf &quot;/%s/%s&quot; $taxonomy $category) -}}
+              &lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ $category | urlize }}&lt;/a&gt;
+          {{- end -}}
+        {{- end -}}
+    {{ end }}
+</code></pre>
+<p>So, something goes wrong when something is happening in the drafts?
+Maybe a recent change I’ve made to a file? Let’s check them, maybe some
+categories are malformed in a post that is still in draft?</p>
+<p>Hm… I have many posts that are … in a less optional state…</p>
+<p>So, let&rsquo;s see how many posts are there? What!? 280 Posts? Gosh….that’s a
+lot… Next is to see how many of them are drafts. 62 are with the newer
+format and 5 are with the older one.</p>
+<p>Okay, my working theories is the following: I’ve an incomplete post
+that has an out-dated header OR incomplete one. Here’s the challenge: I
+have to go through 280 pages and check
+it has the correct header formatting or not. hm… crap… That shouldn&rsquo;t be it. But I guess I’ll post about this some when more…need to debug…</p>
+<p>So far,
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-12-07-aes-gcm/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-12-13-log4shell/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.996342641 &#43;0200 CEST m=&#43;0.175482267">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

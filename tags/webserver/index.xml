@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webserver on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/webserver/</link>
+    <description>Recent content in Webserver on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 26 Apr 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/webserver/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to deploy wsgi with apache</title>
+      <link>https://blog.akendo.eu/post/2012-04-26-deploy-wsgi-virtualenv-django/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-04-26-deploy-wsgi-virtualenv-django/</guid>
+      <description>Related to the previors Post, i hade now to apply from virtualenv to a apache webserver.</description>
+    </item>
+    
+    <item>
+      <title>Nginx with SSL</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</guid>
+      <description>For a demo Application that has to be show in the Internet, we need a Scala Lift online.</description>
+    </item>
+    
+    <item>
+      <title>[Gentoo]Jetty with a .WAR file</title>
+      <link>https://blog.akendo.eu/post/2012-01-19-gentoojetty-with-a-war-file/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-19-gentoojetty-with-a-war-file/</guid>
+      <description>Jetty with a .WAR fileIn my company i currenly have a lot to do with Scala Lift.</description>
+    </item>
+    
+  </channel>
+</rss>

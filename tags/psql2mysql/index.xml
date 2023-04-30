@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>psql2mysql on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/psql2mysql/</link>
+    <description>Recent content in psql2mysql on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Sat, 19 May 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/psql2mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL to Postgresql</title>
+      <link>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</guid>
+      <description>I dislike MySQL. I never did like it, since Oracle bought Sun it starting to become more then just disliking it. I prefer to work with Postgresql. I want to migrate some of my MySQL DB to Postgresql.
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

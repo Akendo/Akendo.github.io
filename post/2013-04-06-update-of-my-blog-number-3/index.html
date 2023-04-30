@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Update of My Blog 3 &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2013-04-06 21:35:00 &#43;0100 &#43;0100">April 6, 2013</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">Update of My Blog 3</h1>
+<div class="post-line"></div>
+
+		
+
+		<h1 id="status">Status</h1>
+<p>I updated some days ago my blog. I migrated to Octopress, an awesome tool that allows me to write my Blog inside of markdown.
+My main problem was that Wordpress had become to fat, at some point I started to drop off everything from the server that I didn&rsquo;t need.
+But still Apache went into &ldquo;out of memory&rdquo; problems. Connections was failing. Duo an outdated kernel version (which i can&rsquo;t control) there is
+no OOM and at some point I wasn&rsquo;t able to login to the server. The only solution was to reboot.</p>
+<p>To prevent problem like this i moved to Nginx, but Wordpress don&rsquo;t work to well with this. Apache owns a nice module for PHP, what is missing
+for the Nginx. The solution here is to run with a fastcgi that will hosted on the localhost. Nginx just forwarding the requests to the fastcgi socket.</p>
+<p>After this my web service took lesser memory but the fastcgi had now everything in use. I could save some memory (around 100Mb). Beside that Wordpress
+needs a MySQL Databases. What doesn&rsquo;t makes me to happy.</p>
+<p>Original Django was the
+Framework of my choice, but duo missing time and skills I wasn&rsquo;t able to make a blog there.</p>
+<h1 id="installation">Installation</h1>
+<p>For the Server it&rsquo;s quite simple, I&rsquo;m using a the normal webserver.</p>
+<p>The &ldquo;client&rdquo; where I write and generate the actucaly entrys. I followed the documection from octopress for the setup <a href="http://octopress.org/docs/setup/">here</a>.</p>
+<p>Note:
+There is a bug inside of Gentoo, what will cause the rbenv to start correctly, this will be fix by running: <code>unset RUBYOPT</code>.</p>
+<pre><code>rake generate
+/home/akendo/.rbenv/versions/1.9.3-p194/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require': cannot load such file -- auto_gem (LoadError)
+from /home/akendo/.rbenv/versions/1.9.3-p194/lib/ruby/1.9.1/rubygems/custom_require.rb:36:in `require'
+</code></pre>
+<h1 id="migration">Migration</h1>
+<p>For my blog</p>
+<h1 id="work-flow">Work flow</h1>
+<p>First</p>
+<p>Then I write my entry, to check that the <code>md</code> is looking fine I&rsquo;m checking this on with this <a href="http://markable.in/editor/">online convert</a></p>
+<h1 id="deploy">Deploy</h1>
+<h1 id="summery">Summery</h1>
+<p>The Webserver now only needs 50 Mb of Memeroy, I don&rsquo;t have to use PHP or MySQL and I do save 900 Mb of Memory. Awesome!
+I&rsquo;m not very use to blogging like this, but it make me happy.</p>
+<p>so far
+4k3nd0</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2013-04-06-my-gentoo-mirror/" class="left arrow">&#8592;</a>
+		<a href="/post/2013-04-07-archlinux-pacman-dead-lock/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.962526069 &#43;0200 CEST m=&#43;0.141665695">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

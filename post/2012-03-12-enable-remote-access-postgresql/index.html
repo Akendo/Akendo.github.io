@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Enable remote access for PostgreSQL &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-03-12 00:00:00 &#43;0000 UTC">March 12, 2012</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/bash/">bash</a> <a href="https://blog.akendo.eu/tags/console/">console</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/postgresql/">postgresql</a> <a href="https://blog.akendo.eu/tags/postgresql/">postgresql</a> <a href="https://blog.akendo.eu/tags/psql/">psql</a> <a href="https://blog.akendo.eu/tags/remote/">remote</a> <a href="https://blog.akendo.eu/tags/software/">software</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Enable remote access for PostgreSQL</h1>
+<div class="post-line"></div>
+
+		
+
+		<h2>Remote access to a Postgtres Database</h2>
+In the last days i have worked a lot with PostgreSQL. We have some Django Application which needs some extra SQL love. I have a installation script what insert all the script to the extra SQL into the database. The Problem: " How to do this on a remote database host, without coping everything to it more often?"
+
+A try with psql command show also support for remote host. The great thing about psql is that will automatic using a SSL connection.
+
+The command is:
+<pre LANG="BASH" LINE="1">psql -h $DATABASE_HOST -d DATABASE -U $ROLE</pre>
+To make this work, i have first enable that the socket, to  listing on a different Interface then localhost.
+Change listen address in postgresql.conf
+<pre LANG="BASH" LINE="1">#------------------------------------------------------------------------------
+ # CONNECTIONS AND AUTHENTICATION
+ #------------------------------------------------------------------------------
+ # - Connection Settings -
+ listen_addresses = '0.0.0.0' # what IP address(es) to listen on;
+ # comma-separated list of addresses;
+ # defaults to 'localhost', '*' = all
+ # (change requires restart)
+ port = 5432 # (change requires restart)
+ max_connections = 100 # (change requires restart)
+ # Note: Increasing max_connections costs ~400 bytes of shared memory per
+ # connection slot, plus lock space (see max_locks_per_transaction).</pre>
+Add your accessing host to the pg_hpa.conf
+<pre LANG="BASH" LINE="1"># Database administrative login by UNIX sockets
+local all postgres trust
+# TYPE DATABASE USER CIDR-ADDRESS METHOD
+# "local" is for Unix domain socket connections only
+local all all trust
+# IPv4 local connections:
+host all all 127.0.0.1/32 trust
+# IPv6 local connections:
+host all all ::1/128 trust
+host myDB all 172.17.7.2/27 trust</pre>
+Now restarting the postgreSQL and i can access via psql from my host.
+<pre LANG="BASH" LINE="1">psql -h POSTGRESQL_HOST -U $USER -d myDB
+psql (8.4.11)
+Type "help" for help.
+myDB=#</pre>
+&nbsp;
+<h2>Security note:</h2>
+The "trust" is taking every request reguardless who is doing. This IS very <strong>DANGEROUS</strong>! I did it becourse i'm a lazy admin and don't want to insert everytime a password during deployments. Be aware of <a href="https://en.wikipedia.org/wiki/IP_address_spoofing" title="Wikipedia IP Address Spoofing" target="_blank">Spoofing Attacks</a>!
+
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-03-07-rsync-scp/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-03-28-bulding-virtualenv/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.950959445 &#43;0200 CEST m=&#43;0.130099071">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

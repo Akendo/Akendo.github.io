@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Attribution on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/attribution/</link>
+    <description>Recent content in Attribution on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Tue, 25 Jun 2019 22:48:26 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/attribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>25.06.2019 - link drop</title>
+      <link>https://blog.akendo.eu/flash/25.06.2019-linkdrop/</link>
+      <pubDate>Tue, 25 Jun 2019 22:48:26 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/25.06.2019-linkdrop/</guid>
+      <description>Nation-sponsored hackers likely carried out hostile takeover of rival group’s servers | Ars Technica Semiconductor Engineering .</description>
+    </item>
+    
+    <item>
+      <title>16.06.2019 - link drop</title>
+      <link>https://blog.akendo.eu/flash/16.06.2019-linkdrop/</link>
+      <pubDate>Sun, 16 Jun 2019 13:11:39 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/16.06.2019-linkdrop/</guid>
+      <description>Attribution is not Transitive – Tribune Publishing Cyber Attack as a Case Study – Robert M.</description>
+    </item>
+    
+  </channel>
+</rss>

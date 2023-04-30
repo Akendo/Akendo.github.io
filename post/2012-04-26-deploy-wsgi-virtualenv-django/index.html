@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>How to deploy wsgi with apache &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-04-26 00:00:00 &#43;0000 UTC">April 26, 2012</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/apache/">apache</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/python/">python</a> <a href="https://blog.akendo.eu/tags/software/">software</a> <a href="https://blog.akendo.eu/tags/virtualenv/">virtualenv</a> <a href="https://blog.akendo.eu/tags/webserver/">webserver</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">How to deploy wsgi with apache</h1>
+<div class="post-line"></div>
+
+		
+
+		Related to the  <a href="http://blog.akendo.eu/bulding-virtualenv/">previors Post</a>, i hade now to apply from virtualenv to a apache webserver. I used to deployed it with  the <span class="fontsforweb_fontid_368">WSGI</span>.
+
+For that you need to enable the <a href="https://code.google.com/p/modwsgi/">mod_wsgi</a> in apache2.
+
+To enable it in debian:
+<pre LANG="BASH" LINE="1">apt-get install libapache2-mod-wsgi
+a2enmod wsgi
+services apache2 restart</pre>
+Now disabling the old mod_python in the configuration files. Add this to the top of your virtualhost file:
+
+<pre LANG="BASH" LINE="1">WSGIDaemonProcess $GROUPNAME python-path=/path/to/django/project/.env/lib/python2.6/site-packages user=apache group=apache processes=2 threads=25
+WSGIProcessGroup $GROUPNAME
+WSGIScriptAlias / "/path/to/django/project/wsgi.py"
+Documentroot /path/to/django/project/
+<Directory /path/to/django/project/>
+<Files wsgi.py>
+ Order allow,deny
+ Allow from all
+ </Files>
+</Directory></pre>
+This is it. Some details:
+
+Important is to set a  <a title="WSGIDaemonProcess in modwsgi Wiki" href="https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIDaemonProcess" target="_blank">WSGIDaemonProcess</a>, it allows to specifically the resource that the <span class="fontsforweb_fontid_368">WSGI</span> Process can use. Then the $GROUPENAME(Set it as you like to), so when you have more then one <span class="fontsforweb_fontid_368">WSGI</span> implementation, that the WSGI no interfering each other. There still some more options possible.
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-03-28-bulding-virtualenv/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-05-19-mysql-postgresql/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.951215516 &#43;0200 CEST m=&#43;0.130355162">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

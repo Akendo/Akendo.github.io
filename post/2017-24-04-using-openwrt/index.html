@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Using OpenWRT as Router &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2017-04-27 00:14:51 &#43;0200 CEST">April 27, 2017</time>
+        <br>
+        <span>6 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/openwrt/">OpenWRT</a>
+	
+        <a href="https://blog.akendo.eu/categories/linux/">Linux</a>
+	
+        <a href="https://blog.akendo.eu/categories/security/">Security</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">Using OpenWRT as Router</h1>
+<div class="post-line"></div>
+
+		
+
+		<h1 id="cheaper-router-as-a-general-problem">cheaper Router as a general problem</h1>
+<p>Some years ago,I had a very cheap router. A TP-Link DIR 600.
+The router made my very unhappy. For several reasons.
+<img src="./pictures/d-link-dir-600.jpg" alt="I had this &amp;lsquo;unsecure&amp;rsquo; Router and was unhappy about it."></p>
+<p>First, the software that was operating on the Router were very limited.
+How limited? I was able only to set a few firewall rules (DNAT for example) on my own. When I recall correctly, i wasn&rsquo;t able to redirect any port.</p>
+<p>Second, the little insight to the devices I had. You just got a very basic logger on the devices that would only give the minimal amount of information. This is especially a problem when you tried to debug connections. My ISP at that time made it even harder, because they did <a href="https://de.wikipedia.org/wiki/Carrier-grade_NAT">Carrier-grade NAT</a>. Means they was not really giving me any real public IP, but a private IP. The router on the other side of the DLS Modem them NAT them back. Not nice for forwarding traffic.</p>
+<p>Last, the software had some flaws.
+To replace this devices was one of the better decision [0], when the router router apocalypse came I was prepared. The TP-LINK DIR 600 was affect very much. However back at the time this wasn&rsquo;t much of an issue. The software had just some limitation and that drove me crazy.</p>
+<h1 id="openwrt">OpenWrt</h1>
+<p>is a Linux distribution, that is intended to support small router(<a href="https://en.wikipedia.org/wiki/Customer-premises_equipment">CPE</a>). It&rsquo;s focus in general is on WiFi. Another possible software to run on such small router is for example <a href="https://www.dd-wrt.com/site/">ddwrt</a>.</p>
+<p>However the old router (DIR 600) of mine didn&rsquo;t supported any other Software. No drivers for some important part of the device. So a new devices was at need.</p>
+<p>I choose OpenWRT over ddwrt for a simple reason. I know some people that work with it, they do <a href="https://en.wikipedia.org/wiki/Freifunk">freifunk</a>. They heavily rely on OpenWrt and modified the software to they needs. Most of them did work with the TP-Link WDR3600.</p>
+<p><img src="https://wiki.freifunk.net/images/2/2b/TL-WDR3600.png" alt=""></p>
+<p>Why such small devices after all? I mean it might be more reasonable to get better hardware to use it as router. The answer is simple. The router is very cheap. They don&rsquo;t draw much power and I don&rsquo;t have to play around with the hardware.</p>
+<p>In addition to this, I liked to play with embedded hardware around. This way I would have touched something else than an x86 system. The TP-Link WDR3600 based on a MIPS CPU Architecture. Something completely different.</p>
+<h2 id="openwrt-as-router">OpenWrt as router</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Openwrt_Logo.svg" alt="So I got one like this."></p>
+<p>The installation process is simple. You need to download the <code>generic-tl-wdr3600-v1-squashfs-factory.bin</code>. Drop this file in the update firmware page of the original firmware and you good to go! But you can find more details <a href="https://wiki.openwrt.org/toh/tp-link/tl-wdr3600">here</a></p>
+<p>Next is to login via telnet to the box.</p>
+<p>Please note: I had some <a href="https://blog.akendo.eu/post/2014-06-24-openwrt-trap/">upgrade</a> issue I documented a while ago. One problem of OpenWRT is that you don&rsquo;t have any type of auto update. At least I haven&rsquo;t found them yet.</p>
+<h2 id="install-software-on-a-openwrt-router">Install software on a openwrt router</h2>
+<p>Here some basic things. OpenWRT does provide a software like debians apt called <a href="https://wiki.openwrt.org/doc/techref/opkg">opkg</a>. information.</p>
+<h3 id="installation-openvpn">Installation openvpn</h3>
+<p>There are some remarks to the openvpn installation. They are using different libraries for SSL by default. You&rsquo;ll get something like polarssl. I installed openvpn with openssl support.
+That makes my configuration quite alike and does not create snowflakes configuration files.</p>
+<pre tabindex="0"><code>opkg install openvpn-openssl
+</code></pre><p>Besides, you shouldn&rsquo;t trust any SSL implementation that hasn&rsquo;t been audit. openssl is bad, broken and fuck up. But I would bet it&rsquo;s <em>broken</em> the least. Especially since the hearthbleed incident they infrastructure gain a big amount of attenchen and money. All what raises the changes that the software stop being such waste. Another possible ssl implementation to use would be libressl, but this getting of topic.</p>
+<h3 id="installation-openssh">Installation openssh</h3>
+<p>While OpenWRT provides a dropbear ssh server, i always like to use OpenSSH instead.
+So you can install and setup openssh via:</p>
+<pre tabindex="0"><code>opkg install openssh-server
+</code></pre><p>Please note you need to disable the dropbear in favour of the ssh.</p>
+<h1 id="issues">Issues</h1>
+<p>My experience so far: Very well. By now I do have a SSH Server on it with well set crypto settings in place (yay). WiFi is someway okish. Some of the hardware support for Wifi isn&rsquo;t working. Nothing to bad.</p>
+<h2 id="ipv6-is-pain">IPv6 is pain</h2>
+<p>One exception is there: IPv6.</p>
+<p>For some reason the IPv6 Stack is broken. It&rsquo;s not broken in it&rsquo;s function. I&rsquo;m able to send and receive data. But any linux client does not get a correct routing information. Windows clients are not affected.</p>
+<p>This made this strange.</p>
+<p>I have a router in ISP provided modem. It connects me to my cable IPS. I have a Dual Stack Lite (DS-Lite) on this modem. By the way, don&rsquo;t get starting about the security on this device&hellip;.
+DS-Lite means: I have fully working IPv6 address and again does my provided do a Carrier-grade NAT for IPv4. That&rsquo;s acceptable.</p>
+<p>So what this modem does, it announce it&rsquo;s IPv6 Network Mask to the network. My OpenWRT is the next router that does the forwarding. It acts as gateway and protects me from the everything. I don&rsquo;t trust the ISP modem. I do NAT for the IPv4.</p>
+<p>But because this a nativ IPv6 modem it tries to auto configure IPv6 to all clients in the network. For this we&rsquo;ll need <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms740136(v=vs.85).aspx">Router Advertisement</a>.</p>
+<p>However the linux client seems to get the IPv6 route wrong. Instead of replacing the IPv6 with the correct IPv6 address of the OpenWRT Router, it keeps in using the IPv6 address of the modem.
+Windows however does get the correct IPv6 route&hellip;. I does to the OpenWRT gateway and that forwards all the IPv6 taffic to the modem. My linux however is miss the hope and can&rsquo;t reach out to the web correctly with IPv6.</p>
+<p>It seems to be a kernel bug in OpenWRT. But I might have to dig into this in sometime&hellip;
+My fix for the moment is to just have the IPv6 Route place manual on my linux clients&hellip;and don&rsquo;t let me get starting on newer android devices&hellip;.</p>
+<h1 id="security-aftermath">Security aftermath</h1>
+<p>Two years ago(around 2015) there were something that was called &lsquo;plastic router apocalypse&rsquo;.
+tldr; Poor products with bad design flaws became victims to bad persons.</p>
+<p>Long Story:
+Most router are left unattended and unmaintained. Because they are produces very cheap and on mass. They&rsquo;re place only once after you purchases a DSL connection. No one brother about this type of devices.</p>
+<p>At some point, some guys started to take a look onto them and looking for some security flaws.
+What they found was bad. Many flaws. This was partial bad because most of this plastic router are exposed directly to the internet. So they were victim to bad guys.</p>
+<p>So replacing it</p>
+<h3 id="resources">Resources</h3>
+<p>[0] <a href="http://www.s3cur1ty.de/m1adv2013-003">http://www.s3cur1ty.de/m1adv2013-003</a></p>
+<p>€dit: It took me 3.2 years to get this from a draft to a finished document&hellip;.so things are moving!</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2017-04-25-hipchatbreachconfusion/" class="left arrow">&#8592;</a>
+		<a href="/post/2017-01-05-taskwarrior-prevent-dupicated/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.969397183 &#43;0200 CEST m=&#43;0.148536819">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

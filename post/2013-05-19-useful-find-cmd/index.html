@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Useful find cmd &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2013-05-19 17:53:00 &#43;0100 &#43;0100">May 19, 2013</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">Useful find cmd</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>This command allows me to get the <code>md5sum</code> of all files inside of a folder. I did run it on two system with almost the same
+content inside some folder.</p>
+<p>On Host A:
+root@A: find .  -type f   2&gt;/dev/null  -exec md5sum {} ; &gt;listA.</p>
+<p>On Host B:</p>
+<pre><code>root@B: find .  -type f   2&gt;/dev/null  -exec md5sum {} \; &gt;listB.txt
+</code></pre>
+<p>I get it on my localsystem via <code>scp</code>. Then I run a <code>diff</code> between the both to see where are the differences. the <code>-y</code> makes it look more clear.</p>
+<pre><code>diff -y listA.txt listB.txt
+</code></pre>
+<p>so far</p>
+<p>4k3nd0</p>
+<h3 id="links">Links</h3>
+<p><a href="http://stackoverflow.com/a/11115142/997915">Bash get md5sum of all files in a folder - stackoverflow</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2013-04-07-archlinux-pacman-dead-lock/" class="left arrow">&#8592;</a>
+		<a href="/post/2013-06-24-my-work-with-puppet/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.953276332 &#43;0200 CEST m=&#43;0.132415958">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

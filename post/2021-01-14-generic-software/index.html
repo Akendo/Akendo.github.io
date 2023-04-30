@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Generic Software is an attack avenue &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-01-14 22:26:29 &#43;0100 CET">January 14, 2021</time>
+        <br>
+        <span>3 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/security/">Security</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/hacks/">hacks</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Generic Software is an attack avenue</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>As you may or may not know, one quite big hack went through the media lately, Solar Wind[0][1].</p>
+<p>Rather than jumping on the bandwagon, I like to share a thought about it. Part of this attack was possible because of a quite generic software solution. By generic, I mean to say that the software, was used everywhere. How widely was the software used that we consider it to be generic? Even Microsoft has used it and has been therefore affected[2] by it. When a software solution is that widely in use, it becomes an attack vector.</p>
+<h2 id="the-iphones-contrast">The iPhones contrast</h2>
+<p>I like to make a comparison to the situation. I think of the iPhone because it shares the same problem here. Apple puts a lot of effort into making it reasonably secure. This comparison depends on how your threat model is looking. But when software becomes so similar on so many devices, it is easier for an attacker. He only needs to find a single vulnerability to exploit the entry ecosystem potentially.</p>
+<p>All iPhones are operated with quite a similar software stack, leading to a situation where a single exploit can work on almost all devices. Of course, there are variations within the different device generations. Despite Apple&rsquo;s effort, they&rsquo;re having difficulty keeping software regression at bay, which causes older flaws that were exploitable to work on newer devices and releases again.</p>
+<p>It is funny to see that the fractured market that Android resembles becomes an advantage now. To put this into an example: We tried to build an exploit of the well-known StageFright vulnerability because the Android ecosystem was built with different environments including varying versions oflibc, causing our exploit-code to go awry quickly<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. The point I&rsquo;m here is that diversity in software adds complexity in the exploit creation. It&rsquo;s more effort for someone than in an ecosystem that is not as homogeneous as Apple&rsquo;s ones.</p>
+<p>To remove the iPhone out of this example, we could use a forest instead. When we have only one type of tree, it becomes massively vulnerable to bugs, viruses, and any malicious actor (including humans!). When different types of trees are present within the forest, it becomes harder for an invading actor to take over the entire forest.</p>
+<h2 id="conclution">Conclution</h2>
+<p>Would a more diverse software landscape be better? Most likely not. We should take into account that the risk of exploitation becomes higher with generic software. This fact needs to be reflected by the threat model.</p>
+<p>This type of risk is not a problem for everyone. Most people will not care about it and will be most likely be okay with it. It is interesting for everyone who needs to consider this as a valid risk.</p>
+<p>Diversification could be a quite interesting approach to mitigate that risk. However, it could also lead to just too many more vulnerable software systems. It is vital to understand that this not one size fits it all solution, but a pattern.</p>
+<p>so far,<br>
+akendo</p>
+<p>[0] <a href="https://www.schneier.com/blog/archives/2020/12/russias-solarwinds-attack.html">https://www.schneier.com/blog/archives/2020/12/russias-solarwinds-attack.html</a> <br>
+[1] <a href="https://www.nytimes.com/2020/12/14/us/politics/russia-hack-nsa-homeland-security-pentagon.html">https://www.nytimes.com/2020/12/14/us/politics/russia-hack-nsa-homeland-security-pentagon.html</a> <br>
+[2] <a href="https://msrc-blog.microsoft.com/2020/12/31/microsoft-internal-solorigate-investigation-update/">https://msrc-blog.microsoft.com/2020/12/31/microsoft-internal-solorigate-investigation-update/</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Not taking into account that this was done by a friend and not me. Also because I suck at writing exploits.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-01-13-lets-encrypt-ipv6/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-01-15-updated-tags/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.976582096 &#43;0200 CEST m=&#43;0.155721722">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>svn2git &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-02-18 00:00:00 &#43;0000 UTC">February 18, 2012</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/git/">git</a> <a href="https://blog.akendo.eu/tags/github/">github</a> <a href="https://blog.akendo.eu/tags/gitt/">gitt</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/software/">software</a> <a href="https://blog.akendo.eu/tags/svn/">svn</a> <a href="https://blog.akendo.eu/tags/svn/">svn</a> <a href="https://blog.akendo.eu/tags/svn2git/">svn2git</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">svn2git</h1>
+<div class="post-line"></div>
+
+		
+
+		<p style="text-align: left;"><img class="aligncenter" title="Git-Logo" src="http://www.mmncs.com/wp-content/uploads/git_logo.png" alt="" width="256" height="256" />I'm currently moving our old svn repositories to git. There a lots of reason to do this. Performance, Disk Space, SVN sucks, decentralization and some more.</p>
+<p style="text-align: center;">Here is a Video from Linux Tolvads talking about Git. <a href="https://www.youtube.com/watch?v=4XpnKHJAok8">Tech Talk: Linus Torvalds on git</a> <iframe src="http://www.youtube.com/embed/4XpnKHJAok8" frameborder="0" width="420" height="315"></iframe></p>
+
+<h2>Tools Used:</h2>
+I recommand this <a title="Real svn2git toll! " href="https://github.com/nirvdrum/svn2git" target="_blank">svn2git</a> tool! It has a good documentation, easy to understand and work almost out of the box!
+
+&nbsp;
+<h2>Some Words:</h2>
+I start looking in my local repository from Gentoo.  <em>eix</em> showed  git2svn from http://gitorious.org/svn2git/svn2git . There was a problem running it from our SVN Repo. He wan't able to found some URL part. So it was complete useless. I started  to google a bit. I found some nice links that explain and have some examples. Our svn contains lots of different repositories, i used this <a title="svn2git-for-real-men" href="http://honoluluhacker.com/2009/05/21/svn2git-for-real-men/" target="_blank">link here</a> as a sample. The Script fits  as basic, i adjusted it, so that it fit fine for me. I change it so it can uses SSH to create the Git repositories on a remote Host.  Addtional i created a authors file.
+
+Example:
+<code>stnick = Santa Claus &lt;nicholas@lapland.com&gt;</code>
+
+<address>Code:</address>
+<pre lang="BASH">#!/usr/bin/env bash
+REPOS="project1 project2 project3 project4"
+URL="https://10.0.4.7:/Musicpictures"
+REMOTE_IP="10.0.4.5"
+for repo in $REPOS
+do
+ echo "Create local repor"
+ mkdir $repo
+ cd $repo
+
+ echo "Start of svn2git progress"
+ cmd="svn2git $URL/$repo -m --authors ../authors.txt"
+ echo $cmd
+ `$cmd`
+
+ echo "Prepare remote Host with SSH"
+ ssh root@10.0.4.5 "mkdir -p /var/git/svn2git/$repo.git &amp;&amp; cd /var/git/svn2git/$repo.git &amp;&amp; git init --bar"
+ cmd="git remote add origin ssh://root@10.0.4.5/var/git/svn2git/$repo.git"
+ echo $cmd
+ `$cmd`
+ cmd="git push --all"
+ echo $cmd
+ `$cmd`
+ cd ..
+ echo "DONE EXPORTING $repo"
+done
+exit</pre>
+<p lang="BASH">Addtional i change the the verbose and also i add -m for the orgirnal SVN Link, this coaint then also the classic comit ID.</p>
+<p lang="BASH">The Main Problem is that not all of the repo are in the default SVN way store, some has no trunk/tags/branches structures. So i have to check that all has been converted in a right way.</p>
+
+<address lang="BASH">Sources:</address><address lang="BASH"><a href="http://chrisjean.com/2009/02/21/git-project-description-file-hasnt-been-set/">http://chrisjean.com/2009/02/21/git-project-description-file-hasnt-been-set/</a></address>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-02-06-monitor-monogodb-nagios/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-02-24-fix-libgeoscso/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.949705506 &#43;0200 CEST m=&#43;0.128845132">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

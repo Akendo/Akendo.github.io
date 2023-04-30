@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Hugo Youtube Shortcode &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-02-10 12:24:13 &#43;0100 CET">February 10, 2021</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/blog/">Blog</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/hugo/">hugo</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Hugo Youtube Shortcode</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>For my  series on kernel exploitation[0] I need to embed a YouTube video. The markdown code I&rsquo;ve used for this  wasn&rsquo;t working. It most like does not due to some security configuration in the header of the webbrowser. Because, I did not wanted to re-configure them I&rsquo;ve decided to embed it properly with a shortcodes[1] instead.</p>
+<pre tabindex="0"><code>&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; 
+ src=&#34;https://www.youtube.com/embed/{{ index .Params 0 }}&#34; 
+ allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+</code></pre><p>Hugo has an example within its documentation[1] that I used at first. However, it only embedded the Video in the text without adapting the size of the frame. When you opened the post on a mobile web browser it looked massively misalignment. The fix is to make the embedding responsive. Because I hate HTML, I just searched for something on the web and found a great tutorial[2]. I copied the code down from the example. So should out to Flavio Copes for this Tutorial! Great work mate!</p>
+<p>The only problem that is left is one with the CSS code. It will be placed in the summary of the post instead of the first paragraph.
+I’m not sure how to address this. For the moment, I just put the video shortcode after a paragraph.</p>
+<p>so far,<br>
+akendo</p>
+<p>[0] <a href="https://blog.akendo.eu/post/2021-02-01-kernel-exploitation-part-one/">https://blog.akendo.eu/post/2021-02-01-kernel-exploitation-part-one/</a> <br>
+[1] <a href="https://gohugo.io/templates/shortcode-templates/#single-positional-example-youtube">https://gohugo.io/templates/shortcode-templates/#single-positional-example-youtube</a><br>
+[2] <a href="https://flaviocopes.com/responsive-youtube-videos/">https://flaviocopes.com/responsive-youtube-videos/</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-02-07-kernel-exploitation-part-four/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-02-12-useful-command/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.98056663 &#43;0200 CEST m=&#43;0.159706266">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

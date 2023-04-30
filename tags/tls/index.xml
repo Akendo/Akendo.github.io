@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TLS on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/tls/</link>
+    <description>Recent content in TLS on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 14 Jun 2021 11:04:57 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/tls/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>14.06.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/14.06.2021-linkdrop/</link>
+      <pubDate>Mon, 14 Jun 2021 11:04:57 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/14.06.2021-linkdrop/</guid>
+      <description> What is two-way TLS?. TLS and its predecessor, SSL are… | by Ben Pournader | Medium </description>
+    </item>
+    
+    <item>
+      <title>15.08.2019 - link drop</title>
+      <link>https://blog.akendo.eu/flash/15.08.2019-linkdrop/</link>
+      <pubDate>Thu, 15 Aug 2019 12:21:47 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/15.08.2019-linkdrop/</guid>
+      <description> DEF CON 23 - Jose Selvi - Breaking SSL Using Time Synchronisation Attacks NTPsec </description>
+    </item>
+    
+  </channel>
+</rss>

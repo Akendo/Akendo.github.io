@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Filtering in rust &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-04-10 09:14:07 &#43;0200 CEST">April 10, 2021</time>
+        <br>
+        <span>6 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/rust/">Rust</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/netstat/">netstat</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Filtering in rust</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>In the past days, I&rsquo;ve been busy with the migration of my old server. My new server  requires some sort of monitoring. I&rsquo;m using graphite and this works best with collectd. After a quick installation I went through the different modules and data collectd is sending.</p>
+<p>I love seeing traffic data. However, the interface module is insufficient for my needs. It shows errors and packages that where send. However, for another project I programmed something in rust to get these data: Netstat. It does however add all entries  into the graphite server. So I&rsquo;ve deployed it and was good to go.</p>
+<p>However, the next day a problem appeared. The data have filled up the entry disk. Why? Turns out, that using docker causes quite a lot of interfaces to be created and because every docker interfaces causes much over head. Particular when you restart container more often, it causes the creation of new interfaces.</p>
+<p>After deleting the unnecessary interface data I had to do something. The main problem The program has no filter.</p>
+<p>It was on my to-do list anyway, so let add some simple filter to reduce the noise of the program.</p>
+<pre tabindex="0"><code>pub fn read_traffic_file() -&gt; Vec&lt;String&gt; {
+  // Do we need to re-open the file each time or can we just get updates from here?
+  let mut f = File::open(&#34;/proc/net/dev&#34;).unwrap();
+
+  let mut data_to_return: Vec&lt;String&gt; =  Vec::new();
+  let mut buffer = String::new();
+  let mut _new_data: String = String::new();
+  f.read_to_string(&amp;mut buffer).unwrap();
+  // This can be done by the line() function
+  // https://doc.rust-lang.org/std/string/struct.String.html#method.lines
+  let mut data: Vec&lt;&amp;str&gt; = buffer.split(&#34;\n&#34;).collect();
+
+  // Cleanup the Vector, remove unnecessary lines
+  data.reverse();
+  data.pop();
+  data.pop();
+  data.reverse();
+  data.pop();
+
+  // At this point out Vec only contains interface parameters.
+  for line in 0..data.len()  {
+    _new_data = clean_up(data[line]).clone();
+    data_to_return.push(_new_data);
+  }
+  data_to_return
+}
+</code></pre><p>Here is the code that read though the list of interfaces, and we’re going to add the filter for the interfaces.</p>
+<p>I’m not sure whether you could to this better or not, however, it was my first code to read lines. Hence, it isn’t the best code for doing it so. But when I had the time to fix it, it was focus on fixing the bug instead of improving the code quality.
+We update the function parameters to handle some input interfaces, that will be stored in a <code>Vec</code>.</p>
+<p>Writing this, I was thinking about this type <code>str</code>. This works well because I define it within the code. My initial ideas was a <code>String</code>, which
+makes sense when you would read the file out of a parameter from cmd or a configuration file. Anyway, it works for the moment.</p>
+<p>Let move on to filter <code>lo</code> first.</p>
+<pre tabindex="0"><code>pub fn read_traffic_file(filter_interfaces: &amp;Vec&lt;&amp;str&gt;) -&gt; Vec&lt;String&gt; {
+  // this should read the /prc/net/dev file and extracs interfaces
+  // TodO: adding filter here
+  // Do we need to re-open the file each time or can we just get updates from here?
+  // ToDo: Allow custom files for testing
+  let mut f = File::open(&#34;/proc/net/dev&#34;).unwrap();
+
+
+  // Debug that we have the list of filter interfaces 
+  for interface in filter_interfaces {
+      println!(&#34;interface: {}&#34;, interface);
+  }
+
+  let mut data_to_return: Vec&lt;String&gt; =  Vec::new();
+  let mut buffer = String::new();
+  let mut _new_data: String = String::new();
+  f.read_to_string(&amp;mut buffer).unwrap();
+  // This can be done by the line() function
+  // https://doc.rust-lang.org/std/string/struct.String.html#method.lines
+  let mut data: Vec&lt;&amp;str&gt; = buffer.split(&#34;\n&#34;).collect();
+
+  // Cleanup the Vector, remove unnecessary lines
+  data.reverse();
+  data.pop();
+  data.pop();
+  data.reverse();
+  data.pop();
+
+  // At this point out Vec only contains interface parameters.
+  for line in 0..data.len()  {
+    _new_data = clean_up(data[line]).clone();
+    println!(&#34;Interface data: {}&#34;, _new_data);
+    // Here we do the filter magic: we skip the data addation when we have a postive match
+    let mut _a = _new_data.split(&#34; &#34;);
+    let _interface = _a.next();
+    //println!(&#34;{:?}&#34;, _interface.unwrap());
+    if _interface.unwrap() != filter_interfaces[0] {
+        println!(&#34;True&#34;);
+        data_to_return.push(_new_data);
+        }
+  }
+  data_to_return
+}
+</code></pre><p>This works well for a single entry, however, I also have to add arbitrary  amount of interfaces. So we put this statement into a loop. At this point I run into the follow error:</p>
+<pre tabindex="0"><code>no implementation for `str == &amp;str`
+</code></pre><p>Problem here because the compare would try to compare a <code>str</code> with a <code>&amp;str</code>. So what now? I guess the way I loop through <code>Vec</code>, so Instead I’ve tried to use <code>iter()</code>.</p>
+<p>But after working through the line, I noticed that I just build the same compare with a different means… The first mistake was not know how the range loop was working. I had the python <code>range()</code> in mind, however, in rust we need to do this via <code>0..n</code>. Something easier, but I just forgot.</p>
+<p>Afterwards the loop was working. However, next was that there was an issue adding the <code>_new_data</code>. What did I do wrong?
+Tinkering around with the if did not solve. So I though maybe that the if was not well and tried to use it with match instead.</p>
+<p>I’m not yet comfortable with the match function of rust. Somehow it does feel that well, even when it seems better than only relying on if statements.</p>
+<p>That was nice at first. What happened here was that however, <code>_new_data</code> would borrowed, meaning that I have to care for the own ship. For such a small code block that seems a bit too much. Instead, I add a helper variables check that would check before the data are added to the list.</p>
+<p>The completed function looks like this:</p>
+<pre tabindex="0"><code>  for line in 0..data.len()  {
+    _new_data = clean_up(data[line]).clone();
+
+    let mut _a = _new_data.split(&#34; &#34;);
+    let _interface = _a.next();
+    let mut check: bool = true; 
+    for n_filter_interface in 0..filter_interfaces.len() {
+        if _interface.unwrap().contains(filter_interfaces[n_filter_interface]) {
+                check = false;
+        }
+      }
+
+    if check == true {
+        data_to_return.push(_new_data);
+    }
+    check = true;
+
+  }
+  data_to_return
+</code></pre><p>The most important lesson her is the use of <code>.contains()</code>. It is a bit like the python <code>if a in b</code>  and does match for the pattern, but not exactly. This way i do not need to add any more complex regular expression. It allows a simple and easy filter. It might turn into a problem when the string I try to filter is too ambiguous, but for the moment this should be more than enough.</p>
+<p>Deploying this change also included a bit of a problem. After build and installing it on the VM some strange error happens.</p>
+<pre tabindex="0"><code>~# ./NetStats 
+./NetStats: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.33&#39; not found (required by ./NetStats)
+./NetStats: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.32&#39; not found (required by ./NetStats)
+</code></pre><p>What just happened? Searching for this error message does not offer  much on the internet. Took me some time to figure it out: I was build on  my local laptop for a newer version of glibc than the target system has to offer. I’m uncertain if cargo can define a target glibc, instead, I made it the  old school way. Copy the data onto VM and build it there.</p>
+<p>Now the data that are generate only are for existing interfaces and not bridges, docker interfaces of a container. Also, I excluded lo. It reduced that amount of data massively.</p>
+<p>This also why I need to have a Ci/CD to create a release for different systems.</p>
+<p>So far,<br>
+akendo</p>
+<p>€ḑit note: I&rsquo;ve found a good explanation for the <code>match()</code> statement on Stack Overflow[0]. The key take away is that <code>match()</code> is used to pattern matching. In my understanding it allows to compare to values disregard of it type. The typical <code>if x == y</code>, however, relies on the same data type, as seen in the error message show above.</p>
+<p>[0] <a href="https://stackoverflow.com/a/49889545">https://stackoverflow.com/a/49889545</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/flash/06.04.2021-linkdrop/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-04-11-grafana/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:20.002316407 &#43;0200 CEST m=&#43;0.181456133">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

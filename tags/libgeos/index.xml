@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>libgeos on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/libgeos/</link>
+    <description>Recent content in libgeos on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Fri, 24 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/libgeos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Howto fix libgeos_c.so not found</title>
+      <link>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</guid>
+      <description>I&#39;m working with Python Django and PostGIS.When i try to add the Geo support to the Project, i hit this error message:OSError: /usr/local/lib/libgeos_c.</description>
+    </item>
+    
+  </channel>
+</rss>

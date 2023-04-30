@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TCP_WAIT on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/tcp_wait/</link>
+    <description>Recent content in TCP_WAIT on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 12 Apr 2021 11:11:18 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/tcp_wait/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Grafana Part2 - waiting sockets</title>
+      <link>https://blog.akendo.eu/post/2021-04-12-grafana-part2/</link>
+      <pubDate>Mon, 12 Apr 2021 11:11:18 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-04-12-grafana-part2/</guid>
+      <description>So the next step was to write a simple loop in bash and get every second the data.</description>
+    </item>
+    
+  </channel>
+</rss>

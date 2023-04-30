@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Snapper clean up &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2017-09-19 13:43:10 &#43;0200 CEST">September 19, 2017</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">Snapper clean up</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>A while ago I did a <a href="http://localhost:1313/post/02-07-2017-btrfs-migration/">btrfs migration</a> that includes the usage of snapper.
+However, once in a while my disk is running full. Simply for every install sets of packages in pacman, snapper creates a snapshot.
+So I need to clean up the snapshots of Snapper to get free disk space. Lucky enough, Snapper provide a unit file:
+<code>/usr/lib/systemd/system/snapper-cleanup.timer</code></p>
+<pre tabindex="0"><code>[Unit]
+Description=Daily Cleanup of Snapper Snapshots
+Documentation=man:snapper(8) man:snapper-configs(5)
+
+[Timer]
+OnBootSec=10m
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=timers.target
+</code></pre><p>Running this will make Snapper clean up old snapshots and free disk space! For persistence you can enable this unit file:</p>
+<pre tabindex="0"><code>sudo systemctl enable  snapper-cleanup.timer
+</code></pre><p>However doing this everyday seems to me a little bit much. So I changed to it once a week instead.</p>
+<p>So my unit file looks like this:</p>
+<pre tabindex="0"><code>[Unit]
+Description=Daily Cleanup of Snapper Snapshots
+Documentation=man:snapper(8) man:snapper-configs(5)
+
+[Timer]
+OnBootSec=10m
+OnUnitActiveSec=1w
+
+[Install]
+WantedBy=timers.target
+</code></pre><p>After doing this you need to run <code>sudo systemctl daemon-reload</code> to enable the changes.</p>
+<p>best regards
+Akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2017-11-09-cyber/" class="left arrow">&#8592;</a>
+		<a href="/post/2017-17-10-blog-update/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.968333893 &#43;0200 CEST m=&#43;0.147473519">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

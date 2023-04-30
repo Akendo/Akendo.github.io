@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Calendar sync via command line &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2020-02-17 19:14:27 &#43;0100 CET">February 17, 2020</time>
+        <br>
+        <span>3 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/linux/">Linux</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/calendar/">calendar</a> <a href="https://blog.akendo.eu/tags/vdirsyncer/">vdirsyncer</a> <a href="https://blog.akendo.eu/tags/khal/">khal</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Calendar sync via command line</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>I’m currently revising how I’m using my tools and try to removed distractions. One significant source of distraction is Thunderbird because whenever I want to create an appointment or want to check my upcoming events, I instead open the Mail view first and start to read mails. The solution is to move my calendar into a separated application. One thing I favour is having the tool for the command line.</p>
+<p>After some searching, the following tools can be found: <code>khal</code>.
+<img src="https://camo.githubusercontent.com/a372d6b085f1f11909094a69f9653b7f5ba56e2b/687474703a2f2f6c6f73747061636b6574732e64652f696d616765732f6b68616c2e706e67" alt="Calendar on the console"></p>
+<p>There is another tool <a href="https://linuxaria.com/pills/pcal-calendario-da-linea-di-comando"><code>pcal</code></a> that might could fit, however, it does not support calendar sync like a owncloud.</p>
+<p>To install <code>khal</code> you could get it via <code>pip</code>, but also
+For the Installation via archlinux:</p>
+<pre><code>pip install khal
+</code></pre>
+<p>or get the</p>
+<pre><code>pip install git+git://github.com/geier/khal.git
+</code></pre>
+<p>or from archlinux:</p>
+<pre><code>pacman -S khal
+</code></pre>
+<p>The next step is to define the endpoints for the configuration. This file is located to in <code>.config/khal</code> like this:</p>
+<pre tabindex="0"><code>[calendars]
+
+  [[home]]
+    path = ~/.calendars/home/
+    color = green
+
+  [[work]]
+    path = ~/.calendars/work/
+    readonly = True
+</code></pre><p>However, this</p>
+<p>There is a good documenation about this from <a href="https://www.eric-scheibler.de/en/blog/2014/10/Sync-calendars-and-address-books-between-Linux-and-Android/#linux-console">Eric Scheibler</a>. He provides an example for fetchin to have a better basic:</p>
+<pre tabindex="0"><code>mkdir ~/.config/khal
+wget -O ~/.config/khal/khal.conf https://github.com/geier/khal/raw/master/khal.conf.sample
+</code></pre><p>I&rsquo;ve updated it reflect my configuration a bit:</p>
+<pre tabindex="0"><code>[calendars]
+[[calendars]]
+path = ~/.calendars/*
+type = discover
+color = dark green
+
+[locale]
+local_timezone= Europe/Berlin
+default_timezone= Europe/Berlin
+timeformat= %H:%M
+dateformat= %d.%m.
+longdateformat= %d.%m.%Y
+datetimeformat= %d.%m. %H:%M
+longdatetimeformat= %d.%m.%Y %H:%M
+
+
+[default]
+default_calendar = personal
+timedelta = 7d # the default timedelta that list uses
+highlight_event_days = True
+</code></pre><h2 id="vdirsyncer"><code>vdirsyncer</code></h2>
+<p>What your doing here is point out to folder where the calendars is located for display. But how does the calendar get there? For this we have another tool, called <code>vdirsync</code>.
+You have to install it, similar like <code>khal</code>, but I keep the installation via <code>pacman</code>.</p>
+<pre><code>pacman -S vdirsyncer
+</code></pre>
+<p>Again I&rsquo;m using the example from Eric Scheibler with <code>vdirsync</code>. However it&rsquo;s a little bit out-dated. I had to tinker around a bit to get it running. The essential is the</p>
+<pre tabindex="0"><code>[general]
+status_path = &#34;~/.vdirsyncer/status/&#34;
+
+# CALDAV
+[pair calendar]
+a = &#34;calendar_local&#34;
+b = &#34;calendar_remote&#34;
+collections = [&#34;university&#34;,&#34;personal&#34;, &#34;contact_birthdays&#34;, &#34;prüfung&#34; ]
+conflict_resolution = &#34;b wins&#34;
+
+[storage calendar_local]
+type = &#34;filesystem&#34;
+path = &#34;~/.calendars/&#34;
+fileext = &#34;.ics&#34;
+
+[storage calendar_remote]
+type = &#34;caldav&#34;
+url = &#34;https://owncloud.akendo.eu/remote.php/dav/&#34;
+#auth = &#34;digest&#34;
+#verify = /etc/ssl/local/example.org.pem
+username = &#34;akendo&#34;
+password = &#34;&lt;reacted&gt;&#34;
+start_date = &#34;datetime.now() - timedelta(days=365)&#34;
+end_date = &#34;datetime.now() + timedelta(days=365)&#34;
+</code></pre><p>One issue that remains in here is that the password is stored in plaintext. But I think Thunderbird does essentially the same. Here two things to consider:
+the <code>start_date</code> and <code>end_date</code> are time frame how old an event in your calendar should be synced. In this example, I get all events that are older one year.
+<code>collections</code> defines the calendar that should be synchronised. Important is the keyword for <code>conflict_resolution</code>. In case an event exists remote and locally,
+here we set the default policy to handle the conflict. On our instance, we do not use the local change.</p>
+<p>Once the configuration is completed we try to run <code>vdirsyncer discover calendar</code> to see what type of calender are present on our URL endpoint. At first, it take some attempts to get this going. When you need to reset the state, you can remove the folder <code>.calendars/</code> and <code>.vdirsyncer/</code> to reset to a clean state.</p>
+<p>When the right calendars are discovered to your locale system you can synchronise the events of it via: <code>vdirsyncer sync</code></p>
+<h2 id="keeping-it-syncing">Keeping it syncing</h2>
+<p>One down side so far is that the <code>vdirsyncer sync</code> is one time. You have to manual sync it from time to time. You can create this via <code>cronjob</code>.
+That&rsquo;s all for today.</p>
+<p>best regards,
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/flash/07.02.2020-linkdrop/" class="left arrow">&#8592;</a>
+		<a href="/flash/24.02.2020-linkdrop/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.974511431 &#43;0200 CEST m=&#43;0.153651057">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

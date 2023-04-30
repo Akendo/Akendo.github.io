@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+    <base href="/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="akendo">
+
+<meta name="description" content="">
+
+<title>to hugo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/pojoaque.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet" type="text/css">
+<link href="https://blog.akendo.eu/css/theme.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="page-container container-fluid">
+<div class="col-md-3 menu">
+    <nav class="col-md-3">
+    <h3 class="home-link"><a href="/">Root</a></h3>
+    <div id="last-posts" class="open">
+        <h3 data-open="last-posts">slices of a hacker&#39;s mind - Most recent posts</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    <div id="flash" class="open">                                                                                 
+        <h3 data-open="flash">Flash Posts</h3>             
+        <ul class="flash">                                                                                        
+        <ul>
+            
+        </ul>
+        </ul>                                                                                                    
+    </div>
+
+    <div id="contact" class="open">                                                                                 
+        <h3 data-open="contact">Contact</h3>             
+        <ul class="contact">                                                                                        
+            <li><a href="/contact/">Contact Information</a></li>                                        
+            <li><a href="/privacypolicy/">Privacy Policy</a></li>                                        
+            <li><a href="/imprint/">Imprint</a></li>                                        
+        </ul>                                                                                                    
+    </div>
+
+</nav>
+
+</div>
+<div class="col-md-9 content">
+
+<h1>to hugo</h1>
+<h4>Published on 30.05.2016 - 13:13 - 4 minute read</h4>
+
+<article>
+    <p>My trouble on the way to a new blogging software:
+I wanted to blog more, but an update of some ruby broke my blog&hellip;.</p>
+
+<p>So i try something new, bug it should be a statice website genrator
+After some searching I found this website:</p>
+
+<p><a href="https://www.staticgen.com/">https://www.staticgen.com/</a></p>
+
+<p>I found some useful blog entrys.</p>
+
+<p>Hugo is quite the same as jekelly, but with go developed.
+The blog entry makes a quite nice impression, so I&rsquo;ll give it a try:</p>
+
+<p>the installation in archlinux is quite simple:</p>
+
+<pre><code>yaourt hugo
+</code></pre>
+
+<p>The <a href="https://gohugo.io/overview/quickstart/">quickstart</a>  Video is very well done.
+Octopress doesn&rsquo;t offer that much of documentation, so I can see this fact.</p>
+
+<p>The first thing I see is that you create new directory for each side you want to have
+that makes a hugh differences.</p>
+
+<p>The next thing what needs to be done is definine a thema, by default hugo doesn&rsquo;t include any type of thema
+without you&rsquo;ll have static html sides with no navigation.</p>
+
+<pre><code>git clone https://github.com/zyro/hyde-x
+</code></pre>
+
+<p>In the configuration you can use the parameter to fix the theme for the creation of the site
+<code>theme = &quot;hyde-x&quot;</code></p>
+
+<p>I copied the old posts into the new <code>content/posts</code> and lets see what <code>hugo</code>  will have to complain about:</p>
+
+<pre><code>ERROR: 2016/05/28 Error parsing page meta data for post/2012-01-08-&gt;move-gnome-to-fluxbox.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2012-01-19-gentoojetty-with-a-war-file.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2012-01-26-debiannginx-with-ssl.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2012-02-24-libvirt-lvm-storge-backend.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2013-01-22-update-blog-1.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+CRITICAL: 2016/05/28 Errors reading pages: Error:yaml: line 2: did not find URI escaped octet for 2012-01-08-&gt;move-gnome-to-fluxbox.html
+Error:yaml: line 2: did not find URI escaped octet for 2012-01-19-gentoojetty-with-a-war-file.html
+Error:yaml: line 2: did not find URI escaped octet for 2012-01-26-debiannginx-with-ssl.html
+Error:yaml: line 2: did not find URI escaped octet for 2012-02-24-libvirt-lvm-storge-backend.html
+Error:yaml: line 2: did not find URI escaped octet for 2013-01-22-update-blog-1.html
+</code></pre>
+
+<p>The migration is not as simple as I did expect. This is because I have a lot of
+old files from my first blog as native html. I need to remove this to ensure that the server can start.
+I need to convert or add them later. In addtion I need to move the upload folder as well.</p>
+
+<p>While I was migrating, I found some fuck up in my configuration. I had once&hellip; many copy of the same blog on
+many different computes. I mixed stuff up. So at some point i did united them to a single folder on my x240
+But somehow some of the running version where empty.</p>
+
+<p>Right now I wasn able to fix that. So it also is something liek a clean the blog anyway.
+In addition I had to clean up the meta file so hugo would create the blog as intended.</p>
+
+<p>But when you play a bit around you might get the solution. Which was simple, I had to adjust the yaml code on the old files.
+As far As i can see is that there are some draft now published to the blog. Only the release date went missing.
+But that&rsquo;s detail work I will address tomorrow.</p>
+
+<p>Next is to create a archive site. This is usefull to get a list of all the public listed entries and compare them.
+But there is not such a thing in Hugo. But lucky me, there is a good form <a href="https://discuss.gohugo.io/t/blog-archives-page/2577/17">entry</a></p>
+
+<p>I followd the secound example. It&rsquo;s not perfect but the
+I change  some of the stuff. Like to add to the new theme the a 404 page:</p>
+
+<p>cp  themes/hyde-x/layouts/404.html ./themes/purehugo/layouts/</p>
+
+<p>In the end I had to manuel update my html page with a page</p>
+
+<p>Deployment via <a href="https://github.com/mindok/hugodeploy">hugodeploy</a></p>
+
+<p>But this also didn&rsquo;t went well. In the end I just did run rsync of the public folder.</p>
+
+<p>In the end I hade to add a redirect from nginx for the rss link. In the <code>/</code> location.</p>
+
+<pre><code>rewrite ^/atom.xml /index.xml permanent; 
+</code></pre>
+
+<p>One think that comes to my mind is the question how well Hugo is going to work on the long run.
+Octopress was really nice, but with time the code stop working because the ruby package keep being changing. So far I
+can see that the project is more active than octopress ever was. But only time can tell</p>
+
+<p>best regards
+Akendo</p>
+
+<p>PS: This need to be clean up later. But for the moment I&rsquo;m done with the router</p>
+
+</article>
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+</div>
+</div>
+<script src="https://blog.akendo.eu/js/theme.js" type="text/javascript"></script>
+
+</body>
+</html>
+

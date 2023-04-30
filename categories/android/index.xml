@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/categories/android/</link>
+    <description>Recent content in Android on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Sun, 26 Dec 2021 18:10:37 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LineageOS update</title>
+      <link>https://blog.akendo.eu/post/2021-12-26-lineageos/</link>
+      <pubDate>Sun, 26 Dec 2021 18:10:37 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-12-26-lineageos/</guid>
+      <description>I&amp;rsquo;ve updated my Android phone and wanted to adde some note about to it.</description>
+    </item>
+    
+  </channel>
+</rss>

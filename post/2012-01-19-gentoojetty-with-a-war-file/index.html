@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>[Gentoo]Jetty with a .WAR file &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-01-19 00:00:00 &#43;0000 UTC">January 19, 2012</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/.war/">.war</a> <a href="https://blog.akendo.eu/tags/64-bit/">64-bit</a> <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/howto/">howto</a> <a href="https://blog.akendo.eu/tags/java/">java</a> <a href="https://blog.akendo.eu/tags/java/">java</a> <a href="https://blog.akendo.eu/tags/jetty/">jetty</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/overlay/">overlay</a> <a href="https://blog.akendo.eu/tags/software/">software</a> <a href="https://blog.akendo.eu/tags/system/">system</a> <a href="https://blog.akendo.eu/tags/webserver/">webserver</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">[Gentoo]Jetty with a .WAR file</h1>
+<div class="post-line"></div>
+
+		
+
+		<h5>Jetty with a .WAR file</h5>
+In my company i currenly have a lot to do with Scala Lift. We're developing some stuff with it, but because it takes a lots of time to setup a Scala environment and we need quick show solution, we'll go with a .war file.
+
+The problem on my gentoo is, there is no jetty packages, so i searched for some overlays. I still got the java-overlay. With eix jetty, i'm searching for jetty:
+
+<pre  LANG="BASH" line="1">* www-servers/jetty [1]
+Available versions: (5) ~5.1.3-r1
+ {doc source test}
+ Homepage: http://www.mortbay.org/
+ Description: A Lightweight Servlet Engine</pre>
+
+The jetty version is outdate, so i'm downloading the jetty from the offical webpage:
+
+<pre  LANG="BASH" line="1">wget -c http://dist.codehaus.org/jetty/jetty-6.1.26/jetty-6.1.26.zip
+#Now unzip it
+mkdir jetty &amp;&amp; unzip jetty-6.1.26.zip -d jetty/</pre>
+
+during the download i found a <a title="Deploying war in jetty" href="http://lifeofaprogrammergeek.blogspot.com/2010/06/deploying-war-in-jetty.html" target="_blank">useful blog entry</a> about jetty for debian.  How to deploy a .WAR file there. It's little bit like tomcat but just easier.
+
+Move you .WAR File to the $JETTY_HOME/webapps/ folder and start the Jetty Server.
+
+<pre  LANG="BASH" line="1">java -jar start.jar</pre>
+
+I found also on the overlays.gentoo an updated version of jetty, this can be found on the dustin overlay
+
+<pre  LANG="BASH" line="1">layman -a dustin
+eix-sync &amp;&amp; eix jetty
+* www-servers/jetty [1]
+ Available versions: (6) ~6.1.24
+ {elibc_FreeBSD}
+ Homepage: http://jetty.codehaus.org/
+ Description: Jetty Web Server; Java Servlet container
+[1] "dustin" /var/lib/layman/dustin</pre>
+
+I add the =www-servers/jetty-6.1.24 ~amd64 to /etc/portage/package.keywords, now install the jetty:
+
+<pre  LANG="BASH" line="1">emerge -avq jetty</pre>
+
+so far
+
+Akendo
+<h4>Web Sources:</h4>
+<address><a href="http://lifeofaprogrammergeek.blogspot.com/2010/06/deploying-war-in-jetty.html">http://lifeofaprogrammergeek.blogspot.com/2010/06/deploying-war-in-jetty.html</a></address><address><a href="http://overlays.gentoo.org/proj/java">http://overlays.gentoo.org/proj/java</a></address><address><a href="http://gpo.zugaina.org/www-servers/jetty">http://gpo.zugaina.org/www-servers/jetty</a></address><address><a href="http://www.gentoo.org/proj/en/java/">http://www.gentoo.org/proj/en/java/</a></address>&nbsp;
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-01-18-no-iwlagn-in-linux-3-2/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-01-26-debiannginx-with-ssl/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.954080325 &#43;0200 CEST m=&#43;0.133219951">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

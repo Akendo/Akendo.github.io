@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>CI/CD &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-12-27 18:56:43 &#43;0100 CET">December 27, 2021</time>
+        <br>
+        <span>1 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/ci/cd/">CI/CD</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">CI/CD</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>I&rsquo;ve got some time to get back to <a href="/categories/ci/cd/">CI/CD project</a>. At this state I need a way to trigger the update the blog sources from git. For this I create a small shell script that will update the git repo. It listen on port 7777 and triggers a pull.</p>
+<pre><code>#!/usr/bin/env bash
+
+echo &quot;[run-updater]: Starting&quot;
+test -f /tmp/updater.pid &amp;&amp; kill $(cat /tmp/updater.pid) &amp;&amp; rm /tmp/updater.pid &amp;&amp; echo &quot;[run-updater]: Restart updater&quot;
+echo $$ &gt; /tmp/updater.pid
+while true; 
+do
+        echo -e &quot;HTTP/1.1 204 No Content\r\nConnection: close\r\n\r&quot; |   nc -l 0.0.0.0 7777; bash update.sh
+done
+</code></pre>
+<p>Next is to run the hugo server</p>
+<pre><code>#!/usr/bin/env bash
+
+
+test -f /tmp/hugo.pid &amp;&amp; kill $(cat /tmp/hugo.pid)
+#TMP_DIR=$(mktemp -d)
+
+#cd $TMP_DIRS
+cd /tmp/
+test -d Blog || git clone --recursive ssh://git@git.akendo.eu/akendo/Blog.git
+
+cd Blog
+git pull
+hugo 
+hugo server -D -b $IP --bind $IP &amp; 
+pgrep hugo &gt; /tmp/hugo.pid
+cd tools
+bash run-updater.sh &amp;
+</code></pre>
+<p>Now I can git commit from my phone and trigger it via curl build.akendo.eu 7777 (this is just a example). Next is to create a docker container in which the process is executed. For this I pull an archlinux image and install hugo. Now I need to sync the git sources into the docker container. But I do this tomorrow.</p>
+<p>So far,<br>
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-12-26-lineageos/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-12-28-blogging-on-the-phone/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:20.00103665 &#43;0200 CEST m=&#43;0.180176276">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

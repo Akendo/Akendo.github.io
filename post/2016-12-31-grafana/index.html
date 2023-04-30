@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>grafana &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2016-12-31 18:03:51 &#43;0100 CET">December 31, 2016</time>
+        <br>
+        <span>5 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/development/">Development</a>
+	
+        <a href="https://blog.akendo.eu/categories/testing/">Testing</a>
+	
+        <a href="https://blog.akendo.eu/categories/grafana/">grafana</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/grafana/">grafana</a> <a href="https://blog.akendo.eu/tags/influxdb/">influxdb</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">grafana</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>I attended the <a href="https://events.ccc.de/tag/33c3/">33c3</a> in Hamburg. A awesome event, as always. One of the slogan: &ldquo;use more bandwidth!&rdquo;.
+To display the current amount of data that has been sent a <a href="https://dashboard.congress.ccc.de/">dashboard</a> (Note: Down to this time of the year) was created. I want to have something similar. So I started digging into the dash board while be on the congress. Which is running on <a href="http://grafana.org/">grafana</a>.</p>
+<h1 id="grafana">Grafana</h1>
+<p>What is grafana?</p>
+<blockquote>
+<p>Grafana is a open source metric analytics &amp; visualization suite. It is most commonly used for visualizing time series data for infrastructure and application analytics but many use it in other domains including industrial sensors, home automation, weather, and process control.</p>
+</blockquote>
+<p><em>Quote from the <a href="http://docs.grafana.org/">docs</a></em></p>
+<p><img src="https://blog.akendo.eu/pictures/grafana.png" alt="grafana">
+A similar look, but with more details on bandwidth, this is the dashboard I created.</p>
+<h2 id="setup">Setup</h2>
+<p>For testing it, I create a VM, a script that captures my traffic on a interface (wlan0) and a Database.
+You can download grafana with a fitting <a href="http://grafana.org/download/">binary</a> from the project page.
+My example VM was ubuntu 14.04, create with vagrant.</p>
+<pre tabindex="0"><code>wget https://grafanarel.s3.amazonaws.com/builds/grafana_4.0.2-1481203731_amd64.deb
+sudo apt-get install -y adduser libfontconfig
+sudo dpkg -i grafana_4.0.2-1481203731_amd64.deb
+</code></pre><p><em>Note: only use this type of installation for testing, for production use please add the repository!</em></p>
+<p>Next step is to read the <a href="http://docs.grafana.org/guides/getting_started/">getting started</a>. You&rsquo;ll recognize that a datasource is necessary.
+Using Plaintext is not a option.</p>
+<h2 id="data-sources--influxdb">Data sources / InfluxDB</h2>
+<p>For the sake of simplicity, I used influxDB, as described <a href="http://docs.grafana.org/datasources/influxdb/">here</a>.</p>
+<p>What&rsquo;s that? Again a quote from they <a href="https://docs.influxdata.com/influxdb/v1.1/">docs</a></p>
+<blockquote>
+<p>InfluxDB is a time series database built from the ground up to handle high write and query loads. It is the second piece of the TICK stack. InfluxDB is meant to be used as a backing store for any use case involving large amounts of timestamped data, including DevOps monitoring, application metrics, IoT sensor data, and real-time analytics.</p>
+</blockquote>
+<p>I has a neat rest api you can sent your data to.</p>
+<h3 id="installation">Installation</h3>
+<p>Same simple tick like before for the <a href="https://docs.influxdata.com/influxdb/v1.1/introduction/installation/">installation</a>:</p>
+<pre tabindex="0"><code>wget https://dl.influxdata.com/influxdb/releases/influxdb_1.1.1_amd64.deb
+sudo dpkg -i influxdb_1.1.1_amd64.deb
+</code></pre><p><em>Note: only use this type of installation for testing, for production use please add the repository!</em></p>
+<h3 id="enable-remote-access-for-influxdb">enable remote access for InfluxDB</h3>
+<p>Because I didn&rsquo;t create the data on the VM itself, a remote host needs access to the db. InfluxDB is configure to
+allow access ONLY from localhost. Yet without any further authentication, how great this is seems debatable.
+But for another node you need to change within the <code>/etc/influxdb/influxdb.conf</code> the <code>auth-enabled</code> from <code>true</code> to <code>false</code>.</p>
+<p><em>Note: This is only done of the sake of testing!</em></p>
+<h3 id="influxdb-create-a-db">InfluxDB create a db</h3>
+<p>Just <a href="https://docs.influxdata.com/influxdb/v1.1/introduction/getting_started/">start</a> the influx-shell and create a db. Note: The official way, as documented on github is broken&hellip;.</p>
+<pre tabindex="0"><code>influx -precision rfc3339
+CREATE DATABASE mydb
+</code></pre><h2 id="get-network-data-the-hacky-way">Get network data, the hacky way</h2>
+<p>There are many great tools out for collecting network statics, I prefer for example <code>vnstat</code>. But for getting straightforward data it&rsquo;s
+quite a pain. So instead I use python to do this job.</p>
+<h3 id="psutil"><code>psutil</code></h3>
+<p>There is useful python module, called <a href="https://pypi.python.org/pypi/psutil/">psutil</a>. It can read data from the <code>/proc/</code> filesystem in an easy fashion.
+To get the data send per second, you&rsquo;ll need to read the <code>/proc/net/dev</code>. In there is a static for network interfaces.</p>
+<pre tabindex="0"><code>Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+  eth0:  217872    1985    0    0    0     0          0         0   202460    1690    0    0    0     0       0          0
+  eth1:  237343     500    0    0    0     0          0         0   852594     594    0    0    0     0       0          0
+    lo:  262258     570    0    0    0     0          0         0   262258     570    0    0    0     0       0          0
+docker0:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+</code></pre><p>_ content of a <code>/proc/net/dev</code> file _</p>
+<p>Next is to select the interface of your desire and create the delta of the receive/transmitted byte and/or packets.</p>
+<p>Here&rsquo;s the script to get the traffic in one second on an interface:</p>
+<pre tabindex="0"><code>#!/usr/bin/env python3
+&#34;&#34;&#34;
+Interface static 
+
+Usage:
+  interface-statistic.py help | --help | -h
+  interface-statistic.py version| --version | -v
+  interface-statistic.py &lt;interface&gt;
+
+Akendo 2016
+Apache 2.0
+&#34;&#34;&#34;
+
+
+# https://pypi.python.org/pypi/psutil/
+import psutil # for access to the procfs
+from docopt import docopt
+from time import sleep
+
+class interface:
+  def __init__(self, interface_name):
+      # test for /sys/class/net/{interface} is, else this is not existing interface
+      # test for /sys/class/net/{interface}/link_mode is 1
+      if interface_name not in psutil.net_if_stats():
+        raise Exception(&#39;invalid interace name!&#39;)
+      if not psutil.net_if_stats()[interface_name].isup:
+        raise Exception(&#39;interace is down!&#39;)
+      self.interface_name = interface_name
+      self.data = []
+
+  def stats(self, interface_name):
+    # 0, bytes_sent
+    # 1, bytes_recv 
+    sent_a = psutil.net_io_counters(pernic=True)[self.interface_name][0]
+    recv_a = psutil.net_io_counters(pernic=True)[self.interface_name][1]
+    sleep(1)
+    sent_b = psutil.net_io_counters(pernic=True)[self.interface_name][0]
+    recv_b = psutil.net_io_counters(pernic=True)[self.interface_name][1]
+    print(&#39;TX/s:{0} RX/s:{1}&#39;.format(sent_b - sent_a, recv_b - recv_a))
+
+
+if __name__ == &#39;__main__&#39;:
+  arguments = docopt(__doc__, version=&#39;Interface static  0.0a&#39;)
+  if &#39;&lt;interface&gt;&#39; in  arguments:
+    iface = arguments[&#39;&lt;interface&gt;&#39;]
+    net = interface(iface)
+    net.stats(iface)
+  else: 
+    print(arguments)
+</code></pre><p>When the code is execute with an valid interface, that&rsquo;s up and running, you&rsquo;ll get the traffic from the last second.</p>
+<pre tabindex="0"><code>python interface-statistic.py enp0s25
+TX/s:102 RX/s:102
+</code></pre><h2 id="putting-everything-together">Putting everything together</h2>
+<p>Next is to send the data to the influxdb and configure grafana to display this dataset.
+Here&rsquo;s a hacky bash script to send it to the db. I just was to lacy at this point to do this proper in python.</p>
+<pre tabindex="0"><code>#!/bin/env bash
+
+while /bin/true;
+do
+out=$(python interface-statistic.py wlp3s0)
+curl -XPOST &#39;http://192.168.56.200:8086/write?db=mydb&#39; -d &#34;traffic,host=x240 up=$(echo ${out}|cut -d &#39;:&#39; -f 2 |sed &#39;s/[^0-9]*//g&#39;),down=$(echo ${out}|cut -d &#39;:&#39; -f 3 )&#34;
+done
+</code></pre><p>This will create a measurement in influxdb, with the tag host with value x240, with two field-keys. Their contains the value <code>up</code> and <code>down</code>.
+Let check this:</p>
+<pre tabindex="0"><code>influx -precision rfc3339
+Visit https://enterprise.influxdata.com to register for updates, InfluxDB server management, and monitoring.
+Connected to http://localhost:8086 version 1.1.1
+InfluxDB shell version: 1.1.1
+&gt; use mydb
+Using database mydb
+SELECT &#34;down&#34;, &#34;up&#34; FROM &#34;traffic&#34; 
+...
+16-12-30T17:05:50.226740631Z  1268            816
+2016-12-30T17:05:51.319601571Z  3815            1836
+2016-12-30T17:05:52.401584693Z  4467            3186
+2016-12-30T17:05:53.512383018Z  1137            758
+2016-12-30T17:05:54.600852827Z  2857            1200
+2016-12-30T17:05:55.698312396Z  2814            1164
+2016-12-30T17:05:56.81280255Z   2898            372
+2016-12-30T17:05:57.885670347Z  3000            1284
+2016-12-30T17:05:59.040079442Z  2264            792
+2016-12-30T17:06:00.134257182Z  1522            552
+2016-12-30T17:06:07.686102817Z  2210            416
+...
+</code></pre><p>Here we go! Now we can utilize this in the dashboard!</p>
+<h2 id="create-a-dashboard-in-grafana">create a dashboard in grafana</h2>
+<p>Last step is to add a <a href="https://wiki.archlinux.org/index.php/Grafana#Creating_Grafana_dashboard">dashboard</a> and let select the right data set.
+The result can be seen above.</p>
+<h1 id="recap">recap</h1>
+<p>grafana is a nice tool, it also includes an alert feature that will allow you to notify in case a thrash value is hit. It&rsquo;s a tool I&rsquo;m going to use in the further more.</p>
+<p>best regards
+Akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2016-12-31-happy-new-year-2017/" class="left arrow">&#8592;</a>
+		<a href="/post/2017-03-29-notes-about-hugo/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.966665284 &#43;0200 CEST m=&#43;0.145804920">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PV on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/categories/pv/</link>
+    <description>Recent content in PV on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Sun, 25 Apr 2021 08:43:29 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/categories/pv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automated Power Recording</title>
+      <link>https://blog.akendo.eu/post/2021-04-25-automated-power-recording/</link>
+      <pubDate>Sun, 25 Apr 2021 08:43:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-04-25-automated-power-recording/</guid>
+      <description>This post continues on the post from 12 of January[0].</description>
+    </item>
+    
+    <item>
+      <title>Grafana Part3</title>
+      <link>https://blog.akendo.eu/post/2021-04-24-grafana-part3/</link>
+      <pubDate>Sat, 24 Apr 2021 19:25:53 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-04-24-grafana-part3/</guid>
+      <description>There is more to the Netstats subject, but I&amp;rsquo;m going to continue with that later on.</description>
+    </item>
+    
+    <item>
+      <title>Netstats</title>
+      <link>https://blog.akendo.eu/post/2021-04-23-netstats/</link>
+      <pubDate>Fri, 23 Apr 2021 15:07:00 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-04-23-netstats/</guid>
+      <description>The next part excites me, I’ve been working on this code on different occasions for some years now.</description>
+    </item>
+    
+    <item>
+      <title>Grafana Part2 - waiting sockets</title>
+      <link>https://blog.akendo.eu/post/2021-04-12-grafana-part2/</link>
+      <pubDate>Mon, 12 Apr 2021 11:11:18 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-04-12-grafana-part2/</guid>
+      <description>So the next step was to write a simple loop in bash and get every second the data.</description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>https://blog.akendo.eu/post/2021-04-11-grafana/</link>
+      <pubDate>Sun, 11 Apr 2021 17:10:52 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-04-11-grafana/</guid>
+      <description>This is a follow-up post for my PV and Power Recording.</description>
+    </item>
+    
+    <item>
+      <title>Power Recording</title>
+      <link>https://blog.akendo.eu/post/2021-01-12-pv-power-recording/</link>
+      <pubDate>Tue, 12 Jan 2021 08:04:00 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-01-12-pv-power-recording/</guid>
+      <description>This is a follow up post for my PV.
+One thing that was important to me when installing the Solar-Panel was to know how much energy was generated.</description>
+    </item>
+    
+    <item>
+      <title>Photo Voltaic</title>
+      <link>https://blog.akendo.eu/post/2021-01-08-photo-voltaic/</link>
+      <pubDate>Fri, 08 Jan 2021 20:29:35 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-01-08-photo-voltaic/</guid>
+      <description>Since my youngest days I’m fascinated by PV-panels, Photo Voltaic or simple solar panel.</description>
+    </item>
+    
+  </channel>
+</rss>

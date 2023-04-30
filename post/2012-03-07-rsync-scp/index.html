@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>rsync - the better scp &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-03-07 00:00:00 &#43;0000 UTC">March 7, 2012</time>
+        <br>
+        <span>3 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/bash/">bash</a> <a href="https://blog.akendo.eu/tags/console/">console</a> <a href="https://blog.akendo.eu/tags/cp/">cp</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a> <a href="https://blog.akendo.eu/tags/howto/">howto</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/scp/">scp</a> <a href="https://blog.akendo.eu/tags/system/">system</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">rsync - the better scp</h1>
+<div class="post-line"></div>
+
+		
+
+		Regard this <a href="http://www.linuxforum.com/threads/639-Upload-files-with-ssh-scp-in-Linux" target="_blank">Post</a>, i make this post. First: scp is great. But i recomand to use <em>rsync</em> instead. It has replace for me also the <em>cp</em> and <em>scp</em> command. Why?
+
+Simple rsync is more powerful. I allows me dry runs, then it's very efficient. File moves should be easy and save. That is what rsync does! It's some tool that need a little bit use.
+
+rsync is simply for backups, but that is almost the same coping around like the cp/scp.
+<h2>Some examples</h2>
+Start with a dry run:
+<pre LANG="BASH" LINE="1">rsync -nv  somefile user@server:/path/to/copy</pre>
+This will connect as user to server. Then show what he will copying, That is very useful to check when your running recusive. A / makes a lots of different in the path showing.
+<pre LANG="BASH" LINE="1"> rsync -rnv  somefolder user@server:/path/to/copy/
+somefolder/a</pre>
+
+<pre LANG="BASH" LINE="1">rsync -rnv  somefolder/ user@server:/path/to/copy/
+./a</pre>
+&nbsp;
+<h2>Problems with scp</h2>
+You have a big file you want to push to your vServer, you don't want fill up all of your bandwidth so you set a set a limit of for bw.  Your using scp -l, so we setting a limit of 150 kB/s
+<pre LANG="BASH" LINE="1">scp -l 150 somefile user@server:/path/to/save</pre>
+I got some wired problem with the scp limiter. Sometimes it works, sometimes it didn't. Why?
+
+That is the version with rsync
+<pre LANG="BASH" LINE="1">rsync --bwlimit 150 somefile user@server:/path/to/save</pre>
+It's basically the same, but it worked reliable on <em>rsync</em>.
+
+But when the copy process stops before your done (lost connection for example) you have to start over again. .  The solution is using inplace option in rsync:
+
+&nbsp;
+
+inplace copy:
+
+rsync is able to copy a file on inplace. This very important you are able to suspend a copy process.
+<pre LANG="BASH" LINE="1">rsync --inplace somefile user@server:/path/to/save</pre>
+<pre>(Lost Connection)</pre>
+<pre LANG="BASH" LINE="1">rsync --inplace somefile user@server:/path/to/save</pre>
+&nbsp;
+
+Keeping the rights, scp will copy and place with the default umask of the system user. rsync allow you to keep the right permission with -a option
+<pre LANG="BASH" LINE="1">ls -l somefile
+-rw-r--r-- 1 akendo akendo 347  4. Dez 16:21 somefile</pre>
+<pre  LANG="BASH" LINE="1">scp -a somefile user@server:/path/to/save</pre>
+<pre  LANG="BASH" LINE="1">user@server: ls -l somefile
+-rw-r----- 1 user user 347  Mar  7 00:19 somefile</pre>
+<pre LANG="BASH" LINE="1">rsync -a somefile user@server:/path/to/save</pre>
+<pre  LANG="BASH" LINE="1">user@server: ls -l somefile
+-rw-r--r-- 1 akendo akendo 347  4. Dez 16:21 somefile</pre>
+As you can see, lose the User/Groups , Time Stamp will be lost with scp. In rsync this will remain the same.
+
+&nbsp;
+
+Using Humanreadable
+<pre LANG="BASH" LINE="1">rsync -vh somefile user@server:/path/to/copy
+somefile
+sent 2.02K bytes received 112 bytes 1.42K bytes/sec
+total size is 964.25M speedup is 452912.60 (DRY RUN)</pre>
+&nbsp;
+
+Some nice looking example, to clone a folder:
+<pre  LANG="BASH" LINE="1">rsync -rauvh /file user@server:/path/to/save</pre>
+This will copy the folder "file" to "/path/to/save" on the host server as user.
+
+In some other post i show the best way of using it as a backup method.
+Feel free to add comments or improve this post. 
+
+&nbsp;
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-02-24-fix-libgeoscso/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-03-12-enable-remote-access-postgresql/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.951007575 &#43;0200 CEST m=&#43;0.130147201">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

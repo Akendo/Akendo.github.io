@@ -1,0 +1,2243 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/</link>
+    <description>Recent content in Tags on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 03 Feb 2022 10:34:32 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernet</title>
+      <link>https://blog.akendo.eu/tags/kubernet/</link>
+      <pubDate>Thu, 03 Feb 2022 10:34:32 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/kubernet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neuvector</title>
+      <link>https://blog.akendo.eu/tags/neuvector/</link>
+      <pubDate>Thu, 03 Feb 2022 10:34:32 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/neuvector/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>100DaysToOffload</title>
+      <link>https://blog.akendo.eu/tags/100daystooffload/</link>
+      <pubDate>Fri, 31 Dec 2021 20:56:12 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/100daystooffload/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitea</title>
+      <link>https://blog.akendo.eu/tags/gitea/</link>
+      <pubDate>Wed, 29 Dec 2021 22:55:53 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gitea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gogs</title>
+      <link>https://blog.akendo.eu/tags/gogs/</link>
+      <pubDate>Wed, 29 Dec 2021 22:55:53 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gogs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>water</title>
+      <link>https://blog.akendo.eu/tags/water/</link>
+      <pubDate>Wed, 29 Dec 2021 16:34:32 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/water/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XSS</title>
+      <link>https://blog.akendo.eu/tags/xss/</link>
+      <pubDate>Wed, 29 Dec 2021 16:34:32 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/xss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>https://blog.akendo.eu/tags/android/</link>
+      <pubDate>Tue, 28 Dec 2021 09:28:43 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LineageOS</title>
+      <link>https://blog.akendo.eu/tags/lineageos/</link>
+      <pubDate>Sun, 26 Dec 2021 18:10:37 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/lineageos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Psychology</title>
+      <link>https://blog.akendo.eu/tags/psychology/</link>
+      <pubDate>Wed, 22 Dec 2021 12:43:47 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/psychology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://blog.akendo.eu/tags/java/</link>
+      <pubDate>Sat, 18 Dec 2021 10:21:09 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://blog.akendo.eu/tags/hugo/</link>
+      <pubDate>Sat, 11 Dec 2021 15:44:10 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>News</title>
+      <link>https://blog.akendo.eu/tags/news/</link>
+      <pubDate>Tue, 26 Oct 2021 13:52:01 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/news/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://blog.akendo.eu/tags/security/</link>
+      <pubDate>Wed, 14 Jul 2021 10:47:01 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NodeJS</title>
+      <link>https://blog.akendo.eu/tags/nodejs/</link>
+      <pubDate>Mon, 05 Jul 2021 09:29:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/nodejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>React</title>
+      <link>https://blog.akendo.eu/tags/react/</link>
+      <pubDate>Mon, 05 Jul 2021 09:29:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/react/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node</title>
+      <link>https://blog.akendo.eu/tags/node/</link>
+      <pubDate>Sat, 03 Jul 2021 15:18:22 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSL</title>
+      <link>https://blog.akendo.eu/tags/ssl/</link>
+      <pubDate>Sat, 03 Jul 2021 15:18:22 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ssl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TLS</title>
+      <link>https://blog.akendo.eu/tags/tls/</link>
+      <pubDate>Mon, 14 Jun 2021 11:04:57 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/tls/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fuzzer</title>
+      <link>https://blog.akendo.eu/tags/fuzzer/</link>
+      <pubDate>Fri, 11 Jun 2021 12:04:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/fuzzer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JS</title>
+      <link>https://blog.akendo.eu/tags/js/</link>
+      <pubDate>Fri, 11 Jun 2021 12:04:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RBA</title>
+      <link>https://blog.akendo.eu/tags/rba/</link>
+      <pubDate>Fri, 11 Jun 2021 12:04:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/rba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgres</title>
+      <link>https://blog.akendo.eu/tags/postgres/</link>
+      <pubDate>Thu, 10 Jun 2021 09:46:07 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/postgres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Notes</title>
+      <link>https://blog.akendo.eu/tags/notes/</link>
+      <pubDate>Sun, 30 May 2021 18:59:59 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://blog.akendo.eu/tags/rust/</link>
+      <pubDate>Fri, 07 May 2021 11:46:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/rust/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ttrss</title>
+      <link>https://blog.akendo.eu/tags/ttrss/</link>
+      <pubDate>Fri, 07 May 2021 11:46:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ttrss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coping</title>
+      <link>https://blog.akendo.eu/tags/coping/</link>
+      <pubDate>Wed, 14 Apr 2021 09:37:55 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/coping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TCP</title>
+      <link>https://blog.akendo.eu/tags/tcp/</link>
+      <pubDate>Mon, 12 Apr 2021 11:11:18 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/tcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TCP_WAIT</title>
+      <link>https://blog.akendo.eu/tags/tcp_wait/</link>
+      <pubDate>Mon, 12 Apr 2021 11:11:18 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/tcp_wait/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wait</title>
+      <link>https://blog.akendo.eu/tags/wait/</link>
+      <pubDate>Mon, 12 Apr 2021 11:11:18 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/wait/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Netstat</title>
+      <link>https://blog.akendo.eu/tags/netstat/</link>
+      <pubDate>Sat, 10 Apr 2021 09:14:07 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/netstat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt-pinning</title>
+      <link>https://blog.akendo.eu/tags/apt-pinning/</link>
+      <pubDate>Mon, 29 Mar 2021 15:11:05 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/apt-pinning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Archlinux</title>
+      <link>https://blog.akendo.eu/tags/archlinux/</link>
+      <pubDate>Mon, 29 Mar 2021 15:11:05 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/archlinux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>debian</title>
+      <link>https://blog.akendo.eu/tags/debian/</link>
+      <pubDate>Mon, 29 Mar 2021 15:11:05 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dmesg</title>
+      <link>https://blog.akendo.eu/tags/dmesg/</link>
+      <pubDate>Mon, 29 Mar 2021 15:11:05 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/dmesg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gentoo</title>
+      <link>https://blog.akendo.eu/tags/gentoo/</link>
+      <pubDate>Mon, 29 Mar 2021 15:11:05 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gentoo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://blog.akendo.eu/tags/python/</link>
+      <pubDate>Wed, 24 Mar 2021 10:15:42 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Task</title>
+      <link>https://blog.akendo.eu/tags/task/</link>
+      <pubDate>Wed, 24 Mar 2021 10:15:42 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/task/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Warrior</title>
+      <link>https://blog.akendo.eu/tags/warrior/</link>
+      <pubDate>Wed, 24 Mar 2021 10:15:42 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/warrior/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>perl</title>
+      <link>https://blog.akendo.eu/tags/perl/</link>
+      <pubDate>Mon, 22 Mar 2021 21:09:43 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/perl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://blog.akendo.eu/tags/docker/</link>
+      <pubDate>Tue, 16 Mar 2021 19:45:54 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>i386</title>
+      <link>https://blog.akendo.eu/tags/i386/</link>
+      <pubDate>Tue, 16 Mar 2021 19:45:54 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/i386/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Habit</title>
+      <link>https://blog.akendo.eu/tags/habit/</link>
+      <pubDate>Mon, 15 Mar 2021 10:36:27 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/habit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TaskWarrior</title>
+      <link>https://blog.akendo.eu/tags/taskwarrior/</link>
+      <pubDate>Mon, 15 Mar 2021 10:36:27 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/taskwarrior/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>StopClock</title>
+      <link>https://blog.akendo.eu/tags/stopclock/</link>
+      <pubDate>Sat, 27 Feb 2021 19:46:59 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/stopclock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://blog.akendo.eu/tags/kernel/</link>
+      <pubDate>Thu, 25 Feb 2021 12:07:41 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MediaWiki</title>
+      <link>https://blog.akendo.eu/tags/mediawiki/</link>
+      <pubDate>Mon, 15 Feb 2021 23:41:33 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/mediawiki/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wifi</title>
+      <link>https://blog.akendo.eu/tags/wifi/</link>
+      <pubDate>Fri, 12 Feb 2021 16:23:53 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/wifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>learning</title>
+      <link>https://blog.akendo.eu/tags/learning/</link>
+      <pubDate>Fri, 29 Jan 2021 11:11:16 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ipv6</title>
+      <link>https://blog.akendo.eu/tags/ipv6/</link>
+      <pubDate>Thu, 28 Jan 2021 11:31:21 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ipv6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://blog.akendo.eu/tags/nginx/</link>
+      <pubDate>Thu, 28 Jan 2021 11:31:21 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>brain</title>
+      <link>https://blog.akendo.eu/tags/brain/</link>
+      <pubDate>Thu, 21 Jan 2021 08:50:26 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/brain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>narrative</title>
+      <link>https://blog.akendo.eu/tags/narrative/</link>
+      <pubDate>Thu, 21 Jan 2021 08:50:26 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/narrative/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Feedback</title>
+      <link>https://blog.akendo.eu/tags/feedback/</link>
+      <pubDate>Tue, 19 Jan 2021 10:36:09 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/feedback/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>writing</title>
+      <link>https://blog.akendo.eu/tags/writing/</link>
+      <pubDate>Tue, 19 Jan 2021 10:36:09 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/writing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hacks</title>
+      <link>https://blog.akendo.eu/tags/hacks/</link>
+      <pubDate>Thu, 14 Jan 2021 22:26:29 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/hacks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inverter</title>
+      <link>https://blog.akendo.eu/tags/inverter/</link>
+      <pubDate>Tue, 12 Jan 2021 08:04:00 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/inverter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PV</title>
+      <link>https://blog.akendo.eu/tags/pv/</link>
+      <pubDate>Tue, 12 Jan 2021 08:04:00 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/pv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iptables</title>
+      <link>https://blog.akendo.eu/tags/iptables/</link>
+      <pubDate>Mon, 11 Jan 2021 21:17:04 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/iptables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nftable</title>
+      <link>https://blog.akendo.eu/tags/nftable/</link>
+      <pubDate>Mon, 11 Jan 2021 21:17:04 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/nftable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>https://blog.akendo.eu/tags/general/</link>
+      <pubDate>Fri, 01 Jan 2021 16:47:33 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/general/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gemeinschaft and Gesellschaft</title>
+      <link>https://blog.akendo.eu/tags/gemeinschaft-and-gesellschaft/</link>
+      <pubDate>Mon, 21 Dec 2020 11:31:53 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gemeinschaft-and-gesellschaft/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Podcast</title>
+      <link>https://blog.akendo.eu/tags/podcast/</link>
+      <pubDate>Mon, 21 Dec 2020 11:31:53 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/podcast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mail</title>
+      <link>https://blog.akendo.eu/tags/mail/</link>
+      <pubDate>Thu, 10 Dec 2020 07:15:24 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/mail/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quake</title>
+      <link>https://blog.akendo.eu/tags/quake/</link>
+      <pubDate>Thu, 10 Dec 2020 07:15:24 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/quake/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://blog.akendo.eu/tags/ssh/</link>
+      <pubDate>Wed, 09 Dec 2020 14:40:08 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code of Conduct</title>
+      <link>https://blog.akendo.eu/tags/code-of-conduct/</link>
+      <pubDate>Fri, 27 Nov 2020 09:39:06 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/code-of-conduct/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microaggressions</title>
+      <link>https://blog.akendo.eu/tags/microaggressions/</link>
+      <pubDate>Fri, 27 Nov 2020 09:39:06 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/microaggressions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orwell</title>
+      <link>https://blog.akendo.eu/tags/orwell/</link>
+      <pubDate>Fri, 27 Nov 2020 09:39:06 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/orwell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>semgrep</title>
+      <link>https://blog.akendo.eu/tags/semgrep/</link>
+      <pubDate>Sat, 21 Nov 2020 19:18:05 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/semgrep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSRF</title>
+      <link>https://blog.akendo.eu/tags/ssrf/</link>
+      <pubDate>Sat, 21 Nov 2020 19:18:05 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ssrf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>buddhism</title>
+      <link>https://blog.akendo.eu/tags/buddhism/</link>
+      <pubDate>Thu, 05 Nov 2020 10:33:57 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/buddhism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>culture</title>
+      <link>https://blog.akendo.eu/tags/culture/</link>
+      <pubDate>Thu, 05 Nov 2020 10:33:57 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/culture/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVSS</title>
+      <link>https://blog.akendo.eu/tags/cvss/</link>
+      <pubDate>Thu, 05 Nov 2020 10:33:57 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/cvss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dyslexic</title>
+      <link>https://blog.akendo.eu/tags/dyslexic/</link>
+      <pubDate>Thu, 05 Nov 2020 10:33:57 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/dyslexic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>isolation</title>
+      <link>https://blog.akendo.eu/tags/isolation/</link>
+      <pubDate>Thu, 05 Nov 2020 10:33:57 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/isolation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Letsencrypt</title>
+      <link>https://blog.akendo.eu/tags/letsencrypt/</link>
+      <pubDate>Thu, 05 Nov 2020 10:33:57 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/letsencrypt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xorg</title>
+      <link>https://blog.akendo.eu/tags/xorg/</link>
+      <pubDate>Thu, 05 Nov 2020 10:33:57 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/xorg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Moral</title>
+      <link>https://blog.akendo.eu/tags/moral/</link>
+      <pubDate>Fri, 30 Oct 2020 13:29:11 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/moral/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Psychologies</title>
+      <link>https://blog.akendo.eu/tags/psychologies/</link>
+      <pubDate>Fri, 30 Oct 2020 13:29:11 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/psychologies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vaccinate</title>
+      <link>https://blog.akendo.eu/tags/vaccinate/</link>
+      <pubDate>Mon, 19 Oct 2020 11:54:26 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/vaccinate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Risk</title>
+      <link>https://blog.akendo.eu/tags/risk/</link>
+      <pubDate>Sun, 04 Oct 2020 16:32:36 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/risk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>what-if</title>
+      <link>https://blog.akendo.eu/tags/what-if/</link>
+      <pubDate>Sun, 04 Oct 2020 16:32:36 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/what-if/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jouhatsu</title>
+      <link>https://blog.akendo.eu/tags/jouhatsu/</link>
+      <pubDate>Wed, 23 Sep 2020 16:12:04 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/jouhatsu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>space</title>
+      <link>https://blog.akendo.eu/tags/space/</link>
+      <pubDate>Wed, 23 Sep 2020 16:12:04 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/space/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitbook</title>
+      <link>https://blog.akendo.eu/tags/gitbook/</link>
+      <pubDate>Tue, 22 Sep 2020 12:02:22 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gitbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mdbook</title>
+      <link>https://blog.akendo.eu/tags/mdbook/</link>
+      <pubDate>Tue, 22 Sep 2020 12:02:22 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/mdbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>attention</title>
+      <link>https://blog.akendo.eu/tags/attention/</link>
+      <pubDate>Sun, 06 Sep 2020 19:34:06 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/attention/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flashcards</title>
+      <link>https://blog.akendo.eu/tags/flashcards/</link>
+      <pubDate>Sun, 06 Sep 2020 19:34:06 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/flashcards/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>systemd</title>
+      <link>https://blog.akendo.eu/tags/systemd/</link>
+      <pubDate>Tue, 18 Aug 2020 12:56:01 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/systemd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>https://blog.akendo.eu/tags/blog/</link>
+      <pubDate>Mon, 10 Aug 2020 17:00:00 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenReflection</title>
+      <link>https://blog.akendo.eu/tags/openreflection/</link>
+      <pubDate>Mon, 10 Aug 2020 17:00:00 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/openreflection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decision</title>
+      <link>https://blog.akendo.eu/tags/decision/</link>
+      <pubDate>Fri, 17 Jul 2020 12:04:19 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/decision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fatigue</title>
+      <link>https://blog.akendo.eu/tags/fatigue/</link>
+      <pubDate>Fri, 17 Jul 2020 12:04:19 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/fatigue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Authentication</title>
+      <link>https://blog.akendo.eu/tags/authentication/</link>
+      <pubDate>Thu, 16 Jul 2020 10:51:23 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/authentication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blogging</title>
+      <link>https://blog.akendo.eu/tags/blogging/</link>
+      <pubDate>Thu, 16 Jul 2020 10:51:23 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/blogging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shoshin</title>
+      <link>https://blog.akendo.eu/tags/shoshin/</link>
+      <pubDate>Thu, 16 Jul 2020 10:51:23 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/shoshin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zipf</title>
+      <link>https://blog.akendo.eu/tags/zipf/</link>
+      <pubDate>Thu, 16 Jul 2020 10:51:23 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/zipf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resilient</title>
+      <link>https://blog.akendo.eu/tags/resilient/</link>
+      <pubDate>Fri, 19 Jun 2020 08:58:30 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/resilient/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>todayilearned</title>
+      <link>https://blog.akendo.eu/tags/todayilearned/</link>
+      <pubDate>Mon, 01 Jun 2020 13:15:14 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/todayilearned/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernets</title>
+      <link>https://blog.akendo.eu/tags/kubernets/</link>
+      <pubDate>Sat, 30 May 2020 09:58:58 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/kubernets/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>firefox</title>
+      <link>https://blog.akendo.eu/tags/firefox/</link>
+      <pubDate>Thu, 14 May 2020 10:15:07 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/firefox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPG</title>
+      <link>https://blog.akendo.eu/tags/gpg/</link>
+      <pubDate>Wed, 13 May 2020 14:46:19 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gpg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fax</title>
+      <link>https://blog.akendo.eu/tags/fax/</link>
+      <pubDate>Fri, 01 May 2020 18:23:01 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/fax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Slack</title>
+      <link>https://blog.akendo.eu/tags/slack/</link>
+      <pubDate>Mon, 16 Mar 2020 11:20:48 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/slack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privacy&#39;</title>
+      <link>https://blog.akendo.eu/tags/privacy/</link>
+      <pubDate>Sun, 08 Mar 2020 10:47:03 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hardware</title>
+      <link>https://blog.akendo.eu/tags/hardware/</link>
+      <pubDate>Sat, 07 Mar 2020 12:38:48 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ghostcat</title>
+      <link>https://blog.akendo.eu/tags/ghostcat/</link>
+      <pubDate>Wed, 04 Mar 2020 14:34:13 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ghostcat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ToDo</title>
+      <link>https://blog.akendo.eu/tags/todo/</link>
+      <pubDate>Sun, 01 Mar 2020 21:09:13 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/todo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>capabilities</title>
+      <link>https://blog.akendo.eu/tags/capabilities/</link>
+      <pubDate>Tue, 25 Feb 2020 17:43:30 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/capabilities/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nmap</title>
+      <link>https://blog.akendo.eu/tags/nmap/</link>
+      <pubDate>Tue, 25 Feb 2020 17:43:30 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/nmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>calendar</title>
+      <link>https://blog.akendo.eu/tags/calendar/</link>
+      <pubDate>Mon, 17 Feb 2020 19:14:27 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/calendar/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>khal</title>
+      <link>https://blog.akendo.eu/tags/khal/</link>
+      <pubDate>Mon, 17 Feb 2020 19:14:27 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/khal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vdirsyncer</title>
+      <link>https://blog.akendo.eu/tags/vdirsyncer/</link>
+      <pubDate>Mon, 17 Feb 2020 19:14:27 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/vdirsyncer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenBSD</title>
+      <link>https://blog.akendo.eu/tags/openbsd/</link>
+      <pubDate>Fri, 07 Feb 2020 21:32:10 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/openbsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kvm</title>
+      <link>https://blog.akendo.eu/tags/kvm/</link>
+      <pubDate>Thu, 06 Feb 2020 14:28:00 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/kvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>https://blog.akendo.eu/tags/vim/</link>
+      <pubDate>Tue, 04 Feb 2020 19:21:24 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CacheOut</title>
+      <link>https://blog.akendo.eu/tags/cacheout/</link>
+      <pubDate>Tue, 04 Feb 2020 18:59:43 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/cacheout/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Creativity</title>
+      <link>https://blog.akendo.eu/tags/creativity/</link>
+      <pubDate>Tue, 04 Feb 2020 18:59:43 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/creativity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>discord</title>
+      <link>https://blog.akendo.eu/tags/discord/</link>
+      <pubDate>Tue, 04 Feb 2020 18:59:43 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/discord/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tuf</title>
+      <link>https://blog.akendo.eu/tags/tuf/</link>
+      <pubDate>Tue, 04 Feb 2020 18:59:43 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/tuf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI</title>
+      <link>https://blog.akendo.eu/tags/ci/</link>
+      <pubDate>Sat, 01 Feb 2020 22:31:56 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://blog.akendo.eu/tags/documentation/</link>
+      <pubDate>Thu, 30 Jan 2020 19:45:28 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Generic</title>
+      <link>https://blog.akendo.eu/tags/generic/</link>
+      <pubDate>Sat, 25 Jan 2020 16:23:03 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/generic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fixes</title>
+      <link>https://blog.akendo.eu/tags/fixes/</link>
+      <pubDate>Thu, 23 Jan 2020 20:19:51 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/fixes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Philosophy</title>
+      <link>https://blog.akendo.eu/tags/philosophy/</link>
+      <pubDate>Wed, 22 Jan 2020 17:29:47 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/philosophy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Messy</title>
+      <link>https://blog.akendo.eu/tags/messy/</link>
+      <pubDate>Tue, 17 Dec 2019 19:45:38 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/messy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>coffee</title>
+      <link>https://blog.akendo.eu/tags/coffee/</link>
+      <pubDate>Tue, 03 Dec 2019 09:33:07 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/coffee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DEFCON</title>
+      <link>https://blog.akendo.eu/tags/defcon/</link>
+      <pubDate>Tue, 03 Dec 2019 09:33:07 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/defcon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keys</title>
+      <link>https://blog.akendo.eu/tags/keys/</link>
+      <pubDate>Tue, 03 Dec 2019 09:33:07 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/keys/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dependency</title>
+      <link>https://blog.akendo.eu/tags/dependency/</link>
+      <pubDate>Mon, 28 Oct 2019 11:44:44 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/dependency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>distractions</title>
+      <link>https://blog.akendo.eu/tags/distractions/</link>
+      <pubDate>Sun, 27 Oct 2019 15:55:14 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/distractions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DoH</title>
+      <link>https://blog.akendo.eu/tags/doh/</link>
+      <pubDate>Thu, 24 Oct 2019 20:35:31 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/doh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DoT</title>
+      <link>https://blog.akendo.eu/tags/dot/</link>
+      <pubDate>Thu, 24 Oct 2019 20:35:31 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/dot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lonelless</title>
+      <link>https://blog.akendo.eu/tags/lonelless/</link>
+      <pubDate>Tue, 22 Oct 2019 13:45:28 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/lonelless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Airserv</title>
+      <link>https://blog.akendo.eu/tags/airserv/</link>
+      <pubDate>Tue, 15 Oct 2019 13:15:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/airserv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emotion</title>
+      <link>https://blog.akendo.eu/tags/emotion/</link>
+      <pubDate>Mon, 14 Oct 2019 21:47:44 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/emotion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boredom</title>
+      <link>https://blog.akendo.eu/tags/boredom/</link>
+      <pubDate>Mon, 14 Oct 2019 10:45:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/boredom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>copy</title>
+      <link>https://blog.akendo.eu/tags/copy/</link>
+      <pubDate>Mon, 14 Oct 2019 10:45:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/copy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deepcopy</title>
+      <link>https://blog.akendo.eu/tags/deepcopy/</link>
+      <pubDate>Mon, 14 Oct 2019 10:45:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/deepcopy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Happiness</title>
+      <link>https://blog.akendo.eu/tags/happiness/</link>
+      <pubDate>Mon, 14 Oct 2019 10:45:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/happiness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>History</title>
+      <link>https://blog.akendo.eu/tags/history/</link>
+      <pubDate>Mon, 14 Oct 2019 10:45:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/history/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sleep</title>
+      <link>https://blog.akendo.eu/tags/sleep/</link>
+      <pubDate>Mon, 14 Oct 2019 10:45:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/sleep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pymy</title>
+      <link>https://blog.akendo.eu/tags/pymy/</link>
+      <pubDate>Sun, 29 Sep 2019 19:26:50 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/pymy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>School</title>
+      <link>https://blog.akendo.eu/tags/school/</link>
+      <pubDate>Sun, 29 Sep 2019 19:26:50 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/school/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conecpt</title>
+      <link>https://blog.akendo.eu/tags/conecpt/</link>
+      <pubDate>Wed, 25 Sep 2019 11:42:27 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/conecpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>creep</title>
+      <link>https://blog.akendo.eu/tags/creep/</link>
+      <pubDate>Wed, 25 Sep 2019 11:42:27 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/creep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MacOS</title>
+      <link>https://blog.akendo.eu/tags/macos/</link>
+      <pubDate>Tue, 10 Sep 2019 22:39:30 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bootguard</title>
+      <link>https://blog.akendo.eu/tags/bootguard/</link>
+      <pubDate>Sun, 01 Sep 2019 13:00:54 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/bootguard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TPM</title>
+      <link>https://blog.akendo.eu/tags/tpm/</link>
+      <pubDate>Sun, 01 Sep 2019 13:00:54 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/tpm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TreatModel</title>
+      <link>https://blog.akendo.eu/tags/treatmodel/</link>
+      <pubDate>Sun, 01 Sep 2019 13:00:54 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/treatmodel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pipe</title>
+      <link>https://blog.akendo.eu/tags/pipe/</link>
+      <pubDate>Wed, 28 Aug 2019 10:25:25 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/pipe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performanc</title>
+      <link>https://blog.akendo.eu/tags/performanc/</link>
+      <pubDate>Mon, 26 Aug 2019 10:51:14 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/performanc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Abstraction</title>
+      <link>https://blog.akendo.eu/tags/abstraction/</link>
+      <pubDate>Sat, 24 Aug 2019 14:34:03 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/abstraction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Procrastination</title>
+      <link>https://blog.akendo.eu/tags/procrastination/</link>
+      <pubDate>Fri, 23 Aug 2019 15:11:16 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/procrastination/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Love</title>
+      <link>https://blog.akendo.eu/tags/love/</link>
+      <pubDate>Sat, 17 Aug 2019 23:06:00 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/love/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NTP</title>
+      <link>https://blog.akendo.eu/tags/ntp/</link>
+      <pubDate>Thu, 15 Aug 2019 12:21:47 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ntp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GDPR</title>
+      <link>https://blog.akendo.eu/tags/gdpr/</link>
+      <pubDate>Tue, 13 Aug 2019 22:17:11 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gdpr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apple</title>
+      <link>https://blog.akendo.eu/tags/apple/</link>
+      <pubDate>Mon, 12 Aug 2019 12:20:31 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/apple/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Audit</title>
+      <link>https://blog.akendo.eu/tags/audit/</link>
+      <pubDate>Mon, 12 Aug 2019 12:20:31 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/audit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://blog.akendo.eu/tags/kubernetes/</link>
+      <pubDate>Mon, 12 Aug 2019 12:20:31 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SecureBoot</title>
+      <link>https://blog.akendo.eu/tags/secureboot/</link>
+      <pubDate>Mon, 12 Aug 2019 12:20:31 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/secureboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scarcity</title>
+      <link>https://blog.akendo.eu/tags/scarcity/</link>
+      <pubDate>Fri, 09 Aug 2019 11:30:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/scarcity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swap</title>
+      <link>https://blog.akendo.eu/tags/swap/</link>
+      <pubDate>Fri, 09 Aug 2019 11:30:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/swap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>https://blog.akendo.eu/tags/statistics/</link>
+      <pubDate>Sat, 27 Jul 2019 11:29:34 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A.I</title>
+      <link>https://blog.akendo.eu/tags/a.i/</link>
+      <pubDate>Tue, 23 Jul 2019 09:41:24 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/a.i/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OpenWRT</title>
+      <link>https://blog.akendo.eu/tags/openwrt/</link>
+      <pubDate>Tue, 23 Jul 2019 09:41:24 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/openwrt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WPA3</title>
+      <link>https://blog.akendo.eu/tags/wpa3/</link>
+      <pubDate>Tue, 23 Jul 2019 09:41:24 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/wpa3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Benchmarking</title>
+      <link>https://blog.akendo.eu/tags/benchmarking/</link>
+      <pubDate>Tue, 16 Jul 2019 10:12:44 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/benchmarking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Passwords</title>
+      <link>https://blog.akendo.eu/tags/passwords/</link>
+      <pubDate>Tue, 16 Jul 2019 10:12:44 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/passwords/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>XXE</title>
+      <link>https://blog.akendo.eu/tags/xxe/</link>
+      <pubDate>Tue, 16 Jul 2019 10:12:44 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/xxe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AMD</title>
+      <link>https://blog.akendo.eu/tags/amd/</link>
+      <pubDate>Sun, 14 Jul 2019 15:59:06 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/amd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Coreboot</title>
+      <link>https://blog.akendo.eu/tags/coreboot/</link>
+      <pubDate>Wed, 10 Jul 2019 19:35:24 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/coreboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://blog.akendo.eu/tags/development/</link>
+      <pubDate>Sat, 06 Jul 2019 13:54:39 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neuroscience</title>
+      <link>https://blog.akendo.eu/tags/neuroscience/</link>
+      <pubDate>Sat, 06 Jul 2019 13:54:39 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/neuroscience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Memory</title>
+      <link>https://blog.akendo.eu/tags/memory/</link>
+      <pubDate>Fri, 05 Jul 2019 17:24:40 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/memory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2FA</title>
+      <link>https://blog.akendo.eu/tags/2fa/</link>
+      <pubDate>Tue, 02 Jul 2019 00:14:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/2fa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TypeConfusion</title>
+      <link>https://blog.akendo.eu/tags/typeconfusion/</link>
+      <pubDate>Tue, 02 Jul 2019 00:14:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/typeconfusion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Attribution</title>
+      <link>https://blog.akendo.eu/tags/attribution/</link>
+      <pubDate>Tue, 25 Jun 2019 22:48:26 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/attribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://blog.akendo.eu/tags/javascript/</link>
+      <pubDate>Mon, 24 Jun 2019 15:50:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>profiling</title>
+      <link>https://blog.akendo.eu/tags/profiling/</link>
+      <pubDate>Mon, 24 Jun 2019 15:50:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/profiling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>recuperation</title>
+      <link>https://blog.akendo.eu/tags/recuperation/</link>
+      <pubDate>Sun, 16 Jun 2019 13:11:39 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/recuperation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KDE</title>
+      <link>https://blog.akendo.eu/tags/kde/</link>
+      <pubDate>Sat, 15 Jun 2019 11:03:03 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/kde/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wayland</title>
+      <link>https://blog.akendo.eu/tags/wayland/</link>
+      <pubDate>Sat, 15 Jun 2019 11:03:03 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/wayland/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graphite</title>
+      <link>https://blog.akendo.eu/tags/graphite/</link>
+      <pubDate>Sun, 26 May 2019 14:35:15 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/graphite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prometheus</title>
+      <link>https://blog.akendo.eu/tags/prometheus/</link>
+      <pubDate>Sun, 26 May 2019 14:35:15 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>https://blog.akendo.eu/tags/software/</link>
+      <pubDate>Sun, 26 May 2019 14:35:15 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conference</title>
+      <link>https://blog.akendo.eu/tags/conference/</link>
+      <pubDate>Sat, 16 Feb 2019 10:03:04 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Offensive</title>
+      <link>https://blog.akendo.eu/tags/offensive/</link>
+      <pubDate>Sat, 16 Feb 2019 10:03:04 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/offensive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Postgresql</title>
+      <link>https://blog.akendo.eu/tags/postgresql/</link>
+      <pubDate>Tue, 09 May 2017 15:32:53 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/postgresql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title> databreach</title>
+      <link>https://blog.akendo.eu/tags/databreach/</link>
+      <pubDate>Tue, 25 Apr 2017 11:26:26 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/databreach/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>infosec</title>
+      <link>https://blog.akendo.eu/tags/infosec/</link>
+      <pubDate>Tue, 25 Apr 2017 11:26:26 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/infosec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grafana</title>
+      <link>https://blog.akendo.eu/tags/grafana/</link>
+      <pubDate>Sat, 31 Dec 2016 18:03:51 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/grafana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>influxdb</title>
+      <link>https://blog.akendo.eu/tags/influxdb/</link>
+      <pubDate>Sat, 31 Dec 2016 18:03:51 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/influxdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>problem</title>
+      <link>https://blog.akendo.eu/tags/problem/</link>
+      <pubDate>Wed, 09 Mar 2016 21:48:30 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/problem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>https://blog.akendo.eu/tags/ruby/</link>
+      <pubDate>Wed, 09 Mar 2016 21:48:30 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CentOS</title>
+      <link>https://blog.akendo.eu/tags/centos/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gernal</title>
+      <link>https://blog.akendo.eu/tags/gernal/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gernal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://blog.akendo.eu/tags/linux/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>System</title>
+      <link>https://blog.akendo.eu/tags/system/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/system/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualization</title>
+      <link>https://blog.akendo.eu/tags/virtualization/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/virtualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Console</title>
+      <link>https://blog.akendo.eu/tags/console/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/console/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gem</title>
+      <link>https://blog.akendo.eu/tags/gem/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jetty</title>
+      <link>https://blog.akendo.eu/tags/jetty/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/jetty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
+      <link>https://blog.akendo.eu/tags/mysql/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>psql2mysql</title>
+      <link>https://blog.akendo.eu/tags/psql2mysql/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/psql2mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Apache</title>
+      <link>https://blog.akendo.eu/tags/apache/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualenv</title>
+      <link>https://blog.akendo.eu/tags/virtualenv/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/virtualenv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webserver</title>
+      <link>https://blog.akendo.eu/tags/webserver/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/webserver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Django</title>
+      <link>https://blog.akendo.eu/tags/django/</link>
+      <pubDate>Wed, 28 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pip</title>
+      <link>https://blog.akendo.eu/tags/pip/</link>
+      <pubDate>Wed, 28 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/pip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://blog.akendo.eu/tags/bash/</link>
+      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>psql</title>
+      <link>https://blog.akendo.eu/tags/psql/</link>
+      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/psql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>remote</title>
+      <link>https://blog.akendo.eu/tags/remote/</link>
+      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/remote/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cp</title>
+      <link>https://blog.akendo.eu/tags/cp/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/cp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Howto</title>
+      <link>https://blog.akendo.eu/tags/howto/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/howto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scp</title>
+      <link>https://blog.akendo.eu/tags/scp/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/scp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>libgeos</title>
+      <link>https://blog.akendo.eu/tags/libgeos/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/libgeos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ln</title>
+      <link>https://blog.akendo.eu/tags/ln/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/ln/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PostGIS</title>
+      <link>https://blog.akendo.eu/tags/postgis/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/postgis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://blog.akendo.eu/tags/git/</link>
+      <pubDate>Sat, 18 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://blog.akendo.eu/tags/github/</link>
+      <pubDate>Sat, 18 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitt</title>
+      <link>https://blog.akendo.eu/tags/gitt/</link>
+      <pubDate>Sat, 18 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gitt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>svn</title>
+      <link>https://blog.akendo.eu/tags/svn/</link>
+      <pubDate>Sat, 18 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/svn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>svn2git</title>
+      <link>https://blog.akendo.eu/tags/svn2git/</link>
+      <pubDate>Sat, 18 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/svn2git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apt-get</title>
+      <link>https://blog.akendo.eu/tags/apt-get/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/apt-get/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MongoDB</title>
+      <link>https://blog.akendo.eu/tags/mongodb/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monitoring</title>
+      <link>https://blog.akendo.eu/tags/monitoring/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nagios</title>
+      <link>https://blog.akendo.eu/tags/nagios/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/nagios/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emerge</title>
+      <link>https://blog.akendo.eu/tags/emerge/</link>
+      <pubDate>Fri, 03 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/emerge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gnome</title>
+      <link>https://blog.akendo.eu/tags/gnome/</link>
+      <pubDate>Fri, 03 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/gnome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vnc</title>
+      <link>https://blog.akendo.eu/tags/vnc/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/vnc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xserver</title>
+      <link>https://blog.akendo.eu/tags/xserver/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/xserver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>.war</title>
+      <link>https://blog.akendo.eu/tags/.war/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/.war/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>64-bit</title>
+      <link>https://blog.akendo.eu/tags/64-bit/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/64-bit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Overlay</title>
+      <link>https://blog.akendo.eu/tags/overlay/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/overlay/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iwlagn</title>
+      <link>https://blog.akendo.eu/tags/iwlagn/</link>
+      <pubDate>Wed, 18 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/iwlagn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iwlwifi</title>
+      <link>https://blog.akendo.eu/tags/iwlwifi/</link>
+      <pubDate>Wed, 18 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/iwlwifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://blog.akendo.eu/tags/network/</link>
+      <pubDate>Wed, 18 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wordpress</title>
+      <link>https://blog.akendo.eu/tags/wordpress/</link>
+      <pubDate>Sun, 15 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/wordpress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel 64-Bit</title>
+      <link>https://blog.akendo.eu/tags/kernel-64-bit/</link>
+      <pubDate>Wed, 11 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/kernel-64-bit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UTF-8</title>
+      <link>https://blog.akendo.eu/tags/utf-8/</link>
+      <pubDate>Tue, 03 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/utf-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nothing</title>
+      <link>https://blog.akendo.eu/tags/nothing/</link>
+      <pubDate>Mon, 02 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/nothing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Skype</title>
+      <link>https://blog.akendo.eu/tags/skype/</link>
+      <pubDate>Tue, 27 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/skype/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Skypetab</title>
+      <link>https://blog.akendo.eu/tags/skypetab/</link>
+      <pubDate>Tue, 27 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/skypetab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Darwin</title>
+      <link>https://blog.akendo.eu/tags/darwin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/darwin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reflection</title>
+      <link>https://blog.akendo.eu/tags/reflection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/reflection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Secuirty</title>
+      <link>https://blog.akendo.eu/tags/secuirty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/tags/secuirty/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

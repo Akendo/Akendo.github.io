@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Privacy Policy on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/privacy/</link>
+    <description>Recent content in Privacy Policy on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 24 May 2018 21:00:50 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.akendo.eu/privacy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

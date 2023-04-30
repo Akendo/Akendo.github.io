@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Side notes about Hugo &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2019-07-26 19:33:44 &#43;0200 CEST">July 26, 2019</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/blog/">Blog</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/hugo/">hugo</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Side notes about Hugo</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Some additional notes about Hugo: I&rsquo;ve changed the pagination of the main page. The pagination was a bit broken, because I want only to show
+blog article, but not the flash posts. This was done by adding to the file of <code>layouts/index.html</code> to filter out pages.</p>
+<pre tabindex="0"><code>&lt;div class=&#34;catalogue&#34;&gt;
+  {{ range (.Paginate .Pages).Pages }}
+  {{ end }}
+&lt;/div&gt;
+</code></pre><!-- raw HTML omitted -->
+<pre tabindex="0"><code>&lt;div class=&#34;catalogue&#34;&gt;
+  {{ range where (.Paginate .Pages).Pages &#34;Section&#34; &#34;post&#34; }}
+  {{ end }}
+&lt;/div&gt;
+</code></pre><!-- raw HTML omitted -->
+<p>The problem is simple: It get&rsquo;s all pages and filter for the section the post originated from. However, most posts from me are a flash post lately.  This way the list shrinks down and the first page seems quite short.</p>
+<p>The solution for this is to change the <code>pagination</code>. Lucky, the hugo <a href="https://gohugo.io/templates/pagination/#list-paginator-pages">documentation</a> provided a fitting example for this:</p>
+<pre tabindex="0"><code>&lt;div class=&#34;catalogue&#34;&gt;
+{{ $paginator := .Paginate (where .Pages &#34;Type&#34; &#34;post&#34;) 10 }}
+        {{ range where (.Paginate .Pages).Pages &#34;Section&#34; &#34;post&#34; }}
+                {{ .Render &#34;summary&#34; }} 
+        {{ end }}
+&lt;/div&gt;
+</code></pre><!-- raw HTML omitted -->
+<h2 id="changed-summaries">Changed summaries</h2>
+<p>While working on this, I also updated the default value for the <a href="https://gohugo.io/content-management/summaries/#automatic-summary-splitting">Automatic Summary Splitting</a>. Hugo will take some lines of each post will display it in the overview. This is what the <code>Summary</code> implies. But most of the time this looked way to much. Instead, I reduced it to 20 down from 70.</p>
+<h2 id="added-read-times">Added read times</h2>
+<p>Also, I&rsquo;ve updated the header of the blog posts to include the <a href="https://gohugo.io/variables/page/#page-variables"><code>.ReadingTime</code></a>. This way a reader can see how long a single posts takes to read. This is obviously a estimation, but it makes it more senseful for him if he wants to spend that time on the article or not.</p>
+<p>so far,
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2019.07.26-hugo-search/" class="left arrow">&#8592;</a>
+		<a href="/flash/27.07.2019-linkdrop/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.972035845 &#43;0200 CEST m=&#43;0.151175471">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

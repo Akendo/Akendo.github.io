@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/contact/</link>
+    <description>Recent content on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 30 May 2016 22:32:41 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/contact/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

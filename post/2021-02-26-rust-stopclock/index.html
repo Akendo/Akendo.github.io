@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>StopClock &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-02-26 16:02:04 &#43;0100 CET">February 26, 2021</time>
+        <br>
+        <span>5 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/rust/">Rust</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/stopclock/">stopclock</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">StopClock</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>For a long time now I wanted to do more rust related content. I have quite some ideas up mys sleeve, however, where to start? Because It has been a while that I did some coding I’ve decided to return to the roots or rather to my first written rust program. StopClock.</p>
+<p>The name is terrible and not in the rust typical favor. However, this little program has become significant to me. I use it almost every day to get myself on a task or to tell me when something is over. Even now it tells me when the next focus time is over.</p>
+<p><a href="https://gist.github.com/Akendo/aeaeb3957663d134472a76f1fb8d277a">Here</a> it is:</p>
+<pre tabindex="0"><code>extern crate datetime;
+
+use std::env::args;
+use std::{thread, time};
+use std::process::Command;
+use datetime::{LocalDate, Month, DatePiece};
+
+const MINUTE: u64= 60;
+
+fn main() {
+    let args: Vec&lt;String&gt;  = args().collect();
+
+
+    
+    if (args.len() == 2)
+    {
+      let name = &amp;args[0];
+      let time_to_sleep_arg = &amp;args[1].clone();
+      // This create some odd situation. you&#39;ll be hit with a Result&lt;T,E&gt; document.
+      // not quite sure how to handle this. Seems like a struct with the std::String:Result 
+      // The main question is, how to get this right? 
+      // With Beni:
+      // unwrap() would be possible 
+
+      // The error is i use collect and trigger some nosense. 
+      let time_to_sleep_arg2 = &amp;args[1];
+
+      println!(&#34;Going to sleep for: {} seconds at .&#34;, time_to_sleep_arg);
+
+      let time_to_sleep  :u64 = match time_to_sleep_arg.trim().parse() {
+        Ok(v)  =&gt; v,
+        Err(_) =&gt; {panic!(&#34;Sorry we need to have number only&#34;)},
+      };
+    
+        let mut remaining_time = time_to_sleep;
+        let mut time_as_minutes  = 0;
+ 
+        while (remaining_time &gt;= MINUTE){
+          remaining_time = remaining_time - MINUTE;
+          time_as_minutes = time_as_minutes + 1;
+
+        }
+        println!(&#34;More than 1 Minute!&#34;);
+        println!(&#34;Going to sleep for {} Minutes!&#34;, time_as_minutes);
+     
+       let mut minutes_remaining = 0;
+        while(minutes_remaining != time_as_minutes)
+        {
+          minutes_remaining = minutes_remaining + 1;
+          let second = time::Duration::from_secs(60);
+          thread::sleep(second);
+          println!(&#34;Going to sleep for {} more Minutes&#34;, time_as_minutes - minutes_remaining );
+        }
+        // sleep the remaining time
+        let remaining_second = time::Duration::from_secs(remaining_time);
+        thread::sleep(remaining_second);
+
+        Command::new(&#34;/usr/bin/notify-send&#34;)
+                .args(&amp;[&#34;-u&#34;, &#34;normal&#34;, &#34;-t&#34;, &#34;15000&#34;, &#34;StopClock&#34;, &#34;Times up!&#34;]) 
+                .output();
+
+        // https://doc.rust-lang.org/std/process/struct.Command.html
+        Command::new(&#34;/usr/bin/mplayer&#34;)
+                 .args(&amp;[&#34;-volume&#34;,&#34;50&#34;, &#34;/home/akendo/Downloads/end.mp3&#34;])
+                 .output();
+       
+    } 
+    else 
+    {
+      println!(&#34;Please add only one  argument!&#34;);
+    }
+}
+</code></pre><p>I feel a bit awkward, however, it was my first program that I developed in rust. Now we’re going to change it a bit. To be completely honest with you, I’ve changed it in between a bit because I added some improvements.</p>
+<p>But what needs to be done here?</p>
+<ul>
+<li>Add message after the timeout went down, as a remainder</li>
+<li>Allow using units like h or m to have more simpler input</li>
+<li>Handle suspend to ram situation</li>
+<li>Additional notification option</li>
+<li>Silence option</li>
+</ul>
+<p>But lately, I’ve seen the follow issue for me: A way to store the data and a way to have it count upwards. Why?</p>
+<p>I think this should reflect the task a bit more, when you do something present seen how much time you’ve spent on it feel better. And seeing how much time is left on a task that you have to do feels more relieving. It should also track how much time was spending on things, but I&rsquo;m most likely going to put this into the time warrior.</p>
+<p>One further problem does this program have: It cannot handle time jumps. This is sometimes handy, but often annoying. What does this mean? For instance, when you suspend the laptop, the program going to continue to count disregard of the time that has come to pass.</p>
+<p>Sometimes you close the lid of your devices to move on. Hence, it would be neat to keep track of the underlying system time instead of just.</p>
+<p>But at first, I’m going to clean up the code before we’re going further.</p>
+<pre tabindex="0"><code>
+warning: 9 warnings emitted
+
+    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+</code></pre><p>Gosh there are quite some warning. The compiler has improved a lot in the last four years!</p>
+<p>Let’s go by them warning for warning:</p>
+<h2 id="warning-one-unused-imports-datetime">Warning one: unused imports datetime</h2>
+<pre tabindex="0"><code>warning: unused imports: `DatePiece`, `LocalDate`, `Month`
+ --&gt; src/main.rs:6:16                                                      |                                                                      
+6 | use datetime::{LocalDate, Month, DatePiece};
+  |                ^^^^^^^^^  ^^^^^  ^^^^^^^^^          
+  |
+  = note: `#[warn(unused_imports)]` on by default
+</code></pre><p>This related to some attempt at the beginning of the program to fix to suspend the issue. For now, we’re going to remove the <code>datatime</code> import until we have a good idea of how to keep track of it correctly.</p>
+<p>Seeing this already pops an idea into my head: Get the current time, add the time the program have to wait and check the time once the while loop is completed. But one thing after another.</p>
+<p>While disabling the import, I saw the variable in the next line.  I am also going to change the size of MINUTE that is just below the import. An u64 huge to represent a two-digit number, I think. u8 should enough.</p>
+<p>This will trigger some more error message now:</p>
+<pre tabindex="0"><code>error[E0308]: mismatched types                                                                                                                     
+  --&gt; src/main.rs:38:45                                                                                                                            
+   |                                                                                                                                               
+38 |           remaining_time = remaining_time - MINUTE;                                                                                           
+   |                                             ^^^^^^ expected `u64`, found `u8`
+                                    
+error[E0277]: cannot subtract `u8` from `u64`                                                                                                      
+  --&gt; src/main.rs:38:43
+   |                                                                     
+38 |           remaining_time = remaining_time - MINUTE;
+   |                                           ^ no implementation for `u64 - u8`
+   |                   
+   = help: the trait `Sub&lt;u8&gt;` is not implemented for `u64`
+                                                           
+</code></pre><p>Obviously, this make sense since we’ve changed the size it becomes necessary to change it to the right size. Here is a good question, would it be not worth it to stick the u64 instead?</p>
+<p>Hm… this is why having this written on the blog is awesome! Now I’m asking myself: What’s the benefit of saving a variable in a more effective size format vs. having perhaps more operations to convert it! My guess here is that it would be no more operation for the CPU because the C compiler only going to change the point internally, hence, it should be no different. But that’s a guess and I might need to search for this later on.</p>
+<p>For the program we’re running this does matter anyway, however, this is an interesting question. Anyhow, here is what needs to be changed:</p>
+<pre tabindex="0"><code>-        while (remaining_time &gt;= MINUTE){
+-          remaining_time = remaining_time - MINUTE;
++        while (remaining_time &gt;= MINUTE as u64){
++          remaining_time = remaining_time - MINUTE as u64;
+</code></pre><p>I&rsquo;m going to continue with this next week.</p>
+<p>so far,<br>
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-02-26-fun-search-results/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-02-27-rust-stopclock-part-two/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.993080436 &#43;0200 CEST m=&#43;0.172220062">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>nftables &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-01-11 21:17:04 &#43;0100 CET">January 11, 2021</time>
+        <br>
+        <span>1 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/linux/">Linux</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/nftable/">nftable</a> <a href="https://blog.akendo.eu/tags/iptables/">iptables</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">nftables</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>In the last days I&rsquo;ve been fighting with nftables.</p>
+<p>nftables is the next generation part for package filtering within the kernel space. Not sure if about the &rsquo;next generation&rsquo; thing,
+because there is already another packet filter infrastructure within the kernel or even more? Anyhow, nft was replace on one Vm as
+the default solution and until recently I didn&rsquo;t have heard of it.</p>
+<p>On my mail server it is the default solution for package filtering, for some reason. I&rsquo;ve not really configured it.  I quite went crazy cause I need to open up an additional port and no iptables rule where present.</p>
+<p>Here the first problem cam to show, nftables does not have a good interface or command tool for telling you. iptables does
+offer a list option that indicating to you what was loaded and what wasn&rsquo;t. nftable is rather unforgiving to user input that
+does not exactly follow it&rsquo;s specification&hellip;baeh.</p>
+<p>I&rsquo;m going to follow this up with some details in a later post.</p>
+<p>so far,<br>
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-01-10-review/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-01-12-pv-power-recording/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.976346803 &#43;0200 CEST m=&#43;0.155486439">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

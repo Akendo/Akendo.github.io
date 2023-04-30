@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>KDE4 - Simple KScreensaver using custom background image &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2013-09-27 16:41:00 &#43;0100 &#43;0100">September 27, 2013</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">KDE4 - Simple KScreensaver using custom background image</h1>
+<div class="post-line"></div>
+
+		
+
+		<p><img src="https://blog.akendo.eu/pictures/withoutScreenHack.png" alt="&amp;ldquo;Standart background&amp;hellip;ugly&amp;rdquo;"></p>
+<p>For the beauty of a system you can placed your current background for your Kscreensaver instead of the default.</p>
+<p>KDE is by default not able to changes this for the &lsquo;Simple Lock&rsquo;, see in this[1] open bug for more Info.</p>
+<p>But there is a a small workaround for this[2][3].</p>
+<p>Change into the <code>/usr/share/apps/ksmserver/screenlocker/org.kde.passworddialog/contents/ui/</code> directory and edit the <code>main.qml</code> with your editor of your choice.</p>
+<p>Create a backup of this file,</p>
+<pre><code>cp main.qml main.qml.baku
+</code></pre>
+<p>then edit on the line 45 and replace:</p>
+<pre><code>- source: theme.wallpaperPathForSize(parent.width, parent.height)
++ source: &quot;1920x1080.jpg&quot;
+</code></pre>
+<p>Now you copy your current background image to <code>&quot;1920x1080.jpg&quot;</code>.</p>
+<p><img src="https://blog.akendo.eu/pictures/withScreenHack.png" alt="&amp;ldquo;Standart Backgroud gone &amp;hellip;yeay!&amp;rdquo;"></p>
+<p>Note you have to redo this for each update of the package &lsquo;&lsquo;kdebase-workspace&rsquo;&rsquo;.</p>
+<p>Links:</p>
+<p>[1] <a href="https://bugs.kde.org/show_bug.cgi?id=312828">https://bugs.kde.org/show_bug.cgi?id=312828</a></p>
+<p>[2] <a href="http://lists.opensuse.org/opensuse-kde/2013-02/msg00082.html">http://lists.opensuse.org/opensuse-kde/2013-02/msg00082.html</a></p>
+<p>[3] <a href="http://forum.kde.org/viewtopic.php?f=66&amp;t=110039">http://forum.kde.org/viewtopic.php?f=66&amp;t=110039</a></p>
+<p>[4] <a href="https://wiki.archlinux.org/index.php/KDE#Setting_the_screensaver_background_to_the_same_as_the_current_one">https://wiki.archlinux.org/index.php/KDE#Setting_the_screensaver_background_to_the_same_as_the_current_one</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2013-06-24-my-work-with-puppet/" class="left arrow">&#8592;</a>
+		<a href="/post/2014-01-04-30c3-torrents/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.961424427 &#43;0200 CEST m=&#43;0.140564063">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

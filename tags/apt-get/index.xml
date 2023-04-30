@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apt-get on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/apt-get/</link>
+    <description>Recent content in apt-get on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 06 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/apt-get/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to monitor MonogoDB with Nagios</title>
+      <link>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</guid>
+      <description>&amp;nbsp;&amp;nbsp;I need some Monitoring for Nagios3 of my MongoDB.</description>
+    </item>
+    
+    <item>
+      <title>Basic xserver on a vServer</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</guid>
+      <description>For fetching some date, my Application need a xserver. The Problem is that it&#39;s running on VM.</description>
+    </item>
+    
+    <item>
+      <title>Nginx with SSL</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</guid>
+      <description>For a demo Application that has to be show in the Internet, we need a Scala Lift online.</description>
+    </item>
+    
+    <item>
+      <title>Debian PostgreSQL 8.4 can&#39;t create Database with UTF-8 Encoding</title>
+      <link>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</link>
+      <pubDate>Tue, 03 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</guid>
+      <description>The ProblemI encounter a problem with fresh Debian VM. I create this VM for our developer, during the installation script following problem appears and stop the script:new encoding (UTF8) is incompatible with the encoding of the template database (SQL_ASCII)HINT: Use the same encoding as in the template database, or use template0 as template.</description>
+    </item>
+    
+  </channel>
+</rss>

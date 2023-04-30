@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Dependency Hell &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-03-16 19:45:54 &#43;0100 CET">March 16, 2021</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/ci/cd/">CI/CD</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/docker/">docker</a> <a href="https://blog.akendo.eu/tags/i386/">i386</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Dependency Hell</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Why is the CI/CD project blocked? Because my server I was running things on broke, and I’m left with a year-old laptop. Technically, it is better than the old server. But, it is only 32-bit. It does not provide 64-bit support and this causes a LOT of trouble.</p>
+<p>What type of trouble? Much of the software I use is in container. However, docker have discontinued the native amd64 support. The Same can be said for some distribution like Ubuntu. Debian still have it. But this is not true for many other projects. The biggest surprises is that projects that run with JavaScript do not support i386 anymore. How can that be an issue? Node has stop shipping i386 binaries.</p>
+<p>While docker itself does not ship 64-bit packages, Debian does. However,
+that does not imply that you can run all the containers because these are built for amd64 only. While some containers are with i386 support, the numbers are few. Postgres for instance works fine. Ubuntu on the other hand have stopped to shipping it too.</p>
+<p>This led to the fact, that many projects my stack is relying on won&rsquo;t work on the old laptop.</p>
+<p>I’ve tried to get some containers going, however, they often depend on some container image, that then depend on a base image. When this is from Ubuntu you only can start to use older release or Debian.</p>
+<p>Here the dependency hell begins. At this point you start to not only port your container to i386 back, but also the container they depend on. This works partly well, however, just because the build script executes, and you’re getting a working image, does not mean that the application is working then.</p>
+<p>So, you’re not just porting the software of the dependency, you try to fix the build script to cope this. For some that work, but wait. Many maintainers fetch precompiled binaries into the container. Hence, you’re changing this as well.</p>
+<p>And when these precompiled binaries are not i386? You can start to build them on your own… Sounds like a good task for a CI/CD, expect it is to get my CI/CD started in the first place….</p>
+<p>I&rsquo;ve spent some hours on this, and I’m sure to get it going. Yet, it costs too much and represents rather a sunken cost fallacy.</p>
+<p>Many of the data I do not wish to put into a cloud. However, this is for the moment the best solution until I can afford a suitable replacement.</p>
+<p>So far,
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-03-15-habit-score/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-03-17-rust-puns/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.991212422 &#43;0200 CEST m=&#43;0.170352058">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

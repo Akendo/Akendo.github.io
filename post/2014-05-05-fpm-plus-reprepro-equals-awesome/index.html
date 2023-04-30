@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>fpm&#43;reprepro=Awesome &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2014-05-05 15:02:27 &#43;0200 CEST">May 5, 2014</time>
+        <br>
+        <span>7 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">fpm&#43;reprepro=Awesome</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>In the last days I had to work on an out-dated version of <a href="http://etherpad.org/">etherpad</a>. etherpad is a collaborative editing tool that runs with <a href="http://nodejs.org/">NodeJS</a>. It&rsquo;s used a lot for planning or maintenances. I was looking for a good way for deploying this onto different nodes. We had a version running with a MySQL database. So I wanted to migrate this as well. But I had some issue getting a etherpad onto my system deployed.</p>
+<h2 id="problem">Problem</h2>
+<p>The installation was a git managed version (1.15) of etherpad. It was a quick and dirty installation. No init or upstart script was in place. The automatization was left out. It was hosted via nginx as reverse proxy to the NodeJS, but started via <code>nohup</code> with a provided script as normal user. Random crashes were normal. Someone had to go onto
+the server and start the service again.</p>
+<p>I did not want to touch the server. One problem when upgrading: I can&rsquo;t roll back as easy as I wish when something is going wrong. I need to have a own instance of a VM for it. This should be able to run without any interaction of a person, even when it does go wrong. I also want to extend the current version with some more features.</p>
+<p>So my task will to:</p>
+<ul>
+<li>Make this automatically via puppet</li>
+<li>Install via puppet it to a own VM.</li>
+<li>Migrate the databases to this VM.</li>
+<li>Extend the etherpad with some more useful things.</li>
+</ul>
+<p>The creation of the VM is easy as cake. But there are not real packages. This is caused by the fact that the <a href="http://etherpad.org/">offical website of etherpad</a>
+is pointing to <a href="http://github.com/ether/etherpad-lite/zipball/master">github master brach zip.</a>
+But couldn&rsquo;t find any packages by someone.</p>
+<h2 id="fpm">fpm</h2>
+<p>I dislike the deployment via git on a node. Here comes the fpm in place. It allows to create a simple package. deb or rpm, everything is possible. I heared about it on the <a href="http://www.netways.de/puppetcamp/archive_berlin_2014/thank_you/">puppetcamp in Berlin</a>. It&rsquo;s a ruby script that try to be as easy as possible.
+You can installed it via <code>gem install</code> or with ArchLinux <code>yaourt ruby-fpm</code> or look at the <a href="https://github.com/jordansissel/fpm">project site</a>.</p>
+<p>Note: I do use <a href="rvm.io">rvm</a> to maintain my ruby environments</p>
+<pre><code>rvm use ruby-2.1.0
+gem install fpm
+fpm --version
+1.1.0
+</code></pre>
+<p>Make sure that you&rsquo;re using at least version 1.1.0 or higher. I had some issue when I tired to unpack from a zip with an older version. It was version 0.9.8 (When I do remember right). The project is moving quite fast so make sure that it&rsquo;s up-to-date. Here an example with the unzip folder:</p>
+<pre><code>fpm -s dir\
+     -t deb\
+     -C /tmp \
+     -n etherpad\
+     -v '1.4.0-1-gc3a6a23'\
+     -m 'Akendo &lt;4k3nd0@gmail.com&gt;'\
+     --license 'GPLv3'\
+     --url 'http://etherpad.org/'\
+     --deb-user etherpad \
+     --deb-group etherpad \
+     --prefix /opt/ \
+     --description 'Etherpad is a highly customizable Open Source online editor providing collaborative editing in really real-time' \
+     etherpad-lite
+</code></pre>
+<p>This will generate the package <code>etherpad_1.4.0-1-gc3a6a23_amd64.deb</code> I test it on my vagrant environment. I could use there simply <code>dpkg -i etherpad_1.4.0-1-gc3a6a23_amd64.deb</code> on Ubuntu and Debian. This will install the package to the folder <code>/opt/etherpad</code>.</p>
+<h2 id="puppet">puppet</h2>
+<p>I had a look into some puppet module for etherpad a while ago. There wasn&rsquo;t
+to much promising. I only found two projects on github. This project seems to do the job in a basic way:</p>
+<p><a href="https://github.com/velaluqa/puppet-etherpad">velaluqa/puppet-etherpad</a></p>
+<p>But it had some weaknesses. As said before. It uses the git branch to deploy.
+git is depending on user input. To checkout or update things. But in most case to resolve merge issues.
+Doing this via puppet may can overwrite changes I later need.</p>
+<p>Beside it doesn&rsquo;t track the dependency of the module. Further problem was
+that the module had some mistakes within the template of the <code>settings.json</code>.</p>
+<p>The other project on <a href="https://github.com/interlegis/puppet-etherpad">github for etherpad</a>
+But this is even in a more unusable state as the first one.</p>
+<p>So lucky me got at least something.</p>
+<p>I started to deploy on Ubuntu 12.04, but it was not working. Wrong packages was installed. Some logical mistakes. I forked and <a href="https://github.com/velaluqa/puppet-etherpad/pull/1/files">fixed</a> them. Also added a list of the dependency to track them via <a href="https://github.com/rodjek/librarian-puppet">puppet-librarian</a>. This allowed it to run in my vagrant environment.
+No one responded every since on my merge request, this is bad. Now I did a review and see that
+the puppet-code there wasn&rsquo;t the &lsquo;best&rsquo;.</p>
+<p>So I started to do more <a href="https://github.com/Akendo/puppet-etherpad/commits/better-installation">rework</a>.</p>
+<p>I replace the module for node with a native ppa for Ubuntu to have the latest
+version of node. This allows to remove more puppet related dependency. But it binds
+the module more to Ubuntu. PPA seems only to work with Ubuntu.</p>
+<p>Things will be done more clearly. But how do I get my self build package
+to the VM?</p>
+<h2 id="reprepro">Reprepro</h2>
+<p>A colleague of mine, was working on another project showing me this neat software. It allows me to create a simple debian repository with any package I want. On the <a href="http://www.netways.de/puppetcamp/archive_berlin_2014/thank_you/">puppet camp</a> there was this recommendation to host your packages called <a href="bintray.com">bintray</a> But I need to be able to place this on a local mirror without Internet connection. <a href="http://mirrorer.alioth.debian.org/">reprepro</a> allows me to deploy this everywhere I need to.</p>
+<p>In the <a href="https://wiki.debian.org/SettingUpSignedAptRepositoryWithReprepro">Debian wiki</a> you can find a simple how-to, to build a simple repository that will be then hosted with Apache.
+I followed the process as explained on the wiki and found it and made a proof of concept. When I was done I could add this repository to the <code>/etc/apt/sources.list.d/</code> on my test VM.</p>
+<p>The steps for this a quite simple. On a Debian based system do installed it via <code>apt-get install reprepro</code> or in Archlinux via <code>yaourt reprepro</code>.</p>
+<p>You then need to have a GPG key that will sign the package. Then you create a folder structurer:</p>
+<pre><code>cd wished/place/to/create
+mkdir -p ./repos/apt/debian/conf
+</code></pre>
+<p>Then you create a distributions files. This contains configuration for the package of what version of different
+distributions you&rsquo;re going to host with this package. For the moment I&rsquo;ll only support Ubuntu 12.04. Simple for the
+target system.</p>
+<pre><code>Origin: Your project name
+Label: Your project name
+Codename: &lt;osrelease&gt;
+Architectures: i386 amd64
+Components: main
+Description: Apt repository for project x
+SignWith: &lt;key-id&gt;
+</code></pre>
+<p>The SignWith is your keyid</p>
+<p>Then you need to create a file for reprepro to get options from. Edit the file <code>./repos/apt/debian/conf/options</code>
+with following content:</p>
+<pre><code>verbose
+basedir /var/www/repos/apt/debian
+ask-passphrase
+</code></pre>
+<p>Now you can create the files for the  with the debian package:</p>
+<pre><code>reprepro includedeb precise etherpad-lite_1.4.0-1-gc3a6a23_amd64.deb
+</code></pre>
+<p>This will create follwing folders:</p>
+<pre><code>ls
+conf    db  dists  pool
+</code></pre>
+<p>When you did follow the way of the debian wiki the current folder would be hosted via apache webserver. This URL
+will then add to the <code>/etc/apt/sources.list.d/</code> like this:</p>
+<pre><code>cat /etc/apt/sources.list.d/etherpad-lite.list
+# etherpad-lite
+deb http://192.168.200.201 precise main
+</code></pre>
+<h2 id="deploy">Deploy</h2>
+<p>Let put this together. I&rsquo;ll use nginx for my repository.</p>
+<p>When you&rsquo;re using the local reprepro folder you have to deny the access to all other files. Only
+<code>dists/</code> and <code>pool/</code>. I create the repository on my local Laptop and then deploy it to a web server.</p>
+<p>This is my PoC nginx configuration file:</p>
+<pre><code>server {
+  listen 192.168.200.201:80;
+
+  access_log /var/log/nginx/packages-access.log;
+  error_log /var/log/nginx/packages-error.log;I
+
+  location / {
+    root /var/www/reprepro/debian;
+    index index.html;
+  }
+}
+</code></pre>
+<p>What&rsquo;s left is to do, sync the file from reprepro to my test vm.</p>
+<pre><code>rsync -rauvPh dists pool 192.168.56.201:/var/www/reprepro/
+</code></pre>
+<p>I host this package also via  <code>apt.akendo.eu/etherpad</code>. I&rsquo;ll create some more package in the further.</p>
+<h2 id="remarks">Remarks</h2>
+<p>The current way this packages are build and maintenance is very simple. I don&rsquo;t have that much understanding
+of what fpm is and is not able to do. Debian packages are very powerful and allow to configure main elements.
+This package is quite simple and only place a folder with correct permission within the system.</p>
+<p>There are no dependency marked or anything. This will be more work to do. This works as long you use this package
+with puppet, but it can not work well without. I have also some thing to do: Remove git folders from the package.</p>
+<p>This package can be tested via my vagrant project</p>
+<h3 id="update">Update</h3>
+<p>I updated my vagrant environment you can test this etherpad via:</p>
+<pre><code>git clone git@github.com:Akendo/vagrant-skel.git -b etherpad-lite
+cd vagrant-skel/
+librarian-puppet install
+vagrant up
+</code></pre>
+<p>Have fun.</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2014-01-04-30c3-torrents/" class="left arrow">&#8592;</a>
+		<a href="/post/2014-06-24-openwrt-trap/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.965061808 &#43;0200 CEST m=&#43;0.144201444">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

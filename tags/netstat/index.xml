@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Netstat on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/netstat/</link>
+    <description>Recent content in Netstat on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Sat, 10 Apr 2021 09:14:07 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/netstat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Filtering in rust</title>
+      <link>https://blog.akendo.eu/post/2021-04-10-rust-filter/</link>
+      <pubDate>Sat, 10 Apr 2021 09:14:07 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-04-10-rust-filter/</guid>
+      <description>In the past days, I&amp;rsquo;ve been busy with the migration of my old server.</description>
+    </item>
+    
+  </channel>
+</rss>

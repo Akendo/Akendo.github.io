@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="description" content="my way way from octopress">
+
+        <title>to hugo &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2016-05-30 13:13:00 &#43;0200 CEST">May 30, 2016</time>
+        <br>
+        <span>4 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/general/">General</a>
+	
+        <a href="https://blog.akendo.eu/categories/blog/">Blog</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/hugo/">hugo</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">to hugo</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>My trouble on the way to a new blogging software:
+I wanted to blog more, but an update of some ruby broke my blog&hellip;.</p>
+<p>So i try something new, bug it should be a statice website genrator
+After some searching I found this website:</p>
+<p><a href="https://www.staticgen.com/">https://www.staticgen.com/</a></p>
+<p>I found some useful blog entrys.</p>
+<p>Hugo is quite the same as jekelly, but with go developed.
+The blog entry makes a quite nice impression, so I&rsquo;ll give it a try:</p>
+<p>the installation in archlinux is quite simple:</p>
+<pre><code>yaourt hugo
+</code></pre>
+<p>The <a href="https://gohugo.io/overview/quickstart/">quickstart</a>  Video is very well done.
+Octopress doesn&rsquo;t offer that much of documentation, so I can see this fact.</p>
+<p>The first thing I see is that you create new directory for each side you want to have
+that makes a hugh differences.</p>
+<p>The next thing what needs to be done is definine a thema, by default hugo doesn&rsquo;t include any type of thema
+without you&rsquo;ll have static html sides with no navigation.</p>
+<pre><code>git clone https://github.com/zyro/hyde-x
+</code></pre>
+<p>In the configuration you can use the parameter to fix the theme for the creation of the site
+<code>theme = &quot;hyde-x&quot;</code></p>
+<p>I copied the old posts into the new <code>content/posts</code> and lets see what <code>hugo</code>  will have to complain about:</p>
+<pre><code>ERROR: 2016/05/28 Error parsing page meta data for post/2012-01-08-&gt;move-gnome-to-fluxbox.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2012-01-19-gentoojetty-with-a-war-file.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2012-01-26-debiannginx-with-ssl.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2012-02-24-libvirt-lvm-storge-backend.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 Error parsing page meta data for post/2013-01-22-update-blog-1.html
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+ERROR: 2016/05/28 yaml: line 2: did not find URI escaped octet
+CRITICAL: 2016/05/28 Errors reading pages: Error:yaml: line 2: did not find URI escaped octet for 2012-01-08-&gt;move-gnome-to-fluxbox.html
+Error:yaml: line 2: did not find URI escaped octet for 2012-01-19-gentoojetty-with-a-war-file.html
+Error:yaml: line 2: did not find URI escaped octet for 2012-01-26-debiannginx-with-ssl.html
+Error:yaml: line 2: did not find URI escaped octet for 2012-02-24-libvirt-lvm-storge-backend.html
+Error:yaml: line 2: did not find URI escaped octet for 2013-01-22-update-blog-1.html
+</code></pre>
+<p>The migration is not as simple as I did expect. This is because I have a lot of
+old files from my first blog as native html. I need to remove this to ensure that the server can start.
+I need to convert or add them later. In addtion I need to move the upload folder as well.</p>
+<p>While I was migrating, I found some fuck up in my configuration. I had once&hellip; many copy of the same blog on
+many different computes. I mixed stuff up. So at some point i did united them to a single folder on my x240
+But somehow some of the running version where empty.</p>
+<p>Right now I wasn able to fix that. So it also is something liek a clean the blog anyway.
+In addition I had to clean up the meta file so hugo would create the blog as intended.</p>
+<p>But when you play a bit around you might get the solution. Which was simple, I had to adjust the yaml code on the old files.
+As far As i can see is that there are some draft now published to the blog. Only the release date went missing.
+But that&rsquo;s detail work I will address tomorrow.</p>
+<p>Next is to create a archive site. This is usefull to get a list of all the public listed entries and compare them.
+But there is not such a thing in Hugo. But lucky me, there is a good form <a href="https://discuss.gohugo.io/t/blog-archives-page/2577/17">entry</a></p>
+<p>I followd the secound example. It&rsquo;s not perfect but the
+I change  some of the stuff. Like to add to the new theme the a 404 page:</p>
+<p>cp  themes/hyde-x/layouts/404.html ./themes/purehugo/layouts/</p>
+<p>In the end I had to manuel update my html page with a page</p>
+<p>Deployment via <a href="https://github.com/mindok/hugodeploy">hugodeploy</a></p>
+<p>But this also didn&rsquo;t went well. In the end I just did run rsync of the public folder.</p>
+<p>In the end I hade to add a redirect from nginx for the rss link. In the <code>/</code> location.</p>
+<pre><code>rewrite ^/atom.xml /index.xml permanent; 
+</code></pre>
+<p>One think that comes to my mind is the question how well Hugo is going to work on the long run.
+Octopress was really nice, but with time the code stop working because the ruby package keep being changing. So far I
+can see that the project is more active than octopress ever was. But only time can tell</p>
+<p>best regards
+Akendo</p>
+<p>PS: This need to be clean up later. But for the moment I&rsquo;m done with the router</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2016-03-09-problem-with-ruby/" class="left arrow">&#8592;</a>
+		<a href="/contact/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.966155085 &#43;0200 CEST m=&#43;0.145294711">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

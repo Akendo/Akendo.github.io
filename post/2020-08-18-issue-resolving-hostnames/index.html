@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Issue resolving locale hostnames &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2020-08-18 12:56:01 &#43;0200 CEST">August 18, 2020</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/linux/">Linux</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/archlinux/">archlinux</a> <a href="https://blog.akendo.eu/tags/systemd/">systemd</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Issue resolving locale hostnames</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Since some days one of my laptop has the problem to resolve certain hostnames. All hostnames that are without any type TLD like <code>git</code> or <code>gw</code>.
+The thing is, that the FQDN resolution remained working for the same hosts. Lucky, I have two laptop that did not had the same behaviour but with similar configuration. Running <code>ping</code> on the first device fails, while the second once succeeds:</p>
+<p>One the first laptop is does not work:</p>
+<pre><code>ping git -c1
+ping: git: Name or service not know
+</code></pre>
+<p>On my other device the same command is running flawless:</p>
+<pre><code>ping git -c1
+PING git (172.X.Y.Z) 56(84) bytes of data.
+64 bytes from 172.X.Y.Z (172.X.Y.Z): icmp_seq=1 ttl=64 time=1.06 ms
+
+--- git ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.055/1.055/1.055/0.000 ms
+</code></pre>
+<p>So what might cause the divergent? After some ideas developed I found a interesting differents: Laptop one has systemd-resolved enabled, the other not:</p>
+<pre><code>● systemd-resolved.service - Network Name Resolution
+     Loaded: loaded (/usr/lib/systemd/system/systemd-resolved.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2020-07-02 19:32:51 CEST; 15h ago
+       Docs: man:systemd-resolved.service(8)
+             https://www.freedesktop.org/wiki/Software/systemd/resolved
+             https://www.freedesktop.org/wiki/Software/systemd/writing-network-configuration-managers
+             https://www.freedesktop.org/wiki/Software/systemd/writing-resolver-clients
+   Main PID: 1204 (systemd-resolve)
+     Status: &quot;Processing requests...&quot;
+      Tasks: 1 (limit: 18905)
+     Memory: 13.6M
+     CGroup: /system.slice/systemd-resolved.service
+             └─1204 /usr/lib/systemd/systemd-resolved
+</code></pre>
+<p>While the other devices does not have it active:</p>
+<pre><code>● systemd-resolved.service - Network Name Resolution
+     Loaded: loaded (/usr/lib/systemd/system/systemd-resolved.service; disabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: man:systemd-resolved.service(8)
+             https://www.freedesktop.org/wiki/Software/systemd/resolved
+             https://www.freedesktop.org/wiki/Software/systemd/writing-network-configuration-managers
+             https://www.freedesktop.org/wiki/Software/systemd/writing-resolver-clients
+</code></pre>
+<p>Disabling the service solve it! The issue was in fact the <code>systemd-resolverd</code>.</p>
+<pre><code>sudo systemctl stop systemd-resolved.service
+ping git -c1
+PING git (172.X.Y.Z) 56(84) bytes of data.
+64 bytes from 172.X.Y.Z (172.X.Y.Z): icmp_seq=1 ttl=64 time=1.06 ms
+
+--- git ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.055/1.055/1.055/0.000 ms
+</code></pre>
+<p>The core question is now: What&rsquo;s the issue that <code>systemd-resolved</code> does not resolve the locale host and why was is active on the first device but no other? But this is a question I might answer another time.</p>
+<p>best regards</p>
+<p>Sources:</p>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Systemd-resolved">systemd-resolved - ArchWiki</a></li>
+<li><a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/resolved.conf.5">resolved.conf(5) — Arch manual pages</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Domain_name_resolution">Domain name resolution - ArchWiki</a></li>
+<li><a href="https://www.freedesktop.org/wiki/Software/systemd/resolved/">resolved</a></li>
+</ul>
+<h6 id="tags-archlinuxtagsarchlinux-systemdtagssystemd">tags: <a href="/tags/archlinux/"><code>Archlinux</code></a>, <a href="/tags/systemd/"><code>systemd</code></a></h6>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2020-08-10-open-reflection/" class="left arrow">&#8592;</a>
+		<a href="/flash/23.08.2020-linkdrop/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.986118292 &#43;0200 CEST m=&#43;0.165257918">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

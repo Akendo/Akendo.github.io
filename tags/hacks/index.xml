@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hacks on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/hacks/</link>
+    <description>Recent content in Hacks on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 14 Jan 2021 22:26:29 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/hacks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Generic Software is an attack avenue</title>
+      <link>https://blog.akendo.eu/post/2021-01-14-generic-software/</link>
+      <pubDate>Thu, 14 Jan 2021 22:26:29 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-01-14-generic-software/</guid>
+      <description>As you may or may not know, one quite big hack went through the media lately, Solar Wind[0][1].</description>
+    </item>
+    
+  </channel>
+</rss>

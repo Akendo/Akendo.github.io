@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>postgres on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/postgres/</link>
+    <description>Recent content in postgres on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 10 Jun 2021 09:46:07 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/postgres/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgresql User Login</title>
+      <link>https://blog.akendo.eu/post/2021-06-10-postgresql-user-login/</link>
+      <pubDate>Thu, 10 Jun 2021 09:46:07 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-06-10-postgresql-user-login/</guid>
+      <description>For the Hedgedoc migration, I had to create a new role and forgot to add the necessary permissions to allow this role to login.</description>
+    </item>
+    
+    <item>
+      <title>TTRSS to Docker[Part two]</title>
+      <link>https://blog.akendo.eu/post/2020-10-12-ttrss-to-docker-part-2/</link>
+      <pubDate>Mon, 12 Oct 2020 22:15:00 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2020-10-12-ttrss-to-docker-part-2/</guid>
+      <description>In the previous post we got a TinyTiny-RSS Feedreader running in a docker environment.</description>
+    </item>
+    
+    <item>
+      <title>MySQL to Postgresql</title>
+      <link>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</guid>
+      <description>I dislike MySQL. I never did like it, since Oracle bought Sun it starting to become more then just disliking it. I prefer to work with Postgresql. I want to migrate some of my MySQL DB to Postgresql.
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

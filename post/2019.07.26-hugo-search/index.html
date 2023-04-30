@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Search with hugo &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2019-07-26 16:33:03 &#43;0200 CEST">July 26, 2019</time>
+        <br>
+        <span>1 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/blog/">Blog</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/hugo/">hugo</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Search with hugo</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>I&rsquo;ve added a <a href="/search">search</a> function to the blog. I&rsquo;ve been more often here and did some search of posts of my own. Because I do not like to have google or something else to search for my content I wished to add a search function.</p>
+<p>The hugo documentation has a <a href="https://gohugo.io/tools/search/" title="Search for your Hugo Website">page</a> for this matters. It lists various solutions to implement. I took the one without NPM or elastic search. It was implemented by a guy called &rsquo;eddiewebb&rsquo; and does come with a simple: &lsquo;Place this files here&rsquo; <a href="https://gist.github.com/eddiewebb/735feb48f50f0ddd65ae5606a1cb41ae" title="Client side searching for Hugo.io with Fuse.js">solution</a>
+Basically, during the creation process of the pages with <code>hugo</code>, it will index the content. You add this as a searchable content and than load some additional
+JavaScript file that will check though the content.</p>
+<p>The only change I&rsquo;ve had to made was removing within the suggested <code>layouts/_default/search.html</code> the  <code>{{ define &quot;footerfiles&quot; }}</code>. This was not loaded with the
+template that is used here. Instead I&rsquo;ve moved the block further down the page. It will be loaded on the end of the page.</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/flash/23.07.2019-linkdrop/" class="left arrow">&#8592;</a>
+		<a href="/post/2019.07.26-hugo-side-notes/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.971507832 &#43;0200 CEST m=&#43;0.150647468">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

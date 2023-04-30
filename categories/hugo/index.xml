@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/categories/hugo/</link>
+    <description>Recent content in Hugo on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 13 Jun 2019 18:34:13 +0200</lastBuildDate>
+    
+	<atom:link href="https://blog.akendo.eu/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Archtypes in Hugo</title>
+      <link>https://blog.akendo.eu/post/2019-06-13-archtypes-in-hugo/</link>
+      <pubDate>Thu, 13 Jun 2019 18:34:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2019-06-13-archtypes-in-hugo/</guid>
+      <description>I&amp;rsquo;m using hugo for some time now. However, one aspect of hugo was always a problem for me: Creating new posts with hugo new. This command will generate a new file with a minimal amount of meta-information necessary for a post. That&amp;rsquo;s the information above the written content like the title or the date. It also contains the option by default that the post is a draft.
+I wanted to modify this behaviour for some time now.</description>
+    </item>
+    
+    <item>
+      <title>Notes about Hugo</title>
+      <link>https://blog.akendo.eu/post/notesabouthugo/</link>
+      <pubDate>Wed, 29 Mar 2017 15:06:41 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/notesabouthugo/</guid>
+      <description>Hugo allows you to get very easy a new theme. Sometimes this new theme have some option you don&amp;rsquo;t want. For example:In this theme there is by default two additional menus. One for tags, for for categories. That&amp;rsquo;s something nice.
+However, both menu had a very long list, that than needed scrolling bar. The scrolling bar broken than the design of the theme.
+My fix for this was disable the two menu for categories and tags.</description>
+    </item>
+    
+  </channel>
+</rss>

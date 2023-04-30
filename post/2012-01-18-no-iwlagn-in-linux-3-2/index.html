@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>No iwlagn in Linux 3.2&#43; &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-01-18 00:00:00 &#43;0000 UTC">January 18, 2012</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a> <a href="https://blog.akendo.eu/tags/iwlagn/">iwlagn</a> <a href="https://blog.akendo.eu/tags/iwlwifi/">iwlwifi</a> <a href="https://blog.akendo.eu/tags/kernel/">kernel</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/network/">network</a> <a href="https://blog.akendo.eu/tags/wifi/">wifi</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">No iwlagn in Linux 3.2&#43;</h1>
+<div class="post-line"></div>
+
+		
+
+		I  installed today the new Kernel 3.2 and didn't have any Wifi, that is related to some changes in the iwlagn divers. It have being rename to iwlwifi.
+
+I keep using a static Kernel for my Laptop and so i didn't enable the new driver automatically. My first idea was that the sys-kernel/linux-firmware has to be updated. But after short check on the Wifi devices everything was clear. No Devices was found with wlan0, so  i check the driver and a try of loading the related module iwlagn.
+
+After wounder some minutes i check on the old and the new kernel. The dirver seems to be the same, just the name has change.  i reanabled the new driver, re-compile the new kernel! Everything works normaly.
+
+&nbsp;
+
+I check on the h-online and found <a title="Git Diff of iwlagn" href="http://git.kernel.org/?p=linux/kernel/git/torvalds/linux-2.6.git;a=commitdiff;h=3c607d27c818cf4a5d28f2c73b18a88f8fbdfa33" target="_blank">this git diffs</a> of the kernel.
+<blockquote>
+<pre>Rename the iwlagn module as iwlwifi in preparation for future
+changes.  Add an alias to iwlagn for backward compatibility.</pre>
+</blockquote>
+Normaly there have to a an alias, but for static kernel the driver has to renable.
+
+&nbsp;
+
+so far
+
+Akendo.
+
+&nbsp;
+
+<address>Sources:</address>Ubuntu Forum:"<strong><a href="http://ubuntuforums.org/showthread.php?t=1886179" target="_blank">Confused between iwlwifi vs iwlagn</a>"</strong>
+
+H-online:"<a href="http://www.h-online.com/open/features/Kernel-Log-Coming-in-3-2-Part-1-Networking-1379085.html" target="_blank">Kernel Log Part 1 Network</a>"
+
+H-online:"<a title="Kernel Log Minor gems" href="http://www.h-online.com/open/features/Kernel-Log-Coming-in-3-2-Part-1-Networking-1379085.html?page=2" target="_blank">Kernel Log Minor gems</a>"
+
+&nbsp;
+
+&nbsp;
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-01-15-update-my-blog/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-01-19-gentoojetty-with-a-war-file/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-04-30 22:28:19.955296161 &#43;0200 CEST m=&#43;0.134435787">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

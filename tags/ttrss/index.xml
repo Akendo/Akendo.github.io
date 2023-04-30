@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ttrss on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/ttrss/</link>
+    <description>Recent content in ttrss on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Fri, 07 May 2021 11:46:37 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/ttrss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>07.05.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/07.05.2021-linkdrop/</link>
+      <pubDate>Fri, 07 May 2021 11:46:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/07.05.2021-linkdrop/</guid>
+      <description>This Week in Rust 388 · This Week in Rust RIP config.</description>
+    </item>
+    
+    <item>
+      <title>TTRSS to Docker[Part two]</title>
+      <link>https://blog.akendo.eu/post/2020-10-12-ttrss-to-docker-part-2/</link>
+      <pubDate>Mon, 12 Oct 2020 22:15:00 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2020-10-12-ttrss-to-docker-part-2/</guid>
+      <description>In the previous post we got a TinyTiny-RSS Feedreader running in a docker environment.</description>
+    </item>
+    
+    <item>
+      <title>TTRSS to Docker</title>
+      <link>https://blog.akendo.eu/post/2020-10-05-ttrss-to-docker/</link>
+      <pubDate>Mon, 05 Oct 2020 12:00:00 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2020-10-05-ttrss-to-docker/</guid>
+      <description>Some time ago I wrote about the TinyTiny RSS. I did shutdown the service in 2017 because the server it was running got de-provisioned.</description>
+    </item>
+    
+  </channel>
+</rss>

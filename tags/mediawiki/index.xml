@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MediaWiki on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/mediawiki/</link>
+    <description>Recent content in MediaWiki on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 15 Feb 2021 23:41:33 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/mediawiki/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MediaWiki Docker[part two]</title>
+      <link>https://blog.akendo.eu/post/2021-02-15-mediawiki-part-two/</link>
+      <pubDate>Mon, 15 Feb 2021 23:41:33 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-02-15-mediawiki-part-two/</guid>
+      <description>This is part two of my Media Wiki documenation[0]. It has been a while since I&amp;rsquo;ve looked at this matter, but I planed it to progrss for this.</description>
+    </item>
+    
+  </channel>
+</rss>
