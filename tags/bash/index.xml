@@ -1,47 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>bash on Slices of a hacker&#39;s mind</title>
-    <link>https://blog.akendo.eu/tags/bash/</link>
-    <description>Recent content in bash on Slices of a hacker&#39;s mind</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-Us</language>
-    <lastBuildDate>Mon, 12 Mar 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/bash/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Enable remote access for PostgreSQL</title>
-      <link>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</link>
-      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</guid>
-      <description>Remote access to a Postgtres DatabaseIn the last days i have worked a lot with PostgreSQL.</description>
-    </item>
-    
-    <item>
-      <title>rsync - the better scp</title>
-      <link>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</link>
-      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</guid>
-      <description>Regard this Post, i make this post. First: scp is great.</description>
-    </item>
-    
-    <item>
-      <title>Howto fix libgeos_c.so not found</title>
-      <link>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</link>
-      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</guid>
-      <description>I&#39;m working with Python Django and PostGIS.When i try to add the Geo support to the Project, i hit this error message:OSError: /usr/local/lib/libgeos_c.</description>
-    </item>
-    
-    <item>
-      <title>Debian PostgreSQL 8.4 can&#39;t create Database with UTF-8 Encoding</title>
-      <link>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</link>
-      <pubDate>Tue, 03 Jan 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</guid>
-      <description>The ProblemI encounter a problem with fresh Debian VM. I create this VM for our developer, during the installation script following problem appears and stop the script:new encoding (UTF8) is incompatible with the encoding of the template database (SQL_ASCII)HINT: Use the same encoding as in the template database, or use template0 as template.</description>
-    </item>
-    
-  </channel>
-</rss>
