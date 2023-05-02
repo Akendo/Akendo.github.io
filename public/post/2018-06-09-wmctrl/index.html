@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Controlling windows in X with wmctrl &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2018-06-09 11:02:14 &#43;0200 CEST">June 9, 2018</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">Controlling windows in X with wmctrl</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Restarting a computer sucks. You have to typing in passwords, starting your windows manager, get all your default applications going and so on.
+It takes me several minutes to restart a system and get it into a workable state.</p>
+<p>Particularly in the last days, I had to restart various times forcefully. A critical error in the intel grahicstack breaks the multi monitor setup. Not working suspend to ram. A half way down suspended system, in which the fan keeps being active while remaining part of the systems is without a responses. Each time a system reset was necessary.</p>
+<p>However, i found some useful tool that allows me  to &lsquo;accelerate&rsquo; the startup by quite a bit. <code>wmctrl</code>is the tool, that was found by browsing through the man page of fluxbox. What&rsquo;s it? It&rsquo;s a protocol the X Server is speaking, allowing to ask the Windows Manager for some information and/or actions. It allows you to give the windows manager some commands. Neat. The installation on archlinux was easy:</p>
+<pre tabindex="0"><code>pacaur -S wmctrl
+</code></pre><p>Why do you need this? Simple: To allow to start up any application in fluxbux and place it on the right virtual desktop. Window Manager like KDE allows you to remember the state of windows before a logout, fluxbox don&rsquo;t. So when you login again with KDE, all your old windows will be start on the right virtual desktop. But KDE consumes way to much resources&hellip;so a solution for fluxbox is necessary.</p>
+<p>The man page has all the details one might need to use it. I wrote down an example:</p>
+<pre tabindex="0"><code>urxvt -title urxvt -e tmux a &amp;
+sleep 1
+wmctrl -F -r &#39;urxvt&#39; -t 2
+</code></pre><p>What does this example do?</p>
+<p>It starts a <code>urxvt</code> terminal with a define title and within it will start the <code>tmux a</code> to re-attach to an open tmux session. Defining the title allow <code>wmctrl</code> to find the windows to move it to the right virtual desktop. The ID of a virtual desktop can be displayed with <code>wmctrl -G -l</code> command. One thing that did&rsquo;t work out (yet),
+was setting the window to fullscreen. You can start <code>urxvt</code> will the paraemter <code>-g</code> with the right size. But this lead to some strange rendering bug and you can&rsquo;t read anything from the terminal down. <code>wmctrl</code> can do this too. But I didn&rsquo;t do it yet.</p>
+<p>Anyways, this makes a reboot a bit easier. But in the end, reboot sucks.</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/privacy/" class="left arrow">&#8592;</a>
+		<a href="/flash/10.06.2018-linkdrop/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.174889623 &#43;0200 CEST m=&#43;0.134774163">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

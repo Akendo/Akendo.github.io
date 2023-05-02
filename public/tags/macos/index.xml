@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacOS on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/macos/</link>
+    <description>Recent content in MacOS on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Tue, 10 Sep 2019 22:39:30 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10.09.2019 - link drop</title>
+      <link>https://blog.akendo.eu/flash/10.09.2019-linkdrop/</link>
+      <pubDate>Tue, 10 Sep 2019 22:39:30 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/10.09.2019-linkdrop/</guid>
+      <description> GitHub - drduh/macOS-Security-and-Privacy-Guide: Guide to securing and improving privacy on macOS OS X Hardening BBC - Future - Why we believe fake news </description>
+    </item>
+    
+  </channel>
+</rss>

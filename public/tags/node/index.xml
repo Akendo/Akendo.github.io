@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Node on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/node/</link>
+    <description>Recent content in Node on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Sat, 03 Jul 2021 15:18:22 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>03.07.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/03.07.2021-linkdrop/</link>
+      <pubDate>Sat, 03 Jul 2021 15:18:22 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/03.07.2021-linkdrop/</guid>
+      <description>&amp;lsquo;Hidden Property Abusing&amp;rsquo; Allows Attacks on Node.js &amp;hellip; Abusing Hidden Properties to Attack the Node.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postgresql on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/postgresql/</link>
+    <description>Recent content in Postgresql on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Tue, 09 May 2017 15:32:53 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgres data migration</title>
+      <link>https://blog.akendo.eu/post/2017-09-05-migration-postgresql/</link>
+      <pubDate>Tue, 09 May 2017 15:32:53 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2017-09-05-migration-postgresql/</guid>
+      <description>Quick note how to upgrade a postgresql from version 9.3 to 9.</description>
+    </item>
+    
+    <item>
+      <title>MySQL to Postgresql</title>
+      <link>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</guid>
+      <description>I dislike MySQL. I never did like it, since Oracle bought Sun it starting to become more then just disliking it. I prefer to work with Postgresql. I want to migrate some of my MySQL DB to Postgresql.
+
+</description>
+    </item>
+    
+    <item>
+      <title>Enable remote access for PostgreSQL</title>
+      <link>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</link>
+      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</guid>
+      <description>Remote access to a Postgtres DatabaseIn the last days i have worked a lot with PostgreSQL.</description>
+    </item>
+    
+    <item>
+      <title>Debian PostgreSQL 8.4 can&#39;t create Database with UTF-8 Encoding</title>
+      <link>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</link>
+      <pubDate>Tue, 03 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</guid>
+      <description>The ProblemI encounter a problem with fresh Debian VM. I create this VM for our developer, during the installation script following problem appears and stop the script:new encoding (UTF8) is incompatible with the encoding of the template database (SQL_ASCII)HINT: Use the same encoding as in the template database, or use template0 as template.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apt-pinning on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/apt-pinning/</link>
+    <description>Recent content in apt-pinning on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 29 Mar 2021 15:11:05 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/apt-pinning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>29.03.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/29.03.2021-linkdrop/</link>
+      <pubDate>Mon, 29 Mar 2021 15:11:05 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/29.03.2021-linkdrop/</guid>
+      <description> amd64 17.1 profiles are now stable – Gentoo Linux kernel config protects dmesg &amp;hellip; which group membership allows access / Kernel &amp;amp; Hardware / Arch Linux Forums Apt pinning, install and upgrade Debian packages selectively </description>
+    </item>
+    
+  </channel>
+</rss>

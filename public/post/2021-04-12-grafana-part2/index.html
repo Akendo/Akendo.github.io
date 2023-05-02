@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Grafana Part2 - waiting sockets &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-04-12 11:11:18 &#43;0200 CEST">April 12, 2021</time>
+        <br>
+        <span>4 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/pv/">PV</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/tcp/">tcp</a> <a href="https://blog.akendo.eu/tags/wait/">wait</a> <a href="https://blog.akendo.eu/tags/tcp_wait/">tcp_wait</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Grafana Part2 - waiting sockets</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>So the next step was to write a simple loop in bash and get every second the data. That seemed nice, but it had some big problem: You can’t pipe constantly data to a network connection. At least without any help. Yacks&hellip;</p>
+<p>Here a 2021 note to this: is not quite true with the pipe. However, I just learned it quite recently that the pipe has an aggressive cache. My data were just cached until a threshold is reached. Using that little data it takes quite some time to reach it. I just didn’t know back then.</p>
+<p>Back to the topic, my data were send to the graphite service, and I was happy. Here is the catch: For some reason the connection started to hang. It seldom happened, but it happened. It took me a moment to figure out why. Just until I check the output of the <code>netstat</code>. There was awaiting something odd for me. My list of connections were filed up with a for me unknown TCP state: <code>TCP_ WAIT</code>.</p>
+<h2 id="the-kernel-needs-to-wait">The kernel needs to wait</h2>
+<p>I did some searching through and found some useful things. The kernel has a security extension to prevent TCP port reuse attacks. It does so by waiting up to 30 seconds before the kernel closes a closed port.</p>
+<p>There is a great stack overflow post that explain this in more detail[0] and a blog post[1] too.</p>
+<p>When you learn about a TCP connection you learn the various states, however, they do not tell you the full truth, because in reality the OS has to cope with some more failure states than being reached. So <code>TCP_WAIT</code> is a rather uncommon situation, but it is necessary.</p>
+<p>The reason for this feature exists is a security one: An attack might try to control the port that are used for connection made from the host to another system. By exhausting the port he tries to guess the possible ports and potentially forget connections. With <code>TCP_WAIT</code> the kernel avoid this because a given port is re-used after a given period of time. I think an example for that is the Kaminsky attack. But it also helps in coping with TCP TIME_WAIT Assassination[2].</p>
+<p>Do not mix this up with a SYN Flood attacks. Because the connection is unclosed in such an attack, the kernel needs waits until the connection timeouts. The attack try to avoid sending a <code>FIN</code> package. The important different here is that there is a client (or clients) that create many connections to a socket and closes them! Mean that the kernel has finish the connection. BUT after completing it, it says the socket remains ‘occupied’ by keep these sockets open in the <code>TCP_WAIT</code> state.</p>
+<p>In short <code>TCP_WAIT</code> describes not a half open connection, but an already completed one. It just waits a while before it allows re-using the socket again. We can see this in the State Diagram below:</p>
+<p><img src="https://d1g3mdmxf8zbo9.cloudfront.net/images/tcp/tcp-state-diagram-v2.svg" alt=""></p>
+<p>How long does the kernel wait before it allow this to reuse? Depending on the Maximum Segment Lifetime (MSL). It should be around 1 up to 2 minutes. Some write it is even something like 3 minutes. Tast last entry I found on my system can be found in <code>/proc/sys/net/ipv6/tcp_fin_timeout</code> and consist of 1 minute.</p>
+<h2 id="implications">Implications</h2>
+<p>While this seems good to know, I feared that my router may turn shut because it couldn&rsquo;t handle any new connections. So I&rsquo;ve started to dig into some alternatives. At first sight the CPU recycling seems to be right thing. However, this is also a bad idea that was removed in more recent kennel. After some searches further, I&rsquo;ve decided to compose a more proper solution for these problem. Instead of handling it on the server side, why not just fix my shit? But more of this in the next post.</p>
+<p>So far,<br>
+Akendo</p>
+<p>[0] <a href="https://networkengineering.stackexchange.com/questions/19581/what-is-the-purpose-of-time-wait-in-tcp-connection-tear-down">https://networkengineering.stackexchange.com/questions/19581/what-is-the-purpose-of-time-wait-in-tcp-connection-tear-down</a> <br>
+[1] <a href="https://vincent.bernat.ch/en/blog/2014-tcp-time-wait-state-linux#purpose">https://vincent.bernat.ch/en/blog/2014-tcp-time-wait-state-linux#purpose</a> <br>
+[2] <a href="https://tools.ietf.org/html/rfc1337">https://tools.ietf.org/html/rfc1337</a> <br>
+[3] <a href="http://www.serverframework.com/asynchronousevents/2011/01/time-wait-and-its-design-implications-for-protocols-and-scalable-servers.html">http://www.serverframework.com/asynchronousevents/2011/01/time-wait-and-its-design-implications-for-protocols-and-scalable-servers.html</a> <br>
+[4 ] <a href="https://serverfault.com/questions/23385/huge-amount-of-time-wait-connections-says-netstat">https://serverfault.com/questions/23385/huge-amount-of-time-wait-connections-says-netstat</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-04-11-review-cw14/" class="left arrow">&#8592;</a>
+		<a href="/flash/14.04.2021-linkdrop/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.197425793 &#43;0200 CEST m=&#43;0.157310343">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

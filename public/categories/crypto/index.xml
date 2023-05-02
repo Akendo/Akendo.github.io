@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crypto on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/categories/crypto/</link>
+    <description>Recent content in Crypto on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Tue, 08 Jun 2021 14:47:37 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/categories/crypto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cryptographic Agility</title>
+      <link>https://blog.akendo.eu/post/2021-06-08-cryptographic-agility/</link>
+      <pubDate>Tue, 08 Jun 2021 14:47:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-06-08-cryptographic-agility/</guid>
+      <description>Today, I’ve learned that there is something like a Cryptographic Agility.</description>
+    </item>
+    
+  </channel>
+</rss>

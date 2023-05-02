@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>TTRSS to Docker &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2020-10-05 12:00:00 &#43;0200 CEST">October 5, 2020</time>
+        <br>
+        <span>3 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/linux/">Linux</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/ttrss/">ttrss</a> <a href="https://blog.akendo.eu/tags/docker/">docker</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">TTRSS to Docker</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Some time ago I wrote about the <a href="https://blog.akendo.eu/post/2014-01-05-tinytiny-rss/">TinyTiny RSS</a>. I did shutdown the service in 2017 because the server it was running got de-provisioned. But everything was stored on a backup.</p>
+<p>Since I got some time to spare I&rsquo;ve decided to re-active the TT-RSS service, however, because I lack the server in the internet, it was moved to a small system at home. This time the deployment should be run on a docker container to allow better deployment. The TT-RSS project itself provides a <a href="https://git.tt-rss.org/fox/ttrss-docker-compose/src/master/docker-compose.yml">docker-compose</a> file. It is spilited into seperated container for different task. Many aspects of the services has been decopubled including an container to updated the feeds.</p>
+<p>The container names are quite self-explanatory:</p>
+<ul>
+<li>db: Database of the application</li>
+<li>app: The TT-RSS php code</li>
+<li>backup: Frequend job to execute backups of the database</li>
+<li>update: The PHP code that will trigger the refreshing of the feeds</li>
+<li>web: Small webserver to handle requests and forward them to app</li>
+</ul>
+<h2 id="importing-the-containers">Importing the containers</h2>
+<p>To get started I&rsquo;ve ported the <code>app</code> and <code>db</code> from the offical <a href="https://git.tt-rss.org/fox/ttrss-docker-compose/src/master/docker-compose.yml">docker-compose</a> first to my personal docker-compose file.</p>
+<pre tabindex="0"><code>  db:
+    restart: always
+    image: &#39;postgres:13-alpine&#39;
+    volumes:
+      - &#34;./volumes/postgresql:/var/lib/postgresql/data&#34;
+    environment:    
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+  ttrss:
+    ports:
+      - &#34;9000:9000&#34;
+    build: 
+      context:
+        ./ttrss
+    restart: unless-stopped
+    environment:
+      - DB_TYPE=pgsql
+      - DB_HOST=db
+      - DB_NAME=${POSTGRES_USER}
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASS=${POSTGRES_PASSWORD}
+      - OWNER_UID=${OWNER_UID}
+      - OWNER_GID=${OWNER_GID}
+      - SELF_URL_PATH=${SELF_URL_PATH}
+    volumes:
+      - &#34;./volumes/ttrss/:/var/www/html&#34;
+    depends_on:
+      - db
+</code></pre><p>I&rsquo;m doing this because of a  pre-existing infrastructure hosted with docker, this way I can use some services already in place like nginx for instance.</p>
+<p>The appended configuration was already altered, the <code>app</code> was renamed to <code>ttrss</code> to be more identifiable with in the many services I run. Also, I prefer to use relative paths to provide storage. Once the changes were in place we only had to run <code>docker-compose up ttrss</code>. As expected, the first start was not successful, but why?</p>
+<p>Accessing the port 9000 of <code>ttrss</code> container directly caused the connection to be restted. Maybe the port forward was not working correctly?
+After some check it became clear: The <code>ttrss</code> container only takes CGI requests and the <code>web</code> container was necessary to process the CGI resources from Caddy and forward it correctly to the <code>ttrss</code> container. So I copied it down the web entry. It also became necessary to update the upstream name of the <a href="https://git.tt-rss.org/fox/ttrss-docker-compose/src/master/web/Caddyfile">Caddyfile</a> to be not <code>app</code> but <code>ttrss</code>.</p>
+<pre tabindex="0"><code>  web:
+    environment:
+      - VIRTUAL_HOST=ttrss
+      - VIRTUAL_PORT=2015
+    build: ./web
+    restart: unless-stopped
+    volumes:
+      - &#34;./volumes/ttrss/:/var/www/html:ro&#34;
+    depends_on:
+      - ttrss
+</code></pre><p>Once <code>web</code> started it was almost completed. Accessing the port 2015 opens the website of ttrss and asking for a password. At this stage I didn&rsquo;t know the default password of the service. I tried some basic things like &lsquo;admin:admin&rsquo; and so on. After five minutes I decided to try a different way, right, check for the password with in the database and google the hash. The default password of TT-RSS is &lsquo;password&rsquo;. Gosh I should have tested that, who ever will guess this, I didn&rsquo;t !?</p>
+<h2 id="proper-serving-of-my-old-instance">Proper serving of my old instance</h2>
+<p>I&rsquo;m using a <code>nginx-proxy</code> within the docker-compose file that reads out the environment variables for the hostname parameter, this way the proxy knows what name to listen for and where to forward the traffic to for a corresponding container. Once this is configured you&rsquo;re can access the service with the hostname in my case it will serve <code>http://ttrss</code>.</p>
+<p>On this point we need to update the <code>.env</code> to include the correct hostname. I had to rebuild the <code>ttrss</code> container and the took a bit of time until the redirection from the <code>nginx-proxy</code> was working.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I have now a running TT-RSS service within a docker-compose. The next part will be the database restoration and migration, because it takes quite more effort to get it running it will be a post of it&rsquo;s own.</p>
+<p>so far<br>
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/flash/04.10.2020-linkdrop/" class="left arrow">&#8592;</a>
+		<a href="/post/2020-10-12-ttrss-to-docker-part-2/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.178566631 &#43;0200 CEST m=&#43;0.138451171">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

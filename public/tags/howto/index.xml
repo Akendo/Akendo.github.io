@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Howto on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/howto/</link>
+    <description>Recent content in Howto on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Wed, 07 Mar 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rsync - the better scp</title>
+      <link>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</guid>
+      <description>Regard this Post, i make this post. First: scp is great.</description>
+    </item>
+    
+    <item>
+      <title>How to monitor MonogoDB with Nagios</title>
+      <link>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</guid>
+      <description>&amp;nbsp;&amp;nbsp;I need some Monitoring for Nagios3 of my MongoDB.</description>
+    </item>
+    
+    <item>
+      <title>Nginx with SSL</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</guid>
+      <description>For a demo Application that has to be show in the Internet, we need a Scala Lift online.</description>
+    </item>
+    
+    <item>
+      <title>[Gentoo]Jetty with a .WAR file</title>
+      <link>https://blog.akendo.eu/post/2012-01-19-gentoojetty-with-a-war-file/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-19-gentoojetty-with-a-war-file/</guid>
+      <description>Jetty with a .WAR fileIn my company i currenly have a lot to do with Scala Lift.</description>
+    </item>
+    
+  </channel>
+</rss>

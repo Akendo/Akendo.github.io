@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>todayilearned on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/categories/todayilearned/</link>
+    <description>Recent content in todayilearned on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Wed, 22 Dec 2021 12:43:47 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/categories/todayilearned/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I Have Learned Today</title>
+      <link>https://blog.akendo.eu/whathaveilearned/2021-12-22-what-i-have-learned-today/</link>
+      <pubDate>Wed, 22 Dec 2021 12:43:47 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/whathaveilearned/2021-12-22-what-i-have-learned-today/</guid>
+      <description>Today, I have learned that we humans fall prey to ‘directionally motivated reasoning’.</description>
+    </item>
+    
+  </channel>
+</rss>

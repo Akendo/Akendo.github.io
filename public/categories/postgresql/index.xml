@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>postgresql on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/categories/postgresql/</link>
+    <description>Recent content in postgresql on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Tue, 09 May 2017 15:32:53 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/categories/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgres data migration</title>
+      <link>https://blog.akendo.eu/post/2017-09-05-migration-postgresql/</link>
+      <pubDate>Tue, 09 May 2017 15:32:53 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2017-09-05-migration-postgresql/</guid>
+      <description>Quick note how to upgrade a postgresql from version 9.3 to 9.</description>
+    </item>
+    
+  </channel>
+</rss>

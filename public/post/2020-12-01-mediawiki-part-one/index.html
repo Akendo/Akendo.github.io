@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>MediaWiki Docker[part one] &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2020-12-01 14:08:33 &#43;0100 CET">December 1, 2020</time>
+        <br>
+        <span>7 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">MediaWiki Docker[part one]</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>For a side project of mine, I was looking for a tool to collect a lot of information. The focus was at first to have a hackmd instance or something like it. My friend, who wants to use it with me, wanted to have access control over some of the content. After researching it,  I saw that none of the intended tools provides such a thing. Instead, my friend suggested MediaWiki. While I refused at first, I’ve decided to take a look at it first. The last time was something around 2010 or so. I have to admit that a lot has changed.</p>
+<p>So I conitnued on the tts type of services and started to look for a docker container. MediaWiki provides this, but only with support for MySQL, which I disliked. A look into the container showed, that it is not much necessary to get a postgres db running here.</p>
+<p>In this post I&rsquo;m going to document the installation and configuration steps. I guess it will take some posts to get everything covered. However, it is also a work in process.</p>
+<h2 id="installation-of-media-wiki-with-a-postgres-database-backend">Installation of Media Wiki with a postgres database backend</h2>
+<p>At first I re-used the same database container from <a href="https://registry.hub.docker.com/_/postgres/">postgres</a> with the default image from alpine. MediaWiki provides some images, similar to the postgres I use the alpine image. I copied the docker-compose file from my ttrss post as template with some changes. Creating the local volumes and update the volume path and setting the password:</p>
+<pre tabindex="0"><code>version: &#39;3&#39;
+services:
+  mediawiki:
+    image: mediawiki
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    #volumes:
+    #  - /var/www/html/images
+      # After initial setup, download LocalSettings.php to the same directory as
+      # this yaml and uncomment the following line and use compose to restart
+      # the mediawiki service
+      # - ./LocalSettings.php:/var/www/html/LocalSettings.php
+  db:
+    restart: always
+    image: &#39;postgres:13-alpine&#39;
+    volumes:
+      - &#34;./volumes/postgresql:/var/lib/postgresql/data&#34;
+    environment:
+      - POSTGRES_PASSWORD=postgres
+</code></pre><p>Now were everything is in place I run the first <code>docker-compose up</code>. Without much issue the media wiki container startes, also is the postgres db, neat. Access via Port 8080 seems fine and so does the MediaWiki Setup until I have to select the databse. Here comes the first expected issue: We can&rsquo;t select postgres. Why?</p>
+<h3 id="php-in-mediawiki-container">PHP in MediaWiki container</h3>
+<p>The first thought that comes to mind is the fact that PHP is missing the necessary module for it. So let find where PHP has it modules placed. For this we start to work with the running container by starting a shell within the MediaWiki Container.</p>
+<pre tabindex="0"><code>$ docker-compose exec mediawiki bash
+root@6232d8ee302c:/#
+</code></pre><p>The first oddness in the MediaWiki container is that the PHP is not installation via apt/dpkg. So where is it?</p>
+<p>After some <code>whereis</code> and <code>find</code> I figureed out that php is deployed into /usr/local/bin/php by a costom <code>docker-php-*</code> toolkit. I&rsquo;m checking this with within the docker image project of media wiki. There using a <a href="https://github.com/wikimedia/mediawiki-docker/blob/master/Dockerfile-debian.template">template</a> file for it. That makes it a bit odd at first.</p>
+<p>There are using a <code>docker-php-ext-configure</code> and <code>docker-php-ext-enable</code> tool. Once we know how to get it running the Steps are to install and enable the necessary for PHP to make use of postgres. The typical package name is pgsql. Let&rsquo;s give it a try:</p>
+<pre tabindex="0"><code>root@6232d8ee302c:/var/www/html# docker-php-ext-install pgsql
+Configuring for:
+PHP Api Version:         20180731
+Zend Module Api No:      20180731
+Zend Extension Api No:   320180731
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for a sed that does not truncate output... /bin/sed
+checking for cc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking how to run the C preprocessor... cc -E
+checking for icc... no
+checking for suncc... no
+checking whether cc understands -c and -o together... yes
+checking for system library directory... lib
+checking if compiler supports -R... no
+checking if compiler supports -Wl,-rpath,... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for PHP prefix... /usr/local
+checking for PHP includes... -I/usr/local/include/php -I/usr/local/include/php/main -I/usr/local/include/php/TSRM -I/usr/local/include/php/Zend -I/usr/local/include/php/ext -I/usr/local/include/php/ext/date/lib
+checking for PHP extension directory... /usr/local/lib/php/extensions/no-debug-non-zts-20180731
+checking for PHP installed headers prefix... /usr/local/include/php
+checking if debug is enabled... no
+checking if zts is enabled... no
+checking for re2c... re2c
+checking for re2c version... 1.1.1 (ok)
+checking for gawk... no
+checking for nawk... nawk
+checking if nawk is broken... no
+checking for PostgreSQL support... yes, shared
+checking for pg_config... not found
+configure: error: Cannot find libpq-fe.h. Please specify correct PostgreSQL installation path
+</code></pre><p>This PHP module requires a system-wide package, which one? Let&rsquo;s google it. After some google I was please to see that the <a href="https://stackoverflow.com/questions/58961043/how-to-install-libpq-fe-h">libpq-dev</a> <a href="https://packages.debian.org/sid/libpq-dev">packages</a> is necessary within the container. So just install it within the container.</p>
+<p>There are using a <code>docker-php-ext-configure</code> and <code>docker-php-ext-enable</code> tool. Once we know how to get it running the Steps are to install and enable the necessary for PHP to make use of postgres. The typical package name is pgsql. Let&rsquo;s give it a try:</p>
+<pre tabindex="0"><code>root@6232d8ee302c:/var/www/html# apt update                                                                                                 [8/539]
+Get:1 http://deb.debian.org/debian buster InRelease [121 kB]
+Get:2 http://security.debian.org/debian-security buster/updates InRelease [65.4 kB]
+Get:3 http://deb.debian.org/debian buster-updates InRelease [51.9 kB]
+Get:4 http://security.debian.org/debian-security buster/updates/main amd64 Packages [234 kB]
+Get:5 http://deb.debian.org/debian buster/main amd64 Packages [7906 kB]
+Get:6 http://deb.debian.org/debian buster-updates/main amd64 Packages [7868 B]
+Fetched 8387 kB in 2s (3503 kB/s)                         
+Reading package lists... Done    
+Building dependency tree       
+Reading state information... Done
+2 packages can be upgraded. Run &#39;apt list --upgradable&#39; to see them.
+root@6232d8ee302c:/var/www/html# apt search libpq-dev
+Sorting... Done
+Full Text Search... Done
+libghc-postgresql-libpq-dev/stable 0.9.4.1-2+b2 amd64
+  low-level binding to libpq
+
+libpq-dev/stable 11.9-0+deb10u1 amd64
+  header files for libpq5 (PostgreSQL library)
+
+root@6232d8ee302c:/var/www/html# apt install libpq-dev                    
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  libpq5
+Suggested packages:
+  postgresql-doc-11
+The following NEW packages will be installed:
+  libpq-dev libpq5
+0 upgraded, 2 newly installed, 0 to remove and 2 not upgraded.
+Need to get 330 kB of archives.
+After this operation, 1460 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://deb.debian.org/debian buster/main amd64 libpq5 amd64 11.9-0+deb10u1 [167 kB]
+Get:2 http://deb.debian.org/debian buster/main amd64 libpq-dev amd64 11.9-0+deb10u1 [163 kB]
+Fetched 330 kB in 0s (1629 kB/s) 
+debconf: delaying package configuration, since apt-utils is not installed 
+Selecting previously unselected package libpq5:amd64.
+(Reading database ... 24883 files and directories currently installed.)
+Preparing to unpack .../libpq5_11.9-0+deb10u1_amd64.deb ...
+Unpacking libpq5:amd64 (11.9-0+deb10u1) ...
+Selecting previously unselected package libpq-dev.
+Preparing to unpack .../libpq-dev_11.9-0+deb10u1_amd64.deb ...
+Unpacking libpq-dev (11.9-0+deb10u1) ...
+Setting up libpq5:amd64 (11.9-0+deb10u1) ...
+Setting up libpq-dev (11.9-0+deb10u1) ...
+Processing triggers for libc-bin (2.28-10) ...
+</code></pre><p>Now we we&rsquo;re going re-run the previous command, I&rsquo;m skipping the output of a successful installation. At this point we need to restart the contianer or more the apache2 service. The container uses a apache2 to running in foreground, however, apache2 can be reload via the apache2ctl command without the neext to restart the whole container anew, awesome!</p>
+<p>The next look on the database creation page of MediaWiki shows that postgresql is a choice now.</p>
+<p><img src="/pictures/Screenshot_2020-10-06%20MediaWiki%201%2035%200%20installation.png" alt=""></p>
+<h2 id="continue-to-the-mediawiki-installation">Continue to the MediaWiki installation</h2>
+<p>One great thing about the installation route of Media Wiki is that their asking for the database user. Gosh this is done right ;-)</p>
+<p><img src="/pictures/Screenshot_2020-10-06%20MediaWiki%201%2035%200%20installation(1).png" alt=""></p>
+<p>One thing during the installation is that the tables are created twice, why? Anyway seems to work just fine.
+<img src="/pictures/Screenshot_2020-10-06%20MediaWiki%201%2035%200%20installation(2).png" alt=""></p>
+<p>After the database user creation is completed the next step is to configure the Wiki, I choose Priavte Wiki with the following  Extensions:</p>
+<ul>
+<li>Interwiki</li>
+<li>Renameuser</li>
+<li>ReplaceText</li>
+<li>VisualEditor</li>
+<li>WikiEditor</li>
+<li>TemplateData</li>
+<li>PdfHandler</li>
+<li>MultimediaViewer</li>
+</ul>
+<p>Once the installation is completed you will download a <code>LocalSettings.php</code> file that needs to be deploy into the webroot of the MediaWiki container.</p>
+<pre><code>docker cp Downloads/LocalSettings.php docker-mediawiki_mediawiki_1:/var/www/html/LocalSettings.php
+</code></pre>
+<p>And we&rsquo;re done with the installation at first! There are some addtional settings that needs to configure that is to allow file upoads and disable Caching (to few requests). Next post is how to automate this a bit better in context of the image creation</p>
+<p>best regards,<br>
+akendo</p>
+<p>€dit: For some reason the post was mixed up because of a copy and post fuck up ;-(, fixed now.</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2020-11-30-comment-to/" class="left arrow">&#8592;</a>
+		<a href="/flash/09.12.2020-linkdrop/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.179108839 &#43;0200 CEST m=&#43;0.138993379">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

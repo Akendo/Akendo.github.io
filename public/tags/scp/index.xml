@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scp on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/scp/</link>
+    <description>Recent content in scp on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Wed, 07 Mar 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/scp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rsync - the better scp</title>
+      <link>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</guid>
+      <description>Regard this Post, i make this post. First: scp is great.</description>
+    </item>
+    
+  </channel>
+</rss>

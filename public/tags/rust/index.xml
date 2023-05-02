@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/rust/</link>
+    <description>Recent content in Rust on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Fri, 07 May 2021 11:46:37 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>07.05.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/07.05.2021-linkdrop/</link>
+      <pubDate>Fri, 07 May 2021 11:46:37 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/07.05.2021-linkdrop/</guid>
+      <description>This Week in Rust 388 · This Week in Rust RIP config.</description>
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://blog.akendo.eu/post/2021-01-16-rust/</link>
+      <pubDate>Sat, 16 Jan 2021 22:08:50 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-01-16-rust/</guid>
+      <description>I&amp;rsquo;m a big rust[0] fan. It is difficult to argue why, but most likely because of feels quite alright.</description>
+    </item>
+    
+    <item>
+      <title>28.11.2020 - link drop</title>
+      <link>https://blog.akendo.eu/flash/28.11.2020-linkdrop/</link>
+      <pubDate>Sat, 28 Nov 2020 19:07:32 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/28.11.2020-linkdrop/</guid>
+      <description> rust in curl with hyper | daniel.haxx.se </description>
+    </item>
+    
+    <item>
+      <title>mdBook</title>
+      <link>https://blog.akendo.eu/post/2020-09-22-mdbook/</link>
+      <pubDate>Tue, 22 Sep 2020 12:02:22 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2020-09-22-mdbook/</guid>
+      <description>In the last days my main occupation was writing. Once a bit time was at hand I focused on getting something written, by hand or by the computer.</description>
+    </item>
+    
+    <item>
+      <title>24.06.2019 - link drop</title>
+      <link>https://blog.akendo.eu/flash/24.06.2019-linkdrop/</link>
+      <pubDate>Mon, 24 Jun 2019 15:50:13 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/24.06.2019-linkdrop/</guid>
+      <description> Why [&amp;lsquo;1&amp;rsquo;, &amp;lsquo;7&amp;rsquo;, &amp;lsquo;11&amp;rsquo;].map(parseInt) returns [1, NaN, 3] in Javascript - Medium Tools for profiling Rust </description>
+    </item>
+    
+    <item>
+      <title>[Rust] No default parameters for function</title>
+      <link>https://blog.akendo.eu/post/2019-05-09-rust-default-parameter-function/</link>
+      <pubDate>Thu, 09 May 2019 23:01:22 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2019-05-09-rust-default-parameter-function/</guid>
+      <description>I was wondering about using something like default parameter in rust.</description>
+    </item>
+    
+  </channel>
+</rss>

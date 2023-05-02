@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CI on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/ci/</link>
+    <description>Recent content in CI on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Sat, 01 Feb 2020 22:31:56 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>01.02.2020 - link drop</title>
+      <link>https://blog.akendo.eu/flash/01.02.2020-linkdrop/</link>
+      <pubDate>Sat, 01 Feb 2020 22:31:56 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/01.02.2020-linkdrop/</guid>
+      <description> How to Do 90% of What Plugins Do (With Just Vim) - YouTube Pull-based CD Pipelines for Security - Faun - Medium </description>
+    </item>
+    
+  </channel>
+</rss>

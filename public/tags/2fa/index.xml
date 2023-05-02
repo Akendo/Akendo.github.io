@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2FA on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/2fa/</link>
+    <description>Recent content in 2FA on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Tue, 02 Jul 2019 00:14:29 +0200</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/2fa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>02.07.2019 - link drop</title>
+      <link>https://blog.akendo.eu/flash/02.07.2019-linkdrop/</link>
+      <pubDate>Tue, 02 Jul 2019 00:14:29 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/02.07.2019-linkdrop/</guid>
+      <description> media.ccc.de -Type confusion: discovery, abuse, and protection Getting 2FA Right in 2019 | Trail of Bits Blog </description>
+    </item>
+    
+  </channel>
+</rss>

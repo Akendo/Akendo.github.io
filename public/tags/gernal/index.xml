@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gernal on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/gernal/</link>
+    <description>Recent content in Gernal on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 05 Jul 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/gernal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KVM and I/O problems</title>
+      <link>https://blog.akendo.eu/post/2012-07-05-kvm-io-problems/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-07-05-kvm-io-problems/</guid>
+      <description>KVM and Postgresql Problem:
+Slow I/O - with Software Raid 1 and LVM2.
+
+So we had some trouble with a Software Raid 1 and our KVM Virtual Machines, the writing and reading speed was just bad. But this was only  for paralle wirte/read requests. So doing single test like dd or even bonnie didn&#39;t show the problem.
+
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL to Postgresql</title>
+      <link>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</guid>
+      <description>I dislike MySQL. I never did like it, since Oracle bought Sun it starting to become more then just disliking it. I prefer to work with Postgresql. I want to migrate some of my MySQL DB to Postgresql.
+
+</description>
+    </item>
+    
+    <item>
+      <title>How to deploy wsgi with apache</title>
+      <link>https://blog.akendo.eu/post/2012-04-26-deploy-wsgi-virtualenv-django/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-04-26-deploy-wsgi-virtualenv-django/</guid>
+      <description>Related to the previors Post, i hade now to apply from virtualenv to a apache webserver.</description>
+    </item>
+    
+    <item>
+      <title>Bulding a virtualenv</title>
+      <link>https://blog.akendo.eu/post/2012-03-28-bulding-virtualenv/</link>
+      <pubDate>Wed, 28 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-28-bulding-virtualenv/</guid>
+      <description>virutalenvVirutalenv is a python program that allows you to create system separate container with an own version of python/pip.</description>
+    </item>
+    
+    <item>
+      <title>Enable remote access for PostgreSQL</title>
+      <link>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</link>
+      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</guid>
+      <description>Remote access to a Postgtres DatabaseIn the last days i have worked a lot with PostgreSQL.</description>
+    </item>
+    
+    <item>
+      <title>rsync - the better scp</title>
+      <link>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</guid>
+      <description>Regard this Post, i make this post. First: scp is great.</description>
+    </item>
+    
+    <item>
+      <title>Howto fix libgeos_c.so not found</title>
+      <link>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</guid>
+      <description>I&#39;m working with Python Django and PostGIS.When i try to add the Geo support to the Project, i hit this error message:OSError: /usr/local/lib/libgeos_c.</description>
+    </item>
+    
+    <item>
+      <title>How to monitor MonogoDB with Nagios</title>
+      <link>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</guid>
+      <description>&amp;nbsp;&amp;nbsp;I need some Monitoring for Nagios3 of my MongoDB.</description>
+    </item>
+    
+    <item>
+      <title>Gentoo migration to Gnome 3.2</title>
+      <link>https://blog.akendo.eu/post/2012-02-03-gentoo-migration-to-3-2/</link>
+      <pubDate>Fri, 03 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-03-gentoo-migration-to-3-2/</guid>
+      <description>Currently is there no developer for compiz in Gentoo. That is a problem, it has bug and no one is fix them.</description>
+    </item>
+    
+    <item>
+      <title>Basic xserver on a vServer</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</guid>
+      <description>For fetching some date, my Application need a xserver. The Problem is that it&#39;s running on VM.</description>
+    </item>
+    
+    <item>
+      <title>Nginx with SSL</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</guid>
+      <description>For a demo Application that has to be show in the Internet, we need a Scala Lift online.</description>
+    </item>
+    
+    <item>
+      <title>No iwlagn in Linux 3.2&#43;</title>
+      <link>https://blog.akendo.eu/post/2012-01-18-no-iwlagn-in-linux-3-2/</link>
+      <pubDate>Wed, 18 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-18-no-iwlagn-in-linux-3-2/</guid>
+      <description>I installed today the new Kernel 3.2 and didn&#39;t have any Wifi, that is related to some changes in the iwlagn divers.</description>
+    </item>
+    
+    <item>
+      <title>Update my Blog</title>
+      <link>https://blog.akendo.eu/post/2012-01-15-update-my-blog/</link>
+      <pubDate>Sun, 15 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-15-update-my-blog/</guid>
+      <description>I just updated my Blog. It&#39;s now move to my a host of my own.</description>
+    </item>
+    
+    <item>
+      <title>How to empty swap</title>
+      <link>https://blog.akendo.eu/post/2012-01-11-how-to-empty-swap/</link>
+      <pubDate>Wed, 11 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-11-how-to-empty-swap/</guid>
+      <description>Bad applications does Bad stuff with you Memor. Today my Skype decide to flood my Memory.</description>
+    </item>
+    
+    <item>
+      <title>Happy new year!</title>
+      <link>https://blog.akendo.eu/post/2012-01-02-9/</link>
+      <pubDate>Mon, 02 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-02-9/</guid>
+      <description>Happy new year to everyone! </description>
+    </item>
+    
+  </channel>
+</rss>

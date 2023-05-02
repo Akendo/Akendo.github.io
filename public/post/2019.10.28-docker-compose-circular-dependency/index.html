@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>docker-compose handling circular dependency &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2019-10-28 11:44:44 &#43;0100 CET">October 28, 2019</time>
+        <br>
+        <span>1 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/docker/">Docker</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/dependency/">dependency</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">docker-compose handling circular dependency</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>In <code>docker-compose</code> files you can have different keywords to indicate run time dependency.
+<code>depends_on</code> and <code>links</code>. The latter one is for handling network connection.</p>
+<p>The <code>links</code> keyword is needed to handles how traffic is directed into one direction. <code>depends_on</code> and <code>links</code>
+can interfere with one another in terms of dependency. An error like this occurs when you want to run <code>docker-compose up</code></p>
+<pre><code>Docker compose ERROR: Circular dependency between ....
+</code></pre>
+<p>It is an issue when <code>depends_on</code> and <code>links</code> disallowing the <code>docker-compose</code> to start the service because different resources require a service to be running.</p>
+<p>The general solution for this problem is to disabled the <code>links</code> keywords and get the different services running first. In my understanding the <code>depends_on</code> is
+for the run time dependency. In sense what a service requires before it can be started:</p>
+<pre><code>A -&gt; B -&gt; C
+</code></pre>
+<p>In the sense: A requires B and therefor. But for the <code>links</code> it&rsquo;s the other way around. Who needs a connects to whom</p>
+<pre><code>C -&gt; B -&gt; A
+</code></pre>
+<p>best regards,
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2019.10.27-dealing-with-distraction/" class="left arrow">&#8592;</a>
+		<a href="/flash/30.10.2019-what-i-have-learned-today/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.179368305 &#43;0200 CEST m=&#43;0.139252845">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Moving the Blog to GitHub &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2023-05-02 06:44:39 &#43;0200 CEST">May 2, 2023</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/blog/">Blog</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/blog/">blog</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Moving the Blog to GitHub</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>I&rsquo;ve decided to move my blog to GitHub temporary. Because I miss the time to maintain the underlying
+infrastructure and make the changes that, I feel, are necessary to remain in a good state.</p>
+<p>The migration is super simple. Create a GitHub repository with your Account name and point your
+subdomain via a CNAME to it. Verify your domain via a TXT field and you should be good to go.
+Obviously, you have to commit your HTML files into the repository.</p>
+<p>Only the DNS migration takes longer until it is propagated through the DNS. There might be some
+hiccup regarding the TLS certificate. It takes some time until Let&rsquo;s Encrypt picks up the change.
+But it&rsquo;s only a matter of time, I think.</p>
+<p>Reflecting on this change, it hurt a bit. I always valued running my own infrastructure. It made
+you quite immune to all the turbulences many cloud services had. Since you just have a simple VM
+with a webserver running.</p>
+<p>But this infrastructure requires some love from time to time. And so does the Operating System.
+Because the underlying Debian is turning older, I would have to migrate it away. This also affects
+my mail setup, that  requires a fresh installation and I didn&rsquo;t stay up-to-date with the
+technologies. And while I feel like that this is very little time to spend, I just can&rsquo;t spare it
+at the moment. Lastly, I wanted to change my Let&rsquo;s Encrypt setup. But this requires additional
+infrastructure that I cannot bear to run right now.</p>
+<p>When my life has stabilized and have a bit more headspace to afford running infrastructure,
+I&rsquo;m going to migrate once more. Just for the moment, it&rsquo;s the best solution.</p>
+<p>best regards,<br>
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/flash/23.05.2022-linkdrop/" class="left arrow">&#8592;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.20096311 &#43;0200 CEST m=&#43;0.160847650">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

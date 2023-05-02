@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MongoDB on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/mongodb/</link>
+    <description>Recent content in MongoDB on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Mon, 06 Feb 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to monitor MonogoDB with Nagios</title>
+      <link>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</guid>
+      <description>&amp;nbsp;&amp;nbsp;I need some Monitoring for Nagios3 of my MongoDB.</description>
+    </item>
+    
+  </channel>
+</rss>

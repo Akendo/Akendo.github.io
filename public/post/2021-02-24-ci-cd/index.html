@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>CI CD &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-02-24 10:17:29 &#43;0100 CET">February 24, 2021</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/ci/cd/">CI/CD</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">CI CD</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>With my affords to fix pineview, I’m in the situation to think about what I want to have for a CI/CD. Having it would improve blogging and deployment because I could also use my phone for it. However, many CI/CD I know do not offer the necessary ‘smallness’ for what I need.</p>
+<p>A CI/CD is nothing more than a machine with remote code execution. You push your commit to it and the machine starts right away to execute any given code. There are various great CI/CD system. But, many of them are just vastly to big. GitLab requires a massive number of resources and bypassed being a container to host code long ago. The attached CI/CD can couple with many complex scenarios, but has become to complex on it own.</p>
+<p>What I want is a simple and slick system. Lucky, git itself provides everything you need. Instead of having some framework to make it run, all what I’m going to do is executing a bash script. Within git there are hooks implemented. Whenever a state change occurred within git, you can trigger it.</p>
+<p>For instance, there are pre-merge hooks. They are mainly used to ensure consistency: Was the commit signed? Is there maybe a typo in the hook is this a push to a restricted branch?</p>
+<p>A CI/CD will utilize the post-hook. Once you’ve completed a push, and it was merged into the branch it&rsquo;s going to trigger my deployment script!</p>
+<p>so far,<br>
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-02-23-restoring-pineview/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-02-25-kernel-exploitation-part-five/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.192977828 &#43;0200 CEST m=&#43;0.152862358">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

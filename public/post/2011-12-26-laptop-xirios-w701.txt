@@ -1,0 +1,92 @@
++++
+layout = post
+title =  My Laptop XIRIOS W701
+date =  2011-12-26
+categories: [ Gentoo,Gernal,Hardware,iwlagn,iwlwifi,kernel, kernel 64-Bit, linux, mysn.de, network, Software, System, W701, XIRIOS ]
+status = draft
+type =  post
+published = true
++++
+<div><strong><strong><a href="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02978.jpg"><img class="alignnone size-large wp-image-82" title="Laptop lid closed" src="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02978-1024x768.jpg" alt="" width="695" height="521" /></a></strong></strong></div>
+<div>
+
+<em>The Laptop with closed Lid on my Table. </em>
+
+I got a new Laatp for the my new Job. My old . I ordnerd i on mysn.de and it’s one of the best devices ever hold in hand ever. I have this one now for a while and I'm almost happy with it. Even with some bad start problems.
+
+I did choose this one cause it's fitting exactly to my work. The Order took around 5 weeks because the screen wasn't on stock.
+
+A little bit about the Devices:
+
+&nbsp;
+
+<strong>Hardware</strong>:
+
+It's a XIRIOS W701 mobile Workstation and runs with:
+<ul>
+	<li>Intel I7 2820QM (2.30 Ghz) 8MB L3 Cache</li>
+	<li>8GB of Ram SO-DIMM DDR3 RAM 1333MHz</li>
+	<li>AMD Readon 6900M Graphicard with 2048 Mb GDDR 5 Ram.</li>
+	<li>2x USB 2.0,2x USB 3.0 , 1 x eSATA,</li>
+	<li>DVI/HDMI,</li>
+	<li>Non-Glare with LED 43,9cm (17.3")</li>
+	<li>128 GB SSD,  M4-CT128M4SSD2</li>
+	<li>An addition HDD slot.</li>
+</ul>
+&nbsp;
+
+<img class="alignnone size-thumbnail wp-image-77" title="Laptop Left Side detail" src="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02987-150x150.jpg" alt="" width="150" height="150" /><a href="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02988.jpg"><img class="alignnone size-thumbnail wp-image-84" title="Laptop back" src="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02988-150x150.jpg" alt="" width="150" height="150" /></a><a href="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02989.jpg"><img class="alignnone size-thumbnail wp-image-81" title="Laptop back" src="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02989-150x150.jpg" alt="" width="150" height="150" /></a><a href="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02992.jpg"><img class="alignnone size-thumbnail wp-image-79" title="Laptop right side(damaged)" src="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02992-150x150.jpg" alt="" width="150" height="150" /></a>
+
+<em>(The Left side, backside and the right side)</em>
+
+One great think compare to a lot of other laptop is that the DVI and HDMI are not blocking each other. So i'm able to plug in two monitors.
+
+<img class="alignnone size-medium wp-image-97" title="Laptop with two screens" src="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02967-300x225.jpg" alt="" width="300" height="225" /><a href="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02979.jpg"><img class="alignnone size-medium wp-image-78" title="Laptop Front" src="http://blog.akendo.eu/wp-content/uploads/2012/01/DSC02979-300x225.jpg" alt="" width="300" height="225" /></a>
+
+<strong>Software:</strong>
+
+Before i come to the Linux part, the Bios did some nasty stuff .
+
+For the fist month i was annoyd everyday by a to load fan! The Graficcard Fan start to drill all day long, without any reason. No real use of the Gcard made it loader then everythink else in the room.
+
+I updated the Bios then and it did become better, but just so much. The ACPI sensor was bugged then as well, it detected a temperature of 100 C and so both fan start to run on max. This happen just time to time, but was also very annoying as well.
+
+I found (lucky) that the maintainer push short after a new Bios-update out! This fix everything!
+
+&nbsp;
+
+<strong>Linux</strong> :
+
+<a href="http://blog.akendo.eu/wp-content/uploads/2012/01/Gentoo-Desktop-23_01_2012.jpg"><img class="alignnone size-large wp-image-96" title="Gentoo-Desktop-23_01_2012" src="http://blog.akendo.eu/wp-content/uploads/2012/01/Gentoo-Desktop-23_01_2012-1024x576.jpg" alt="" width="695" height="390" /></a>
+
+<em>(My current desktop, Gentoo Gnome 2.30.2 and Linux kernel 3.2.1-gentoo)</em>
+
+The Linux driver support is quite good. The network driver was a little bit a problem in the beginning. I wasn't able to use the <em>jme</em> driver stable before Linux 3.0.
+
+To made the Wifi <em>sys-kernel/linux-firmware</em> are needed. Else the fn-keys can't activaed the Wifi and the devices will not appear.
+
+Intel  Advanced-N 6230 iwlwifi
+
+One mayor problem is the Suspend to Ram - it works very unstable. With the 3.2 it has become quite workable, but after every suspend, the xserver is blackout. I have to plugin a other monitor or using Ctrl + alt + Backspace to reset it.
+
+&nbsp;
+
+More another time.
+
+&nbsp;
+
+Akendo
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+</div>

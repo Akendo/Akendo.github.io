@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/ssh/</link>
+    <description>Recent content in ssh on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Wed, 09 Dec 2020 14:40:08 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>09.12.2020 - link drop</title>
+      <link>https://blog.akendo.eu/flash/09.12.2020-linkdrop/</link>
+      <pubDate>Wed, 09 Dec 2020 14:40:08 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/09.12.2020-linkdrop/</guid>
+      <description> Share port 22 between Gogs inside Docker &amp;amp; the local system </description>
+    </item>
+    
+    <item>
+      <title>13.05.2020 - link drop</title>
+      <link>https://blog.akendo.eu/flash/13.05.2020-linkdrop/</link>
+      <pubDate>Wed, 13 May 2020 14:46:19 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/13.05.2020-linkdrop/</guid>
+      <description>How to enable SSH access using a GPG key for authentication | Opensource.</description>
+    </item>
+    
+    <item>
+      <title>04.02.2020 - link drop</title>
+      <link>https://blog.akendo.eu/flash/04.02.2020-linkdrop/</link>
+      <pubDate>Tue, 04 Feb 2020 18:59:43 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/04.02.2020-linkdrop/</guid>
+      <description>Today&amp;rsquo;s link drop is quite long because I&amp;rsquo;ve collected over the last day&amp;rsquo;s much news.</description>
+    </item>
+    
+    <item>
+      <title>12.11.2020 - link drop</title>
+      <link>https://blog.akendo.eu/flash/12.11.2020-linkdrop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/12.11.2020-linkdrop/</guid>
+      <description> Charles Darwin’s hunch about early life was probably right - BBC Future Decrypting OpenSSH sessions for fun and profit – Fox-IT International blog </description>
+    </item>
+    
+  </channel>
+</rss>

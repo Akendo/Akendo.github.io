@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>[ArchLinux]pacman dead lock &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2013-04-07 00:48:00 &#43;0100 &#43;0100">April 7, 2013</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">[ArchLinux]pacman dead lock</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>There is since some days a problem with a pacman. I just saw this <a href="https://plus.google.com/103041247704989241465/posts/UTS5y4x7etf">post on Google+</a>
+Maybe this as an addtional link to the <a href="https://bbs.archlinux.org/viewtopic.php?id=160878">ArchLinux froum</a></p>
+<p>For me did a remove of the packages <code>package-query</code> and <code>pacman-color</code> it.</p>
+<pre><code>sudo pacman -Rdd package-query
+sudo pacman -Rdd pacman-color
+</code></pre>
+<p>Update:
+An upgrade from yaourt to the latest version seem to fix the problem</p>
+<p>so far
+Akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2013-04-06-update-of-my-blog-number-3/" class="left arrow">&#8592;</a>
+		<a href="/post/2013-05-19-useful-find-cmd/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.165302506 &#43;0200 CEST m=&#43;0.125187056">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

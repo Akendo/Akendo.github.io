@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>MediaWiki Docker[part two] &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-02-15 23:41:33 &#43;0100 CET">February 15, 2021</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/linux/">Linux</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/mediawiki/">mediawiki</a> <a href="https://blog.akendo.eu/tags/docker/">docker</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">MediaWiki Docker[part two]</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>This is part two of my Media Wiki documenation[0]. It has been a while since I&rsquo;ve looked at this matter, but I planed it to progrss for this.</p>
+<p>We stopped with a running docker container with postgresql as the backend databases. However, this change was done manual. Hence, restarting the container would causes us to lose it.  We need to persist this change now.</p>
+<p>This is done by modfing the base of media wiki to include the psql extension[1] for PHP. Because I can&rsquo;t change the upstream iamage, i&rsquo;m going to build it locally.  For this we create a new Dockerfile. That Dockerfile takes the media wiki images as the base and runs the command we did run before manual. We keep it with a subfolder of the Docker-compose file.</p>
+<pre tabindex="0"><code>FROM mediawiki
+
+RUN apt update &amp;&amp; apt install -y libpq-dev
+RUN docker-php-ext-install pgsql
+RUN docker-php-ext-enable pgsql
+</code></pre><p>Afterwards, we can test this by build the image.</p>
+<pre tabindex="0"><code>docker build -t mediawiki-postgres .
+</code></pre><p>Once the build was successfully compledted  I&rsquo;m going to replace the beviously run instance of media wiki with the newly build one.</p>
+<pre tabindex="0"><code>docker run --name some-mediawiki -p 8080:80 -d mediawiki-postgres
+</code></pre><p>This will reset the installation routine. However, we do not care because we only want to see that we could install it with the postgres backend. Once the container is start we&rsquo;re going to <code>localhost:8080</code> and we can see that the postgres is present! Great.</p>
+<p>The next step is to replace the old image within the docker-compose file. Also we&rsquo;re going to define a a Context. This way we can build it if we want to update.</p>
+<p>Update the image:</p>
+<pre tabindex="0"><code>version: &#39;3&#39;
+services:
+  mediawiki:
+    image: mediawiki-postgres
+    build: 
+      context:
+        ./MediaWiki-postgres
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    #volumes:
+    #  - /var/www/html/images
+      # After initial setup, download LocalSettings.php to the same directory as
+      # this yaml and uncomment the following line and use compose to restart
+      # the mediawiki service
+      # - ./LocalSettings.php:/var/www/html/LocalSettings.php
+</code></pre><p>I should not forget to git init and commit at this stage. Now we erestart the container and copy the configuration again. Bam, the previosuve install is presented!</p>
+<p>Next step is setting up the first deployment with nginx and let&rsquo;s encrypt.</p>
+<p>so far,<br>
+akendo</p>
+<p>[0] <a href="https://blog.akendo.eu/post/2020-12-01-mediawiki-part-one/">https://blog.akendo.eu/post/2020-12-01-mediawiki-part-one/</a> <br>
+[1] <a href="https://www.php.net/manual/en/pgsql.installation.php">https://www.php.net/manual/en/pgsql.installation.php</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-02-14-review-cw06/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-02-16-about-technology/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.192982647 &#43;0200 CEST m=&#43;0.152867187">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

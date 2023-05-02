@@ -1,0 +1,14 @@
+---
+title: "2018 06 6 Multiple IP6 Addresses"
+date: 2018-06-06T13:03:52+02:00
+draft: true
+---
+
+What happens with multiple IP6-Addresses
+
+
+YOu add an interface with a new IPv6 IP6-Adresses and you default route died
+
+Why?
+
+Cause you have labels 

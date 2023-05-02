@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/linux/</link>
+    <description>Recent content in Linux on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 05 Jul 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KVM and I/O problems</title>
+      <link>https://blog.akendo.eu/post/2012-07-05-kvm-io-problems/</link>
+      <pubDate>Thu, 05 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-07-05-kvm-io-problems/</guid>
+      <description>KVM and Postgresql Problem:
+Slow I/O - with Software Raid 1 and LVM2.
+
+So we had some trouble with a Software Raid 1 and our KVM Virtual Machines, the writing and reading speed was just bad. But this was only  for paralle wirte/read requests. So doing single test like dd or even bonnie didn&#39;t show the problem.
+
+</description>
+    </item>
+    
+    <item>
+      <title>MySQL to Postgresql</title>
+      <link>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</link>
+      <pubDate>Sat, 19 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-05-19-mysql-postgresql/</guid>
+      <description>I dislike MySQL. I never did like it, since Oracle bought Sun it starting to become more then just disliking it. I prefer to work with Postgresql. I want to migrate some of my MySQL DB to Postgresql.
+
+</description>
+    </item>
+    
+    <item>
+      <title>How to deploy wsgi with apache</title>
+      <link>https://blog.akendo.eu/post/2012-04-26-deploy-wsgi-virtualenv-django/</link>
+      <pubDate>Thu, 26 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-04-26-deploy-wsgi-virtualenv-django/</guid>
+      <description>Related to the previors Post, i hade now to apply from virtualenv to a apache webserver.</description>
+    </item>
+    
+    <item>
+      <title>Enable remote access for PostgreSQL</title>
+      <link>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</link>
+      <pubDate>Mon, 12 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-12-enable-remote-access-postgresql/</guid>
+      <description>Remote access to a Postgtres DatabaseIn the last days i have worked a lot with PostgreSQL.</description>
+    </item>
+    
+    <item>
+      <title>rsync - the better scp</title>
+      <link>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</link>
+      <pubDate>Wed, 07 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-03-07-rsync-scp/</guid>
+      <description>Regard this Post, i make this post. First: scp is great.</description>
+    </item>
+    
+    <item>
+      <title>Howto fix libgeos_c.so not found</title>
+      <link>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</link>
+      <pubDate>Fri, 24 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-24-fix-libgeoscso/</guid>
+      <description>I&#39;m working with Python Django and PostGIS.When i try to add the Geo support to the Project, i hit this error message:OSError: /usr/local/lib/libgeos_c.</description>
+    </item>
+    
+    <item>
+      <title>svn2git</title>
+      <link>https://blog.akendo.eu/post/2012-02-18-svn2git/</link>
+      <pubDate>Sat, 18 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-18-svn2git/</guid>
+      <description>I&#39;m currently moving our old svn repositories to git. There a lots of reason to do this.</description>
+    </item>
+    
+    <item>
+      <title>How to monitor MonogoDB with Nagios</title>
+      <link>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</link>
+      <pubDate>Mon, 06 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-06-monitor-monogodb-nagios/</guid>
+      <description>&amp;nbsp;&amp;nbsp;I need some Monitoring for Nagios3 of my MongoDB.</description>
+    </item>
+    
+    <item>
+      <title>Gentoo migration to Gnome 3.2</title>
+      <link>https://blog.akendo.eu/post/2012-02-03-gentoo-migration-to-3-2/</link>
+      <pubDate>Fri, 03 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-02-03-gentoo-migration-to-3-2/</guid>
+      <description>Currently is there no developer for compiz in Gentoo. That is a problem, it has bug and no one is fix them.</description>
+    </item>
+    
+    <item>
+      <title>Basic xserver on a vServer</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</guid>
+      <description>For fetching some date, my Application need a xserver. The Problem is that it&#39;s running on VM.</description>
+    </item>
+    
+    <item>
+      <title>Nginx with SSL</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</guid>
+      <description>For a demo Application that has to be show in the Internet, we need a Scala Lift online.</description>
+    </item>
+    
+    <item>
+      <title>[Gentoo]Jetty with a .WAR file</title>
+      <link>https://blog.akendo.eu/post/2012-01-19-gentoojetty-with-a-war-file/</link>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-19-gentoojetty-with-a-war-file/</guid>
+      <description>Jetty with a .WAR fileIn my company i currenly have a lot to do with Scala Lift.</description>
+    </item>
+    
+    <item>
+      <title>No iwlagn in Linux 3.2&#43;</title>
+      <link>https://blog.akendo.eu/post/2012-01-18-no-iwlagn-in-linux-3-2/</link>
+      <pubDate>Wed, 18 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-18-no-iwlagn-in-linux-3-2/</guid>
+      <description>I installed today the new Kernel 3.2 and didn&#39;t have any Wifi, that is related to some changes in the iwlagn divers.</description>
+    </item>
+    
+    <item>
+      <title>How to empty swap</title>
+      <link>https://blog.akendo.eu/post/2012-01-11-how-to-empty-swap/</link>
+      <pubDate>Wed, 11 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-11-how-to-empty-swap/</guid>
+      <description>Bad applications does Bad stuff with you Memor. Today my Skype decide to flood my Memory.</description>
+    </item>
+    
+    <item>
+      <title>Debian PostgreSQL 8.4 can&#39;t create Database with UTF-8 Encoding</title>
+      <link>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</link>
+      <pubDate>Tue, 03 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-03-debian-postgresql-8-4-cant-create-database-with-utf-8-encoding/</guid>
+      <description>The ProblemI encounter a problem with fresh Debian VM. I create this VM for our developer, during the installation script following problem appears and stop the script:new encoding (UTF8) is incompatible with the encoding of the template database (SQL_ASCII)HINT: Use the same encoding as in the template database, or use template0 as template.</description>
+    </item>
+    
+    <item>
+      <title>Skypetab-ng on Gentoo</title>
+      <link>https://blog.akendo.eu/post/2011-12-27-skypetab-ng-on-gentoo/</link>
+      <pubDate>Tue, 27 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2011-12-27-skypetab-ng-on-gentoo/</guid>
+      <description>A lots of people dislike the Skype Software but have to use it.</description>
+    </item>
+    
+    <item>
+      <title>20.01.2021 - link drop</title>
+      <link>https://blog.akendo.eu/flash/20.01.2021-linkdrop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/20.01.2021-linkdrop/</guid>
+      <description> Emergency reboot/shutdown using SysRq · matoski.com The sea otter rescue plan that worked too well - BBC Future David Epstein on kind and wicked learning environments - Driverless Crocodile The intelligent monster that you should let eat you - BBC Future The psychology behind &amp;lsquo;revenge bedtime procrastination&amp;rsquo; - BBC Worklife Cognitive Load Theory: Explaining our fight for focus - BBC Worklife How to hack your concentration when you’re working from home | WIRED UK </description>
+    </item>
+    
+  </channel>
+</rss>

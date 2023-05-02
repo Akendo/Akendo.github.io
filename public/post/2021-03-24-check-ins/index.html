@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Check Ins &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-03-24 10:15:42 &#43;0100 CET">March 24, 2021</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/habits/">Habits</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/python/">python</a> <a href="https://blog.akendo.eu/tags/task/">task</a> <a href="https://blog.akendo.eu/tags/warrior/">warrior</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Check Ins</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Some years ago, a friend of mine went to the Recurse Center[0] in New York. When he returned and told us of all the crazy things. One particular thing was check-ins. When I remember correctly, it was an offered to the others a way to see what there are working on or with. This will be done by writing in short words, what there are working on. Nothing to crazy something like this:</p>
+<pre tabindex="0"><code>==========
+24.03.2021
+==========
+
+*What will I do today*
+ - Blogging
+ - Automate Checkin 
+ - Update Tyrorin
+ - Cooking
+</code></pre><p>This text will then be shared over some channel in Slack or Mattermost. The advantage of such a thing is, it provides a type of memory of what you have done when. This is especially great when you do pay work and can write down on the end of a month what was done to a particular day of the week.</p>
+<h2 id="using-task-warrior-to-check-in">Using Task Warrior to Check-in</h2>
+<p>The process for this is simple: Most of the given tasks are already written down in my Task Warrior. I will just tag a selected task in TW and then read them out. For TW exists a python library that allows to read the data. A quick look through the document and you got everything you need to filter by tags:</p>
+<pre tabindex="0"><code>import tasklib
+import datetime
+
+tw = tasklib.TaskWarrior(data_location=&#39;~/.task&#39;, create=False)
+checkins = tw.tasks.filter(status=&#39;pending&#39;, tags__contains=[&#39;CheckIn&#39;])
+
+print(&#34;==========&#34;)
+print(datetime.date.today().strftime(&#34;%d.%m.%Y&#34;))
+print(&#34;==========&#34;)
+print()
+print(&#34;*What will I do today*&#34;)
+
+for task in checkins:
+  print(&#34; - &#34; + str(task))
+</code></pre><p>I sometimes forget, how easy it is to get something done in python. This will loop through all the tasks that have the tag and print them. Reducing the time to write the check considerably. I’ve integrated it with the bash script that handles the file creation. In the future might move this into the script, but for today that’s enough.</p>
+<p>so far,<br>
+akendo</p>
+<p>[0] <a href="https://www.recurse.com/">https://www.recurse.com/</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-03-22-fixed-po4a-in-gentoo/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-03-25-pineview/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.195715064 &#43;0200 CEST m=&#43;0.155599604">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

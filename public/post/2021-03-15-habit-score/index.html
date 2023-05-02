@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Habit Score &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-03-15 10:36:27 &#43;0100 CET">March 15, 2021</time>
+        <br>
+        <span>4 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/software/">Software</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/habit/">habit</a> <a href="https://blog.akendo.eu/tags/taskwarrior/">taskwarrior</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Habit Score</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>For long, I&rsquo;ve used the  Habit Tracker[0] to keep track of my daily routines. A while ago, I&rsquo;ve decided to stop using my Smartphone to reduce distracting. Instead, the task warrior has become my tool to keep track of daily routines. This comes with some downsides. I do not have that neat graphs anymore.</p>
+<p><img src="https://raw.githubusercontent.com/iSoron/uhabits/c4e496a5ffa976991c8cc7f7bba0a39c35214d42/screenshots/uhabits2_th.png" alt=""></p>
+<p>To compensated, I’ve taken some time to figure out how the App is rendering the graph. After some search, I think I manage to find the formula that is used to compute the score value of a given habit. When we  know this value, we can be used to generate an own graph.</p>
+<script type="text/javascript" async
+  src="/js/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<p>$$s = 0.5^{\frac{\sqrt(f)}{13}}$$</p>
+<p>Wait, what? \(0.5^{\frac{\sqrt{f}}{13}}\) ? That’s an odd function. I have to admit, it took some time until I understood what the idea is. This is a graceful descending graph. The function will hit zero eventually. Important is the follow quote[2] here:</p>
+<blockquote>
+<pre><code>    * Given the frequency of the habit, the previous score, and the value of
+    * the current checkmark, computes the current score for the habit.
+    *
+    * The frequency of the habit is the number of repetitions divided by the
+    * length of the interval. For example, a habit that should be repeated 3
+    * times in 8 days has frequency 3.0 / 8.0 = 0.375.
+    */
+</code></pre>
+</blockquote>
+<p>A little bit below we can see the computation that is made:</p>
+<pre><code>        val multiplier = Math.pow(0.5, sqrt(frequency) / 13.0)
+        var score = previousScore * multiplier
+        score += checkmarkValue * (1 - multiplier)
+        return score
+</code></pre>
+<p>I wasn’t able to find any specify documentation within the project why this formula is the way it is. Habits require a certain amount of reiteration before it becomes a true habit. It might be that one of the paper that state this has made up this formula and the developer has adapted it. It could be also possible, that it was completely invented by him? I&rsquo;m not certain.</p>
+<p>How I understood the code is as follows: You compute for a fixed sized interval the number of repetitions. How often should you do this giving habit per week? In the graph on top of the page, we see the different interval lengths that available. There are fixed for weeks, months or years, when I remembered correctly. In the example the interval is 8 days what feels arbitrary, but it is just an example. Anyway, we then have the frequency.</p>
+<p>At this point I’m a bit uncertain in how the app counts the actual number of repetitions. It could be that the frequency is a fixed value and the app  computed via the value for a checkmark. Or it, changes frequency by calculate the actual repetitions one has done per interval into. It makes more sense to me that it is mainly done via the checkmark value because it is boolean.</p>
+<p>One thing that left me to wonder is the 13[3]? Why 13? I guess to represent the period something take until it becomes really a habit. When you remove it, it takes five days. I wrote the code in python to imitate it, but left the 13 as a factor away.</p>
+<pre tabindex="0"><code>def score(frequency,previousScore, Value):
+    multipler = math.pow(0.5, math.sqrt(frequency))
+    score = previousScore * multipler
+    score += Value * (1 - multipler)
+    return score
+</code></pre><p>Now we loop through and see:</p>
+<pre><code>It is day 0
+Score is 0.5
+It is day 1
+Score is 0.75
+It is day 2
+Score is 0.875
+It is day 3
+Score is 0.9375
+It is day 4
+Score is 0.96875
+It is day 5
+Score is 0.984375
+</code></pre>
+<p>The formula converging against 1, but will never reach 1. This make sense because it represents percentage. Besides, when it has reached 0.99 it does not matter anyway, you would count it as 100%. We may keep playing with the code until we see the period in which a habit becomes habitual. This is fun because usually, we do not tinker with mathematical formula this way.</p>
+<p>It also raises some concern here. Think about it, some people that use this app taking this as an indicated without understanding why it is this way. For them, it is just like: Hey here is a graph, and it looks great. Let this becomes a metric for this routine now. Yacs…</p>
+<p>Browsing through the code base and I must say, Kotlin feels odd. However, this project is especially useful to learn from because it covers different platforms. I think that the code is organized as follows: A core part written in java to allow cross-platform support and then platform specify code. For instance, iOS or Android. It also has some web and server related resources. This make sense to keep the code arranged this way. I did just not expect this.</p>
+<p>Any way, that it for now.</p>
+<p>So far,
+akendo</p>
+<p>[0] <a href="https://f-droid.org/en/packages/org.isoron.uhabits/">https://f-droid.org/en/packages/org.isoron.uhabits/</a><br>
+[1] <a href="https://github.com/iSoron/uhabits/blob/2828dfcc754ee09a5e1c03fb96986b71d0686af1/uhabits-core/src/jvmMain/java/org/isoron/uhabits/core/models/Score.kt#L43">https://github.com/iSoron/uhabits/blob/2828dfcc754ee09a5e1c03fb96986b71d0686af1/uhabits-core/src/jvmMain/java/org/isoron/uhabits/core/models/Score.kt#L43</a><br>
+[2] <a href="https://github.com/iSoron/uhabits/blob/2828dfcc754ee09a5e1c03fb96986b71d0686af1/uhabits-core/src/jvmMain/java/org/isoron/uhabits/core/models/Score.kt#L35">https://github.com/iSoron/uhabits/blob/2828dfcc754ee09a5e1c03fb96986b71d0686af1/uhabits-core/src/jvmMain/java/org/isoron/uhabits/core/models/Score.kt#L35</a><br>
+[3] <a href="https://github.com/iSoron/uhabits/search?q=13">https://github.com/iSoron/uhabits/search?q=13</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-03-15-broken-spi/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-03-16-dependency-hell/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.195839157 &#43;0200 CEST m=&#43;0.155723707">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

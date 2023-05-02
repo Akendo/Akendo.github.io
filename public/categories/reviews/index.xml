@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reviews on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/categories/reviews/</link>
+    <description>Recent content in reviews on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Sun, 07 Mar 2021 21:51:53 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/categories/reviews/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Review CW09</title>
+      <link>https://blog.akendo.eu/post/2021-03-07-review-cw09/</link>
+      <pubDate>Sun, 07 Mar 2021 21:51:53 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-03-07-review-cw09/</guid>
+      <description>Gosh, I’ve manage to not get any post done in a week!</description>
+    </item>
+    
+    <item>
+      <title>Review CW08</title>
+      <link>https://blog.akendo.eu/post/2021-02-28-review-cw08/</link>
+      <pubDate>Sun, 28 Feb 2021 21:22:33 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-02-28-review-cw08/</guid>
+      <description>This week was the best so far. I finished up the kernel exploration and will move next week to the next chapter.</description>
+    </item>
+    
+  </channel>
+</rss>

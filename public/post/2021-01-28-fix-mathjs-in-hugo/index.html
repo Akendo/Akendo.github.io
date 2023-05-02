@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Fix Mathjs in Hugo &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2021-01-28 11:28:39 &#43;0100 CET">January 28, 2021</time>
+        <br>
+        <span>1 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/blog/">Blog</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/hugo/">hugo</a> <a href="https://blog.akendo.eu/tags/100daystooffload/">100daystooffload</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Fix Mathjs in Hugo</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>With the change to shortcodes, Hugo seemed to have drop support for inline HTML code in markdown. As written before, this causes a bit of an issue. Just now, I figured out that the math.js library wasn’t loaded and causes some posts to be affected. Hence, I’ve created a new shortcode calls mathjs.html. It is similar to this example[0].</p>
+<pre tabindex="0"><code>cat mathjs.html 
+&lt;script type=&#34;text/javascript&#34; async
+  src=&#34;/js/MathJax.js?config=TeX-MML-AM_CHTML&#34;&gt;
+&lt;/script&gt;
+</code></pre><p>Now all posts that need math.js can include these lines with the following shortcode, Instead of having native HTML/JavaScript code. I’m not sure if I like it.</p>
+<pre tabindex="0"><code><script type="text/javascript" async
+  src="/js/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</code></pre><p>so far,<br>
+akendo</p>
+<p>[0] <a href="https://gohugo.io/templates/shortcode-templates/#single-word-example-year">https://gohugo.io/templates/shortcode-templates/#single-word-example-year</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2021-01-25-kernel-exploitation/" class="left arrow">&#8592;</a>
+		<a href="/post/2021-01-28-blogfixes/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.189166929 &#43;0200 CEST m=&#43;0.149051469">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

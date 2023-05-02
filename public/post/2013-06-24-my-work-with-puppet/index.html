@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>My work with Puppet &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2013-06-24 22:43:00 &#43;0100 &#43;0100">June 24, 2013</time>
+        <br>
+        <span>3 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+
+
+</div>
+
+		<h1 class="post-title">My work with Puppet</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>So I have been busy in the past weeks. I&rsquo;m currently working a lots with OpenStack and Ceph.
+This Post is about some issue I found inside the puppet-ceph module, further I forked it and solved it. More here <a href="https://github.com/enovance/puppet-ceph/pull/15">osd::devices allow working on dmcrypt block devices.</a></p>
+<p>Lets get start:</p>
+<p>When you want to run Ceph, there different ways to handle this. Inktank provide a tool called <code>ceph-deploy</code>. It&rsquo;s in <code>python</code> develop software, but this is no option for environment that has to work automatically. We did run into some bugs and in the next moment the disk were messed up.</p>
+<p>Beside, how do this work when you want to scale. We&rsquo;re using puppet fo this. So we&rsquo;re need some good modules.</p>
+<p>Some days ago the <code>puppet-ceph</code> module was finish. So I started to work with this. The basic module were quite fine, but for our <a href="https://github.com/TelekomCloud">Dtagcloud</a> environment we did need some extra.</p>
+<p>For this I created, with some help a <code>dmcrypt</code> module.(I&rsquo;ll release it at some point later)</p>
+<p>I did a test with the Vagrant environment. A small trip with vagrant on <code>kvm</code>.
+Vagrant is great, but in my option the biggest issue is Virtualbox. For a Linux use it&rsquo;s hard to work with it. KVM is more efficient in sense of Virutalzation. It would accelerate the work quite a lot.
+But I&rsquo;m no ruby guy. To get it running it will take some more, I&rsquo;m looking forward to it!</p>
+<p>Back to <code>puppet-ceph</code></p>
+<p>The basic integration works fine. I build up a basic site.pp that include all what I need.
+I add a second disk and did encrypt it.</p>
+<p>Here kick the issue in.</p>
+<p>Error: mkfs.xfs -f -d agcount=1 -l size=1024m -n size=64k /dev/mapper/osd-0 returned 1 instead of one of [0]
+Error: /Stage[main]/Dtagcloud::Osd/Ceph::Osd::Device[/dev/mapper/osd-0]/Exec[mkfs_OSD-0]/returns: change from notrun to 0 failed: mkfs.xfs -f -d agcount=1 -l size=1024m -n size=64k /dev/mapper/OSD-01 returned 1 instead of one of [0]</p>
+<p>Wait what happens here? I look into the Code and saw this:</p>
+<p>exec { &ldquo;mktable_gpt_${devname}&rdquo;:
+command =&gt; &ldquo;parted -a optimal &ndash;script ${name} mktable gpt&rdquo;,
+unless  =&gt; &ldquo;parted &ndash;script ${name} print|grep -sq &lsquo;Partition Table: gpt&rsquo;&rdquo;,
+require =&gt; Package[&lsquo;parted&rsquo;]
+}</p>
+<p>exec { &ldquo;mkpart_${devname}&rdquo;:
+command =&gt; &ldquo;parted -a optimal -s ${name} mkpart ceph 0% 100%&rdquo;,
+unless  =&gt; &ldquo;parted ${name} print | egrep &lsquo;^ 1.*ceph$&rsquo;&rdquo;,
+require =&gt; [Package[&lsquo;parted&rsquo;], Exec[&ldquo;mktable_gpt_${devname}&rdquo;]]
+}</p>
+<p>exec { &ldquo;mkfs_${devname}&rdquo;:
+command =&gt; &ldquo;mkfs.xfs -f -d agcount=${::processorcount} -l <br>
+size=1024m -n size=64k ${name}1&rdquo;,
+unless  =&gt; &ldquo;xfs_admin -l ${name}1&rdquo;,
+require =&gt; [Package[&lsquo;xfsprogs&rsquo;], Exec[&ldquo;mkpart_${devname}&rdquo;]],
+}</p>
+<p>That&rsquo;s interesting, first of all that there generating this disk and then assum that the first partition is always called DEVICESn. This isn&rsquo;t working for <code>dmcrypt</code> devices.</p>
+<p>Why? Simple: We&rsquo;re creating a partition layout on top of a encrypted devices. Sure you could handle this way. The better way would be to create the partition before the encryption.</p>
+<p>But here a small issue with this: For what?
+When running with a Ceph OSD, the disk will be all ocopuity.
+Partition tables are logiscal separtion of disks. There is no need for this here.</p>
+<p>When dmcrypt has a partition table with a logical paration on it. The disk will be address as /dev/mapper/OSD-0p1</p>
+<p>The Code add a 1 to each disk related command.</p>
+<p>device  =&gt; &ldquo;${name}1&rdquo;,</p>
+<p>That&rsquo;s bad. For the moment the solution was to commenced the code and keep going. I&rsquo;ll building parameter to allow everyone to handle this by them self.</p>
+<p>But what&rsquo;s that? Still not working?</p>
+<p>So the nest issue is here:</p>
+<p>Puppet does convert names internal. What? Wait don&rsquo;t we&rsquo;re in 2013?
+So lets so more detail about this:</p>
+<p>ceph::osd::device { &ldquo;/dev/mapper/OSD-${id}&rdquo;:
+}</p>
+<p>My goal was to highlight for Administrator the mounted disk with uppercase. Puppet export this to the facter only lowercase. There is the 1</p>
+<p><a href="http://docs.puppetlabs.com/puppet/3/reference/lang_datatypes.html#resource-references">http://docs.puppetlabs.com/puppet/3/reference/lang_datatypes.html#resource-references</a></p>
+<p>Summery:</p>
+<p>Sources:
+<a href="https://lists.samba.org/archive/linux/2004-December/012627.html">[clug] Accessing partitions on loop devices</a></p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2013-05-19-useful-find-cmd/" class="left arrow">&#8592;</a>
+		<a href="/post/2013-09-27-kde4-simple-kscreensaver-using-custom-background-image/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.167696428 &#43;0200 CEST m=&#43;0.127580968">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Debian PostgreSQL 8.4 can&#39;t create Database with UTF-8 Encoding &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-01-03 00:00:00 &#43;0000 UTC">January 3, 2012</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/apt-get/">apt-get</a> <a href="https://blog.akendo.eu/tags/bash/">bash</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/postgresql/">postgresql</a> <a href="https://blog.akendo.eu/tags/postgresql/">postgresql</a> <a href="https://blog.akendo.eu/tags/utf-8/">utf-8</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Debian PostgreSQL 8.4 can&#39;t create Database with UTF-8 Encoding</h1>
+<div class="post-line"></div>
+
+		
+
+		<strong>The Problem</strong>
+I encounter a  problem with fresh  Debian VM. I create this VM for our developer, during the installation script following problem appears and stop the script:
+
+<pre LANG="SQL" line="1">new encoding (UTF8) is incompatible with the encoding of the template database (SQL_ASCII)
+HINT:  Use the same encoding as in the template database, or use template0 as template.
+psql:./__cre_database.sql:76: \connect: FATAL:  database "db" does not exist
+psql: FATAL:  database "db" does not exist</pre>
+All database in postgres was created with SQL_ASCII
+
+<strong>The Solution</strong>
+You have to take care that you have a right UTF-8 setting in your bash environment. When you no LC option set, the default POSFIX will be used. 
+<pre LANG="SQL" line="1">postgres=# \l
+List of databases
+Name    |  Owner   | Encoding  | Collation | Ctype |   Access privileges  
+-----------+----------+-----------+-----------+-------+-----------------------
+postgres  | postgres | SQL_ASCII | C         | C     | : postgres=CTc/postgres
+template0 | postgres | SQL_ASCII | C         | C     | =c/postgres                                                      
+template1 | postgres | SQL_ASCII | C         | C     | =c/postgres
+                                                       : postgres=CTc/postgres(3 rows)</pre>
+
+A check on the locale show's me that there is no UTF-8 support. The Solution is very easy. Enable UTF-8 on the Bash:
+<pre LANG="BASH" LINE="1">export LANG="en_US.UTF-8"</pre>
+<i>Note:</i> You should add this to your /etc/profile! 
+After  this, re-install postgres via apt-get: 
+<pre LANG="BASH" line="1">
+apt-get remove --purge postgresql-8.4 && apt-get install apt-get install postgresql-8.4
+</pre>
+Now your Postgres Databases are in UTF-8.
+
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-01-02-9/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-01-11-how-to-empty-swap/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.16387094 &#43;0200 CEST m=&#43;0.123755491">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

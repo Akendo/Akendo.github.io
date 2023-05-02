@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Run nmap without root privileges &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2020-02-25 17:43:30 &#43;0100 CET">February 25, 2020</time>
+        <br>
+        <span>2 minutes reading </span>
+         <span> posted in 
+    
+        <a href="https://blog.akendo.eu/categories/security/">Security</a>
+	
+    
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/nmap/">nmap</a> <a href="https://blog.akendo.eu/tags/capabilities/">capabilities</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">Run nmap without root privileges</h1>
+<div class="post-line"></div>
+
+		
+
+		<p>Currently, I have to run a lot of Nmap a network scanner for a client. One part of these scans is to check in different ways for open ports. Create new connections isn&rsquo;t enough. Instead, you use an SYN scan. SYNC scans are fast and harder to detect because the TCP connection is never closed by Nmap correctly.</p>
+<p>Because SYN scans are only half-open scans, it requires more privilege to the local network stack. Nmap sends &lsquo;raw&rsquo; TCP packages, hence running <code>nmap</code> as root becomes necessary. However, this is a bad practice to run with root privileges.</p>
+<h2 id="setting-caps">Setting <code>caps</code></h2>
+<p>Instead of executing <code>nmap</code> always with <code>sudo</code>, we could grant the executable the necessary rights it needs with capabilities. Capabilities are additional information about privileges a process can have, that can be stored within the extended attributes of a file. For modern <code>ping</code> commands, this often becomes necessary too, because users aren&rsquo;t allowed to create a raw socket for ICMP connections.</p>
+<p>To set the capabilities of a file, we use <code>setcap</code>, to receive them we use <code>getcap</code>.</p>
+<pre tabindex="0"><code>~ $ sudo getcap /usr/bin/nmap
+</code></pre><p>The result here is not missing, but <code>getcap</code> will not return anything when nothing is set. Thanks to the <a href="https://secwiki.org/w/Running_nmap_as_an_unprivileged_user#Set_capabilities">secwiki</a>, we get the necessary flags for the capabilities quite comfortable and do not have to guess much.</p>
+<pre tabindex="0"><code>~ $ sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin/nmap
+</code></pre><p>When we re-run the <code>getcap</code> command, we get the following:</p>
+<pre tabindex="0"><code>~ $ sudo getcap /usr/bin/nmap
+/usr/bin/nmap = cap_net_bind_service,cap_net_admin,cap_net_raw+eip
+</code></pre><p>To make use of this option now, we merely telling <code>nmap</code> to assume that we do have all the necessary privileges with the <code>--privileged</code> flag.</p>
+<pre tabindex="0"><code class="language-nmap" data-lang="nmap">Starting Nmap 7.70 ( https://nmap.org ) at 2020-02-25 18:03 CET
+Nmap scan report for akendo.eu (46.101.226.248)
+Host is up (0.024s latency).
+Other addresses for akendo.eu (not scanned): 2a03:b0c0:3:d0::41:c001
+rDNS record for 46.101.226.248: mail.akendo.eu
+Not shown: 989 filtered ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+25/tcp  open  smtp
+80/tcp  open  http
+110/tcp open  pop3
+143/tcp open  imap
+443/tcp open  https
+444/tcp open  snpp
+465/tcp open  smtps
+587/tcp open  submission
+993/tcp open  imaps
+995/tcp open  pop3s
+
+Nmap done: 1 IP address (1 host up) scanned in 43.17 seconds
+</code></pre><p>Sometimes you receive varying results. Even ports are displayed that the scanned system not offer. The reason can be the locale firewall that messes with your TCP connection. It is vital to make sure that your local network firewall does not mess with your packages.</p>
+<p>That&rsquo;s a lot of open services. Maybe the owner of this domain should reduce it a bit? :-)</p>
+<p>so far,
+akendo</p>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/flash/24.02.2020-linkdrop/" class="left arrow">&#8592;</a>
+		<a href="/flash/26.02.2020-linkdrop/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.199616954 &#43;0200 CEST m=&#43;0.159501494">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

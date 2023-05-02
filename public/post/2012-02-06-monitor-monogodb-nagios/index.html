@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>How to monitor MonogoDB with Nagios &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-02-06 00:00:00 &#43;0000 UTC">February 6, 2012</time>
+        <br>
+        <span>1 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/apt-get/">apt-get</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a> <a href="https://blog.akendo.eu/tags/github/">github</a> <a href="https://blog.akendo.eu/tags/howto/">howto</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/mongodb/">mongodb</a> <a href="https://blog.akendo.eu/tags/monitoring/">monitoring</a> <a href="https://blog.akendo.eu/tags/nagios/">nagios</a> <a href="https://blog.akendo.eu/tags/software/">software</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">How to monitor MonogoDB with Nagios</h1>
+<div class="post-line"></div>
+
+		
+
+		<a href="http://www.nagios.org/"><img class="alignleft" title="Nagios big logo" src="http://cdn.jaoudestudios.com/images/nagios/logo.png" alt="" width="212" height="50" /></a>
+
+&nbsp;
+
+&nbsp;
+
+I  need some Monitoring for Nagios3 of my MongoDB. I found quick some refer in the  MongoDB wiki to this <a title="Nagios Plugin for MongoDB" href="https://github.com/mzupan/nagios-plugin-mongodb" target="_blank">github</a> link. All what you have to do is downloading the Code from github.
+
+You need to install pymongo and  python-dev, then you can using it. Here my steps:
+<pre lang="BASH">wget -c  https://github.com/mzupan/nagios-plugin-mongodb/zipball/master
+unzip master -d nagios_plugin_mongodb
+rm master
+apt-get install python-dev
+pip install pymongo
+cd nagios_plugin_mongodb/mzupan-nagios-plugin-mongodb-59a9247
+cp check_mongodb.py /usr/lib/nagios/plugins/check_mongodb
+/usr/lib/nagios/plugins/check_mongodb -h localhost -d monogodb_test_db
+/usr/local/lib/python2.6/dist-packages/pymongo/connection.py:378: DeprecationWarning: slave_okay is deprecated. Please use read_preference instead.
+ "use read_preference instead.", DeprecationWarning)
+OK - Connection took 0 seconds</pre>
+You can ignore the DeprecationWarning from Python.
+
+<address>Sources:</address><address><a href="http://www.mongodb.org/display/DOCS/Monitoring+and+Diagnostics">http://www.mongodb.org/display/DOCS/Monitoring+and+Diagnostics</a></address><address><a href="https://github.com/mzupan/nagios-plugin-mongodb">https://github.com/mzupan/nagios-plugin-mongodb</a></address>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-02-03-gentoo-migration-to-3-2/" class="left arrow">&#8592;</a>
+		<a href="/post/2012-02-18-svn2git/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.16010777 &#43;0200 CEST m=&#43;0.119992310">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

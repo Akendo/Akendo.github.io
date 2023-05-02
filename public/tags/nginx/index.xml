@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/nginx/</link>
+    <description>Recent content in Nginx on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 28 Jan 2021 11:31:21 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blogfixes</title>
+      <link>https://blog.akendo.eu/post/2021-01-28-blogfixes/</link>
+      <pubDate>Thu, 28 Jan 2021 11:31:21 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-01-28-blogfixes/</guid>
+      <description>Today was a quite busy day with minor things. I’ve fixed the Hugo related things and updated the contact page to be reachable again.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s Encrypt and IPv6</title>
+      <link>https://blog.akendo.eu/post/2021-01-13-lets-encrypt-ipv6/</link>
+      <pubDate>Wed, 13 Jan 2021 10:08:45 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2021-01-13-lets-encrypt-ipv6/</guid>
+      <description>On one of my domains I had the following error message when trying to renew the Let&amp;rsquo;s Encrypt (LE) Certificate:</description>
+    </item>
+    
+    <item>
+      <title>Nginx with SSL</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-debiannginx-with-ssl/</guid>
+      <description>For a demo Application that has to be show in the Internet, we need a Scala Lift online.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/vim/</link>
+    <description>Recent content in vim on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Tue, 04 Feb 2020 19:21:24 +0100</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Edit binaries with vim</title>
+      <link>https://blog.akendo.eu/post/2020.02.04-edit-binary/</link>
+      <pubDate>Tue, 04 Feb 2020 19:21:24 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2020.02.04-edit-binary/</guid>
+      <description>It is possible to edit binary files with vim. For this, you open the file with the option -b and run internal :%!</description>
+    </item>
+    
+    <item>
+      <title>01.02.2020 - link drop</title>
+      <link>https://blog.akendo.eu/flash/01.02.2020-linkdrop/</link>
+      <pubDate>Sat, 01 Feb 2020 22:31:56 +0100</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/01.02.2020-linkdrop/</guid>
+      <description> How to Do 90% of What Plugins Do (With Just Vim) - YouTube Pull-based CD Pipelines for Security - Faun - Medium </description>
+    </item>
+    
+    <item>
+      <title>23.07.2019 - link drop</title>
+      <link>https://blog.akendo.eu/flash/23.07.2019-linkdrop/</link>
+      <pubDate>Tue, 23 Jul 2019 09:41:24 +0200</pubDate>
+      
+      <guid>https://blog.akendo.eu/flash/23.07.2019-linkdrop/</guid>
+      <description> Vim anti-patterns | Arabesque Mitigations Against Adversarial Attacks | News from the Lab Trying to deploy WPA3 on my home network </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>KVM and I/O problems &middot; Slices of a hacker&#39;s mind</title>
+
+		
+  		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/fonts">
+		
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+		
+		<link href="" rel="alternate" type="application/rss+xml" title="Slices of a hacker&#39;s mind" />
+	</head>
+
+    <body>
+        		<nav class="nav">
+			<div class="nav-container">
+				<a href="/">
+					<h2 class="nav-title">Slices of a hacker&#39;s mind</h2>
+				</a>
+				<ul>
+    <li><a href="/contact">About</a></li>
+    <li><a href="/flash">Flash Posts</a></li>
+    <li><a href="/post">Posts</a></li>
+    <li><a href="/search">Search</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+</ul>
+
+			</div>
+		</nav>
+
+        
+
+<main>
+	<div class="post">
+		<div class="post-info">
+    <span>Written by</span>
+        akendo
+        <span>on&nbsp;</span><time datetime="2012-07-05 00:00:00 &#43;0000 UTC">July 5, 2012</time>
+        <br>
+        <span>2 minutes reading </span>
+	
+    </span>
+    <span>
+    <br>
+    
+ 
+  with tags:
+   <a href="https://blog.akendo.eu/tags/centos/">centos</a> <a href="https://blog.akendo.eu/tags/debian/">debian</a> <a href="https://blog.akendo.eu/tags/gentoo/">gentoo</a> <a href="https://blog.akendo.eu/tags/gernal/">gernal</a> <a href="https://blog.akendo.eu/tags/hardware/">hardware</a> <a href="https://blog.akendo.eu/tags/kernel/">kernel</a> <a href="https://blog.akendo.eu/tags/kvm/">kvm</a> <a href="https://blog.akendo.eu/tags/linux/">linux</a> <a href="https://blog.akendo.eu/tags/system/">system</a> <a href="https://blog.akendo.eu/tags/virtualization/">virtualization</a></ul>
+
+
+
+</div>
+
+		<h1 class="post-title">KVM and I/O problems</h1>
+<div class="post-line"></div>
+
+		
+
+		A friend of my helped me out. The problem is the writing scheduler. After i know this I found in a post <a title="Improve kvm performacne" href="http://blog.bodhizazen.net/linux/improve-kvm-performance/" target="_blank">here</a>, followed by the first <a title="elevatornoop" href="http://lonesysadmin.net/2008/02/21/elevatornoop/" target="_blank">link</a>:
+<blockquote>This approach is great, but the fatal flaw is that it assumes a single, physical disk, attached to a single physical SCSI controller in a single physical host. How does the elevator algorithm know what to do when the disk is actually a RAID array? Does it? Or, what if that one Linux kernel isn’t the only kernel running on a physical host? Does the elevator mechanism still help in virtual environments?
+
+No, no it doesn’t. Hypervisors have elevators, too. So do disk arrays. Remember that in virtual environments the hypervisor can’t tell what is happening inside the VM[0]. It’s a black box, and all it sees is the stream of I/O requests that eventually get passed to the hypervisor. It doesn’t know if they got reordered, how they got reordered, or why. It doesn’t know how long the request has been outstanding. As a result it probably won’t make the best decision about handling those requests, adding latency and extra work for the array. Worst case, all that I/O ends up looking very random to the disk array.</blockquote>
+Fixing this using the io scheduler of the SCSI HDD/Raid 1. Disabling it via on a live system.
+<pre lang="BASH">echo noop &gt; /sys/block/queue/scheduler</pre>
+Enabling it into the system by editing /etc/grub.conf with option
+<pre lang="BASH">elevator=noop</pre>
+&nbsp;
+
+<address>Sources:</address><address>http://www.gnutoolbox.com/linux-io-elevator/</address><address><a href="http://blog.bodhizazen.net/linux/improve-kvm-performance/">http://blog.bodhizazen.net/linux/improve-kvm-performance/</a></address><address><a href="http://lonesysadmin.net/2008/02/21/elevatornoop/">http://lonesysadmin.net/2008/02/21/elevatornoop/</a></address><address><a href="https://www.redhat.com/magazine/008jun05/features/schedulers/">https://www.redhat.com/magazine/008jun05/features/schedulers/</a></address>
+
+
+		
+	</div>
+
+	<div class="pagination">
+		<a href="/post/2012-05-19-mysql-postgresql/" class="left arrow">&#8592;</a>
+		<a href="/post/2013-02-03-update-of-my-blog-number-2/" class="right arrow">&#8594;</a>
+
+		<a href="#" class="top">Top</a>
+	</div>
+
+</main>
+
+
+
+        		<footer>
+			
+			<span>
+			&copy; <time datetime="2023-05-02 07:01:30.161833067 &#43;0200 CEST m=&#43;0.121717607">2023</time> . Made with <a href='https://gohugo.io'>Hugo</a> using the <a href='https://github.com/EmielH/tale-hugo/'>Tale</a> theme.
+			</span>
+		</footer>
+
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xserver on Slices of a hacker&#39;s mind</title>
+    <link>https://blog.akendo.eu/tags/xserver/</link>
+    <description>Recent content in Xserver on Slices of a hacker&#39;s mind</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-Us</language>
+    <lastBuildDate>Thu, 26 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.akendo.eu/tags/xserver/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic xserver on a vServer</title>
+      <link>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</link>
+      <pubDate>Thu, 26 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.akendo.eu/post/2012-01-26-basic-xserver-on-a-vserver/</guid>
+      <description>For fetching some date, my Application need a xserver. The Problem is that it&#39;s running on VM.</description>
+    </item>
+    
+  </channel>
+</rss>
